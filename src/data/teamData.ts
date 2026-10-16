@@ -1,3 +1,5 @@
+import { getWhatsAppUrl } from "@/lib/utils";
+
 export interface TeamMember {
   id: string;
   name: string;
@@ -40,8 +42,9 @@ export const FOUNDING_TEAM: TeamMember[] = [
     ],
     githubUrl: "https://github.com",
     linkedinUrl: "https://linkedin.com",
-    directWhatsApp:
-      "https://wa.me/91XXXXXXXXXX?text=Hi%20Aarav,%20I'd%20like%20to%20discuss%20backend%20architecture%20for%20my%20website%20project",
+    directWhatsApp: getWhatsAppUrl(
+      "Hi Aarav, I'd like to discuss backend architecture for my website project"
+    ),
     avatarGradient: "from-indigo-600/30 via-blue-600/20 to-slate-900/80",
     terminalCommand: "git commit -m 'feat: type-safe edge handlers'",
   },
@@ -63,8 +66,9 @@ export const FOUNDING_TEAM: TeamMember[] = [
     ],
     githubUrl: "https://github.com",
     linkedinUrl: "https://linkedin.com",
-    directWhatsApp:
-      "https://wa.me/91XXXXXXXXXX?text=Hi%20Rohan,%20I'd%20like%20to%20discuss%20frontend%20design%20and%20UI/UX%20for%20my%20website%20project",
+    directWhatsApp: getWhatsAppUrl(
+      "Hi Rohan, I'd like to discuss frontend design and UI/UX for my website project"
+    ),
     avatarGradient: "from-emerald-600/30 via-teal-600/20 to-slate-900/80",
     terminalCommand: "pnpm test:ux --report=lighthouse-100",
   },
@@ -86,8 +90,9 @@ export const FOUNDING_TEAM: TeamMember[] = [
     ],
     githubUrl: "https://github.com",
     linkedinUrl: "https://linkedin.com",
-    directWhatsApp:
-      "https://wa.me/91XXXXXXXXXX?text=Hi%20Devon,%20I'd%20like%20to%20discuss%20hosting,%20DNS%20and%20cloud%20deployment%20for%20my%20project",
+    directWhatsApp: getWhatsAppUrl(
+      "Hi Devon, I'd like to discuss hosting, DNS and cloud deployment for my project"
+    ),
     avatarGradient: "from-purple-600/30 via-indigo-600/20 to-slate-900/80",
     terminalCommand: "deploy --prod --cloudflare-edge=synced",
   },

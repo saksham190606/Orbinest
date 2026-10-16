@@ -15,10 +15,11 @@ import {
   Users,
   Coins,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn, getWhatsAppUrl } from "@/lib/utils";
 
-const WHATSAPP_CTA_URL =
-  "https://wa.me/91XXXXXXXXXX?text=Hi%20Orbinest%20team,%20we'd%20like%20to%20discuss%20a%20website%20project";
+const WHATSAPP_CTA_URL = getWhatsAppUrl(
+  "Hi Orbinest team, we'd like to discuss a website project"
+);
 
 export interface HeroProps {
   className?: string;

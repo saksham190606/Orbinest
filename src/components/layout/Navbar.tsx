@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { MessageCircle, Menu, X, ArrowRight, Sparkles } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn, getWhatsAppUrl } from "@/lib/utils";
 
 export interface NavLinkItem {
   label: string;
@@ -18,8 +18,9 @@ export const NAV_LINKS: NavLinkItem[] = [
   { label: "Team", href: "#team" },
 ];
 
-export const WHATSAPP_CTA_URL =
-  "https://wa.me/91XXXXXXXXXX?text=Hi%20Orbinest%20team,%20I'd%20like%20to%20discuss%20a%20website%20project";
+export const WHATSAPP_CTA_URL = getWhatsAppUrl(
+  "Hi Orbinest team, I'd like to discuss a website project"
+);
 
 export interface NavbarProps {
   className?: string;

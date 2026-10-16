@@ -24,9 +24,7 @@ import {
   PortfolioProject,
   ProjectCategory,
 } from "@/data/portfolioData";
-import { cn } from "@/lib/utils";
-
-const WHATSAPP_BASE_URL = "https://wa.me/91XXXXXXXXXX";
+import { cn, getWhatsAppUrl } from "@/lib/utils";
 
 export function PortfolioShowcase() {
   const [selectedFilter, setSelectedFilter] = useState<'all' | ProjectCategory>('all');
@@ -48,8 +46,9 @@ export function PortfolioShowcase() {
   }, []);
 
   const generateWhatsAppUrl = (project: PortfolioProject) => {
-    const text = `Hi Orbinest team, I saw your case study for ${project.title} and want something similar for my project. Could we discuss technical scope and pricing?`;
-    return `${WHATSAPP_BASE_URL}?text=${encodeURIComponent(text)}`;
+    return getWhatsAppUrl(
+      `Hi Orbinest team, I saw your case study for ${project.title} and want something similar for my project. Could we discuss technical scope and pricing?`
+    );
   };
 
   return (

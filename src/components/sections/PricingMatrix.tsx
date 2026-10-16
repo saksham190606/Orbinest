@@ -24,7 +24,7 @@ import {
   ServiceTier,
   CarePlan,
 } from "@/data/servicesData";
-import { cn } from "@/lib/utils";
+import { cn, getWhatsAppUrl } from "@/lib/utils";
 
 const CATEGORY_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
   GraduationCap,
@@ -47,13 +47,15 @@ export function PricingMatrix({
   const activeCategory: ServiceCategory = SERVICES_DATA[activeCategoryId];
 
   const createWhatsAppUrl = (tierName: string, categoryTitle: string) => {
-    const text = `Hi Orbinest team, we are interested in the ${tierName} package for ${categoryTitle}`;
-    return `https://wa.me/91XXXXXXXXXX?text=${encodeURIComponent(text)}`;
+    return getWhatsAppUrl(
+      `Hi Orbinest team, we are interested in the ${tierName} package for ${categoryTitle}`
+    );
   };
 
   const createCarePlanWhatsAppUrl = (careName: string, categoryTitle: string) => {
-    const text = `Hi Orbinest team, we are interested in the ${careName} maintenance plan for ${categoryTitle}`;
-    return `https://wa.me/91XXXXXXXXXX?text=${encodeURIComponent(text)}`;
+    return getWhatsAppUrl(
+      `Hi Orbinest team, we are interested in the ${careName} maintenance plan for ${categoryTitle}`
+    );
   };
 
   return (

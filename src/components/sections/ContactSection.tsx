@@ -22,10 +22,11 @@ import {
   RotateCcw,
 } from "lucide-react";
 import { submitLead, LeadFormState, ProjectSector } from "@/app/actions/leadAction";
-import { cn } from "@/lib/utils";
+import { cn, getWhatsAppUrl } from "@/lib/utils";
 
-const WHATSAPP_CTA_URL =
-  "https://wa.me/91XXXXXXXXXX?text=Hi%20Orbinest%20team,%20I'd%20like%20to%20discuss%20a%20website%20project";
+const WHATSAPP_CTA_URL = getWhatsAppUrl(
+  "Hi Orbinest team, I'd like to discuss a website project"
+);
 
 const SECTORS: { id: ProjectSector; label: string }[] = [
   { id: "education", label: "Education & Coaching" },
@@ -93,7 +94,7 @@ export function ContactSection() {
     if (scope) msg += `📝 Scope: ${scope}\n`;
     msg += `\nCould we review this scope and discuss next steps?`;
 
-    return `https://wa.me/91XXXXXXXXXX?text=${encodeURIComponent(msg)}`;
+    return getWhatsAppUrl(msg);
   };
 
   return (

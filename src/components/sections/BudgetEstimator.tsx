@@ -33,7 +33,7 @@ import {
   ServiceTier,
   CarePlan,
 } from "@/data/servicesData";
-import { cn } from "@/lib/utils";
+import { cn, getWhatsAppUrl } from "@/lib/utils";
 
 const SECTOR_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
   GraduationCap,
@@ -151,7 +151,7 @@ export function BudgetEstimator({
     text += `\n⏱️ Target Timeline: ${turnaround}\n\n`;
     text += `Could we discuss starting this project and booking a development slot?`;
 
-    return `https://wa.me/91XXXXXXXXXX?text=${encodeURIComponent(text)}`;
+    return getWhatsAppUrl(text);
   };
 
   // Copy breakdown text to clipboard
