@@ -1,69 +1,201 @@
-import Image from "next/image";
+import {
+  Code2,
+  Layers,
+  Rocket,
+  CheckCircle2,
+  ShieldCheck,
+} from "lucide-react";
+import { PricingMatrix } from "@/components/sections/PricingMatrix";
+import { Hero } from "@/components/sections/Hero";
+import { BudgetEstimator } from "@/components/sections/BudgetEstimator";
+import { PortfolioShowcase } from "@/components/sections/PortfolioShowcase";
+import { TeamSection } from "@/components/sections/TeamSection";
+import { ContactSection } from "@/components/sections/ContactSection";
 
 export default function Home() {
+  const services = [
+    {
+      icon: Code2,
+      title: "Full-Stack Web Engineering",
+      description:
+        "Modern web platforms built on Next.js 16, TypeScript, and React 19 Server Components for instant responsiveness.",
+      points: ["Zero-bloat architecture", "API & Database integrations", "Type-safe scalability"],
+    },
+    {
+      icon: Layers,
+      title: "Bespoke UI/UX & Design Systems",
+      description:
+        "Tailor-made aesthetic foundations, dark-mode elegance, fluid animations, and accessible component libraries.",
+      points: ["Tailwind CSS token systems", "Fluid micro-interactions", "Accessible WCAG compliance"],
+    },
+    {
+      icon: Rocket,
+      title: "Lighthouse 100 & Technical SEO",
+      description:
+        "Sub-second Largest Contentful Paint (LCP), optimized asset delivery, structured data, and aggressive local SEO indexing.",
+      points: ["< 0.5s initial load time", "Schema.org structured data", "Core Web Vitals tuned"],
+    },
+    {
+      icon: ShieldCheck,
+      title: "Cloud Deployment & Ongoing SLA",
+      description:
+        "Continuous delivery pipelines, edge caching, SSL protection, automated backups, and dedicated maintenance retainers.",
+      points: ["Edge CDN deployment", "99.9% uptime assurance", "Dedicated maintenance SLAs"],
+    },
+  ];
+
+
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="relative text-foreground overflow-x-clip">
+      {/* Background Glows & Pattern */}
+      <div className="pointer-events-none absolute inset-0 radial-glow-hero opacity-80" />
+      <div className="pointer-events-none absolute inset-0 bg-grid-slate opacity-70" />
+
+      {/* ========================================================================= */}
+      {/* 1. HERO SECTION (#hero) */}
+      {/* ========================================================================= */}
+      <Hero />
+
+      {/* ========================================================================= */}
+      {/* 2. SERVICES SECTION (#services) */}
+      {/* ========================================================================= */}
+      <section id="services" className="scroll-mt-32 py-20 md:py-28 border-b border-surface-border/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-14 text-center md:text-left">
+            <span className="inline-block rounded-md border border-indigo-500/30 bg-indigo-500/10 px-3 py-1 font-mono text-xs font-medium text-indigo-300">
+              Services
+            </span>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
+              End-to-End Web Capabilities
+            </h2>
+            <p className="mt-3 max-w-2xl text-sm sm:text-base text-foreground-muted leading-relaxed">
+              Our tech-first delivery model combines React 19 and Next.js 16 full-stack engineering with pixel-precise
+              UI/UX, sub-second performance, and cloud scalability.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {services.map((svc, idx) => {
+              const Icon = svc.icon;
+              return (
+                <div
+                  key={idx}
+                  className="glass-panel group relative flex flex-col justify-between rounded-2xl p-6 transition-all duration-300 hover:translate-y-[-4px] hover:border-indigo-500/50 hover:shadow-[0_12px_32px_rgba(99,102,241,0.18)]"
+                >
+                  <div>
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-indigo-500/30 bg-indigo-500/10 text-indigo-400 transition-colors group-hover:border-indigo-400 group-hover:bg-indigo-500/20">
+                      <Icon className="h-6 w-6" />
+                    </div>
+                    <h3 className="mt-5 text-lg font-semibold text-white">{svc.title}</h3>
+                    <p className="mt-2 text-xs leading-relaxed text-foreground-muted">{svc.description}</p>
+                  </div>
+
+                  <ul className="mt-6 space-y-2 border-t border-surface-border/60 pt-4 text-[11px] text-foreground-subtle">
+                    {svc.points.map((pt, pIdx) => (
+                      <li key={pIdx} className="flex items-center gap-1.5">
+                        <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
+                        <span>{pt}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })}
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 3. PACKAGES SECTION (#packages) */}
+      {/* ========================================================================= */}
+      <section
+        id="packages"
+        className="scroll-mt-32 py-20 md:py-28 border-b border-surface-border/50 bg-surface/20"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-14 text-center">
+            <span className="inline-block rounded-md border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 font-mono text-xs font-medium text-emerald-300">
+              Pricing & Packages
+            </span>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
+              Transparent Tiered Packages
+            </h2>
+            <p className="mx-auto mt-3 max-w-2xl text-sm sm:text-base text-foreground-muted">
+              Explore specialized delivery tiers configured specifically for Education institutes, local businesses,
+              healthcare clinics, and bespoke milestone websites.
+            </p>
+          </div>
+
+          <PricingMatrix />
         </div>
-      </main>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 4. ESTIMATOR SECTION (#estimator) */}
+      {/* ========================================================================= */}
+      <section id="estimator" className="scroll-mt-32 py-20 md:py-28 border-b border-surface-border/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-12 text-center md:text-left">
+            <span className="inline-block rounded-md border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 font-mono text-xs font-medium text-emerald-300">
+              Calculator
+            </span>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
+              Instant Scope & Cost Estimator
+            </h2>
+            <p className="mt-3 max-w-2xl text-sm sm:text-base text-foreground-muted leading-relaxed">
+              Transparent project scope and investment calculation based on your required pages, custom integrations,
+              and target delivery timeline.
+            </p>
+          </div>
+
+          {/* Interactive Budget Estimator Component */}
+          <BudgetEstimator />
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 5. PORTFOLIO SECTION (#portfolio) */}
+      {/* ========================================================================= */}
+      <section
+        id="portfolio"
+        className="scroll-mt-32 py-20 md:py-28 border-b border-surface-border/50 bg-surface/20"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-14 text-center md:text-left">
+            <span className="inline-block rounded-md border border-indigo-500/30 bg-indigo-500/10 px-3 py-1 font-mono text-xs font-medium text-indigo-300">
+              Work
+            </span>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
+              Featured Engineering Projects
+            </h2>
+            <p className="mt-3 max-w-2xl text-sm sm:text-base text-foreground-muted leading-relaxed">
+              Real-world client web applications and high-impact digital portals engineered with speed, security,
+              and conversion in mind.
+            </p>
+          </div>
+
+          <PortfolioShowcase />
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 6. TEAM SECTION (#team) */}
+      {/* ========================================================================= */}
+      <section id="team" className="scroll-mt-32 py-20 md:py-28 border-b border-surface-border/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <TeamSection />
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 7. CONTACT SECTION (#contact) */}
+      {/* ========================================================================= */}
+      <section id="contact" className="scroll-mt-32 py-20 md:py-28 bg-surface/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ContactSection />
+        </div>
+      </section>
     </div>
   );
 }
