@@ -25,7 +25,7 @@ export default function Home() {
       icon: Layers,
       title: "Bespoke UI/UX & Design Systems",
       description:
-        "Tailor-made aesthetic foundations, dark-mode elegance, fluid animations, and accessible component libraries.",
+        "Tailor-made aesthetic foundations, crisp typography, fluid animations, and accessible component libraries.",
       points: ["Tailwind CSS token systems", "Fluid micro-interactions", "Accessible WCAG compliance"],
     },
     {
@@ -44,32 +44,28 @@ export default function Home() {
     },
   ];
 
-
-
   return (
-    <div className="relative text-foreground overflow-x-clip">
-      {/* Background Glows & Pattern */}
-      <div className="pointer-events-none absolute inset-0 radial-glow-hero opacity-80" />
-      <div className="pointer-events-none absolute inset-0 bg-grid-slate opacity-70" />
-
+    <div className="relative text-[#000000] bg-white overflow-x-clip">
       {/* ========================================================================= */}
-      {/* 1. HERO SECTION (#hero) */}
+      {/* 1. HERO SECTION WITH 3D INTERACTIVE CANVAS (#hero) */}
       {/* ========================================================================= */}
       <Hero />
 
       {/* ========================================================================= */}
       {/* 2. SERVICES SECTION (#services) */}
       {/* ========================================================================= */}
-      <section id="services" className="scroll-mt-32 py-20 md:py-28 border-b border-surface-border/50">
+      <section id="services" className="scroll-mt-24 py-16 md:py-24 border-b border-[#d8d8d8] bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-14 text-center md:text-left">
-            <span className="inline-block rounded-md border border-indigo-500/30 bg-indigo-500/10 px-3 py-1 font-mono text-xs font-medium text-indigo-300">
-              Services
-            </span>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
+          <div className="mb-12">
+            {/* Signature Al Jazeera Section Eyebrow Lockup */}
+            <div className="section-eyebrow-lockup">
+              <span className="section-eyebrow-bar" />
+              <span className="section-eyebrow-text">SERVICES</span>
+            </div>
+            <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[#000000]">
               End-to-End Web Capabilities
             </h2>
-            <p className="mt-3 max-w-2xl text-sm sm:text-base text-foreground-muted leading-relaxed">
+            <p className="mt-2 max-w-2xl text-sm sm:text-base text-[#595959] leading-relaxed">
               Our tech-first delivery model combines React 19 and Next.js 16 full-stack engineering with pixel-precise
               UI/UX, sub-second performance, and cloud scalability.
             </p>
@@ -81,20 +77,20 @@ export default function Home() {
               return (
                 <div
                   key={idx}
-                  className="glass-panel group relative flex flex-col justify-between rounded-2xl p-6 transition-all duration-300 hover:translate-y-[-4px] hover:border-indigo-500/50 hover:shadow-[0_12px_32px_rgba(99,102,241,0.18)]"
+                  className="news-card flex flex-col justify-between p-6 transition-colors"
                 >
                   <div>
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-indigo-500/30 bg-indigo-500/10 text-indigo-400 transition-colors group-hover:border-indigo-400 group-hover:bg-indigo-500/20">
-                      <Icon className="h-6 w-6" />
+                    <div className="flex h-11 w-11 items-center justify-center border border-[#d8d8d8] bg-[#f0f0f0] text-[#000000]">
+                      <Icon className="h-5 w-5" />
                     </div>
-                    <h3 className="mt-5 text-lg font-semibold text-white">{svc.title}</h3>
-                    <p className="mt-2 text-xs leading-relaxed text-foreground-muted">{svc.description}</p>
+                    <h3 className="mt-4 text-base font-bold text-[#000000]">{svc.title}</h3>
+                    <p className="mt-2 text-xs leading-relaxed text-[#595959]">{svc.description}</p>
                   </div>
 
-                  <ul className="mt-6 space-y-2 border-t border-surface-border/60 pt-4 text-[11px] text-foreground-subtle">
+                  <ul className="mt-6 space-y-2 border-t border-[#d8d8d8] pt-4 text-xs text-[#595959]">
                     {svc.points.map((pt, pIdx) => (
-                      <li key={pIdx} className="flex items-center gap-1.5">
-                        <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
+                      <li key={pIdx} className="flex items-center gap-2">
+                        <CheckCircle2 className="h-3.5 w-3.5 text-[#000000] shrink-0" />
                         <span>{pt}</span>
                       </li>
                     ))}
@@ -111,17 +107,18 @@ export default function Home() {
       {/* ========================================================================= */}
       <section
         id="packages"
-        className="scroll-mt-32 py-20 md:py-28 border-b border-surface-border/50 bg-surface/20"
+        className="scroll-mt-24 py-16 md:py-24 border-b border-[#d8d8d8] bg-white"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-14 text-center">
-            <span className="inline-block rounded-md border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 font-mono text-xs font-medium text-emerald-300">
-              Pricing & Packages
-            </span>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
+          <div className="mb-12">
+            <div className="section-eyebrow-lockup">
+              <span className="section-eyebrow-bar" />
+              <span className="section-eyebrow-text">PRICING & PACKAGES</span>
+            </div>
+            <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[#000000]">
               Transparent Tiered Packages
             </h2>
-            <p className="mx-auto mt-3 max-w-2xl text-sm sm:text-base text-foreground-muted">
+            <p className="mt-2 max-w-2xl text-sm sm:text-base text-[#595959] leading-relaxed">
               Explore specialized delivery tiers configured specifically for Education institutes, local businesses,
               healthcare clinics, and bespoke milestone websites.
             </p>
@@ -134,16 +131,17 @@ export default function Home() {
       {/* ========================================================================= */}
       {/* 4. ESTIMATOR SECTION (#estimator) */}
       {/* ========================================================================= */}
-      <section id="estimator" className="scroll-mt-32 py-20 md:py-28 border-b border-surface-border/50">
+      <section id="estimator" className="scroll-mt-24 py-16 md:py-24 border-b border-[#d8d8d8] bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12 text-center md:text-left">
-            <span className="inline-block rounded-md border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 font-mono text-xs font-medium text-emerald-300">
-              Calculator
-            </span>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
-              Instant Scope & Cost Estimator
+          <div className="mb-12">
+            <div className="section-eyebrow-lockup">
+              <span className="section-eyebrow-bar" />
+              <span className="section-eyebrow-text">SCOPE & COST ESTIMATOR</span>
+            </div>
+            <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[#000000]">
+              Instant Scope & Cost Calculator
             </h2>
-            <p className="mt-3 max-w-2xl text-sm sm:text-base text-foreground-muted leading-relaxed">
+            <p className="mt-2 max-w-2xl text-sm sm:text-base text-[#595959] leading-relaxed">
               Transparent project scope and investment calculation based on your required pages, custom integrations,
               and target delivery timeline.
             </p>
@@ -159,17 +157,18 @@ export default function Home() {
       {/* ========================================================================= */}
       <section
         id="portfolio"
-        className="scroll-mt-32 py-20 md:py-28 border-b border-surface-border/50 bg-surface/20"
+        className="scroll-mt-24 py-16 md:py-24 border-b border-[#d8d8d8] bg-white"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-14 text-center md:text-left">
-            <span className="inline-block rounded-md border border-indigo-500/30 bg-indigo-500/10 px-3 py-1 font-mono text-xs font-medium text-indigo-300">
-              Work
-            </span>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
-              Featured Engineering Projects
+          <div className="mb-12">
+            <div className="section-eyebrow-lockup">
+              <span className="section-eyebrow-bar" />
+              <span className="section-eyebrow-text">FEATURED WORK</span>
+            </div>
+            <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[#000000]">
+              Engineering Projects & Case Studies
             </h2>
-            <p className="mt-3 max-w-2xl text-sm sm:text-base text-foreground-muted leading-relaxed">
+            <p className="mt-2 max-w-2xl text-sm sm:text-base text-[#595959] leading-relaxed">
               Real-world client web applications and high-impact digital portals engineered with speed, security,
               and conversion in mind.
             </p>
@@ -182,7 +181,7 @@ export default function Home() {
       {/* ========================================================================= */}
       {/* 6. TEAM SECTION (#team) */}
       {/* ========================================================================= */}
-      <section id="team" className="scroll-mt-32 py-20 md:py-28 border-b border-surface-border/50">
+      <section id="team" className="scroll-mt-24 py-16 md:py-24 border-b border-[#d8d8d8] bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <TeamSection />
         </div>
@@ -191,7 +190,7 @@ export default function Home() {
       {/* ========================================================================= */}
       {/* 7. CONTACT SECTION (#contact) */}
       {/* ========================================================================= */}
-      <section id="contact" className="scroll-mt-32 py-20 md:py-28 bg-surface/30">
+      <section id="contact" className="scroll-mt-24 py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ContactSection />
         </div>

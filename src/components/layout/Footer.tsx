@@ -33,7 +33,7 @@ const SOLUTIONS_LINKS: FooterLinkItem[] = [
 ];
 
 const TOOLS_LINKS: FooterLinkItem[] = [
-  { label: "Interactive Budget Estimator", href: "#estimator", badge: "Live" },
+  { label: "Interactive Budget Estimator", href: "#estimator", badge: "LIVE" },
   { label: "Featured Projects", href: "#portfolio" },
   { label: "Transparent Pricing", href: "#packages" },
   { label: "Founding Engineers", href: "#team" },
@@ -56,103 +56,93 @@ export function Footer({ className }: FooterProps) {
   return (
     <footer
       className={cn(
-        "relative border-t border-surface-border bg-[#070A12] text-foreground overflow-hidden",
+        "relative border-t border-[#d8d8d8] bg-white text-[#595959]",
         className
       )}
     >
-      {/* Background radial ambient glow */}
-      <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 h-96 w-[600px] rounded-full bg-indigo-500/10 blur-[120px]" />
-      <div className="pointer-events-none absolute bottom-0 right-0 h-72 w-72 rounded-full bg-emerald-500/5 blur-[100px]" />
-
-      {/* Main Four-Column Directory */}
-      <div className="container mx-auto relative z-10 px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+      {/* Main Four-Column Directory (Al Jazeera Editorial Footer Style) */}
+      <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-12 lg:gap-8">
-          {/* Column 1: Brand & Mission (4 cols on lg) */}
-          <div className="lg:col-span-4 flex flex-col items-start space-y-5">
-            {/* Brand Logo matching Navbar */}
+          {/* Column 1: Brand & Identity */}
+          <div className="lg:col-span-4 flex flex-col items-start space-y-4">
             <Link
               href="/"
-              className="group flex items-center gap-3 outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-lg"
+              className="group flex items-center gap-3 outline-none"
               aria-label="Orbinest Studio Home"
             >
-              <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 via-indigo-600 to-emerald-400 p-[1px] transition-transform duration-300 group-hover:scale-105 group-hover:shadow-[0_0_20px_rgba(99,102,241,0.4)]">
-                <div className="flex h-full w-full items-center justify-center rounded-[11px] bg-canvas transition-colors group-hover:bg-surface-elevated">
-                  <Sparkles className="h-4 w-4 text-emerald-400 transition-transform duration-300 group-hover:rotate-12" />
-                </div>
+              {/* Al Jazeera Signature Orange Square */}
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center bg-[#fa9000] text-white">
+                <Sparkles className="h-5 w-5 text-white" />
               </div>
               <div className="flex flex-col">
-                <span className="font-sans text-base font-bold tracking-tight text-white group-hover:text-indigo-200 transition-colors">
+                <span className="font-sans text-lg font-black tracking-tight text-[#000000] leading-none">
                   ORBINEST
                 </span>
-                <span className="text-[10px] font-mono tracking-widest uppercase text-foreground-subtle">
+                <span className="text-[10px] font-sans font-bold tracking-[0.2em] uppercase text-[#595959] mt-0.5">
                   STUDIO
                 </span>
               </div>
             </Link>
 
             {/* Mission Tagline */}
-            <p className="text-sm leading-relaxed text-foreground-muted max-w-sm">
-              High-performance web architecture & tailored digital experiences built by engineers.
+            <p className="text-xs sm:text-sm leading-relaxed text-[#595959] max-w-sm">
+              High-performance web architecture & tailored 3D digital experiences engineered directly by full-stack developers.
             </p>
 
             {/* Live Status Indicator Badge */}
-            <div className="inline-flex items-center gap-2.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3.5 py-1.5 text-xs font-medium text-emerald-400 backdrop-blur-md">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-              </span>
-              <span>Pan-India Service • Available for Q4 Projects</span>
+            <div className="live-badge border border-[#c31833]/30 bg-red-50/50 px-3 py-1 rounded-[2px] text-[11px]">
+              <span className="live-dot" />
+              <span>Pan-India Delivery • Available for New Projects</span>
             </div>
 
             {/* Trust Micro-Metrics */}
-            <div className="pt-2 flex items-center gap-4 text-xs text-foreground-subtle">
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" />
-                Verified Production Quality
+            <div className="pt-2 flex items-center gap-4 text-xs text-[#595959]">
+              <span className="flex items-center gap-1.5 font-medium text-[#000000]">
+                <CheckCircle2 className="h-3.5 w-3.5 text-[#000000]" />
+                Verified Quality
               </span>
-              <span className="flex items-center gap-1.5">
-                <ShieldCheck className="h-3.5 w-3.5 text-indigo-400" />
+              <span className="flex items-center gap-1.5 font-medium text-[#000000]">
+                <ShieldCheck className="h-3.5 w-3.5 text-[#000000]" />
                 SLA Retainers
               </span>
             </div>
           </div>
 
-          {/* Column 2: Solutions & Sectors (3 cols on lg) */}
+          {/* Column 2: Solutions & Sectors */}
           <div className="lg:col-span-3">
-            <h3 className="font-mono text-xs uppercase tracking-wider text-indigo-400 font-semibold mb-4">
+            <h3 className="font-mono text-xs uppercase tracking-wider text-[#000000] font-bold mb-4">
               Solutions & Sectors
             </h3>
-            <ul className="space-y-3 text-sm">
+            <ul className="space-y-3 text-xs sm:text-sm">
               {SOLUTIONS_LINKS.map((item, idx) => (
                 <li key={idx}>
                   <a
                     href={item.href}
-                    className="group inline-flex items-center gap-2 text-foreground-muted transition-colors duration-200 hover:text-white"
+                    className="inline-flex items-center gap-2 text-[#595959] hover:text-[#000000] transition-colors"
                   >
-                    <span className="h-1 w-1 rounded-full bg-indigo-500/40 transition-colors group-hover:bg-indigo-400" />
                     <span>{item.label}</span>
-                    <ArrowUpRight className="h-3 w-3 opacity-0 -translate-x-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0 text-indigo-400" />
+                    <ArrowUpRight className="h-3 w-3 text-[#595959]" />
                   </a>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Column 3: Tools & Exploration (2 cols on lg) */}
+          {/* Column 3: Tools & Exploration */}
           <div className="lg:col-span-2">
-            <h3 className="font-mono text-xs uppercase tracking-wider text-emerald-400 font-semibold mb-4">
+            <h3 className="font-mono text-xs uppercase tracking-wider text-[#000000] font-bold mb-4">
               Tools & Exploration
             </h3>
-            <ul className="space-y-3 text-sm">
+            <ul className="space-y-3 text-xs sm:text-sm">
               {TOOLS_LINKS.map((item, idx) => (
                 <li key={idx}>
                   <a
                     href={item.href}
-                    className="group inline-flex items-center gap-2 text-foreground-muted transition-colors duration-200 hover:text-white"
+                    className="inline-flex items-center gap-2 text-[#595959] hover:text-[#000000] transition-colors"
                   >
                     <span>{item.label}</span>
                     {item.badge && (
-                      <span className="rounded bg-emerald-500/10 px-1.5 py-0.5 font-mono text-[10px] font-semibold text-emerald-400 border border-emerald-500/20">
+                      <span className="live-badge !text-[9px] border border-[#c31833]/30 px-1.5 py-0.2 rounded-[2px]">
                         {item.badge}
                       </span>
                     )}
@@ -162,9 +152,9 @@ export function Footer({ className }: FooterProps) {
             </ul>
           </div>
 
-          {/* Column 4: Direct Channels & Inquiries (3 cols on lg) */}
-          <div className="lg:col-span-3 flex flex-col space-y-4">
-            <h3 className="font-mono text-xs uppercase tracking-wider text-foreground-subtle font-semibold mb-1">
+          {/* Column 4: Direct Channels */}
+          <div className="lg:col-span-3 flex flex-col space-y-3">
+            <h3 className="font-mono text-xs uppercase tracking-wider text-[#000000] font-bold mb-1">
               Direct Channels
             </h3>
 
@@ -174,88 +164,82 @@ export function Footer({ className }: FooterProps) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Direct WhatsApp channel with Orbinest team"
-              className={cn(
-                "group flex items-center justify-between rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-3.5 transition-all duration-200",
-                "hover:bg-emerald-500/15 hover:border-emerald-400/60 hover:shadow-[0_0_20px_rgba(16,185,129,0.25)]"
-              )}
+              className="flex items-center justify-between border border-[#d8d8d8] bg-white p-3.5 transition-colors hover:border-[#000000]"
             >
               <div className="flex items-center gap-3">
-                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-500/20 text-emerald-400">
+                <div className="flex h-8 w-8 items-center justify-center border border-[#d8d8d8] bg-[#f0f0f0] text-[#000000]">
                   <MessageCircle className="h-4 w-4" />
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-white group-hover:text-emerald-300 transition-colors">
+                  <p className="text-xs font-bold text-[#000000]">
                     Chat on WhatsApp
                   </p>
-                  <p className="font-mono text-[11px] text-foreground-subtle">
+                  <p className="font-mono text-[10px] text-[#595959]">
                     Direct line with engineers
                   </p>
                 </div>
               </div>
-              <ArrowUpRight className="h-4 w-4 text-emerald-400 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <ArrowUpRight className="h-4 w-4 text-[#000000]" />
             </a>
 
             {/* Direct Inquiries Email */}
             <a
               href={`mailto:${INQUIRY_EMAIL}?subject=Hi%20Orbinest%20Team%20-%20Project%20Inquiry`}
               aria-label={`Send project email to ${INQUIRY_EMAIL}`}
-              className={cn(
-                "group flex items-center justify-between rounded-xl border border-surface-border bg-surface/40 p-3.5 transition-all duration-200",
-                "hover:border-indigo-500/40 hover:bg-surface-elevated/70 hover:shadow-[0_0_20px_rgba(99,102,241,0.2)]"
-              )}
+              className="flex items-center justify-between border border-[#d8d8d8] bg-white p-3.5 transition-colors hover:border-[#000000]"
             >
               <div className="flex items-center gap-3">
-                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-indigo-500/15 text-indigo-400">
+                <div className="flex h-8 w-8 items-center justify-center border border-[#d8d8d8] bg-[#f0f0f0] text-[#000000]">
                   <Mail className="h-4 w-4" />
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-white group-hover:text-indigo-200 transition-colors">
+                  <p className="text-xs font-bold text-[#000000]">
                     {INQUIRY_EMAIL}
                   </p>
-                  <p className="font-mono text-[11px] text-foreground-subtle">
+                  <p className="font-mono text-[10px] text-[#595959]">
                     General & RFPs
                   </p>
                 </div>
               </div>
-              <ArrowUpRight className="h-4 w-4 text-foreground-subtle transition-transform group-hover:text-indigo-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <ArrowUpRight className="h-4 w-4 text-[#000000]" />
             </a>
 
             {/* Response Time Note */}
-            <div className="flex items-center gap-2 rounded-lg border border-surface-border/60 bg-surface/20 px-3 py-2 text-[11px] text-foreground-muted">
-              <Clock className="h-3.5 w-3.5 text-indigo-400 shrink-0" />
+            <div className="flex items-center gap-2 border border-[#d8d8d8] bg-[#f0f0f0] px-3 py-2 text-[11px] text-[#595959]">
+              <Clock className="h-3.5 w-3.5 text-[#000000] shrink-0" />
               <span>Replies typically within 2-4 hours</span>
             </div>
           </div>
         </div>
 
         {/* Bottom Utility Bar */}
-        <div className="mt-14 pt-8 border-t border-surface-border/80 flex flex-col items-center justify-between gap-4 text-xs text-foreground-subtle sm:flex-row">
+        <div className="mt-14 pt-8 border-t border-[#d8d8d8] flex flex-col items-center justify-between gap-4 text-xs text-[#595959] sm:flex-row">
           <p className="text-center sm:text-left">
             © {currentYear} Orbinest Studio. All rights reserved.
           </p>
 
-          <p className="font-mono text-[11px] text-foreground-muted text-center">
-            Engineered with Next.js, TypeScript & Tailwind CSS
+          <p className="font-mono text-[11px] text-[#595959] text-center">
+            Engineered with Next.js 16, React 19 & Tailwind CSS
           </p>
 
           <div className="flex items-center gap-4 text-xs">
             <a
               href="#privacy"
-              className="text-foreground-subtle transition-colors hover:text-white"
+              className="text-[#595959] hover:text-[#000000] transition-colors"
             >
               Privacy Policy
             </a>
-            <span className="text-surface-border">•</span>
+            <span className="text-[#d8d8d8]">•</span>
             <a
               href="#terms"
-              className="text-foreground-subtle transition-colors hover:text-white"
+              className="text-[#595959] hover:text-[#000000] transition-colors"
             >
               Terms of Service
             </a>
-            <span className="text-surface-border">•</span>
+            <span className="text-[#d8d8d8]">•</span>
             <a
               href="#contact"
-              className="text-indigo-400 transition-colors hover:text-indigo-300"
+              className="text-[#000000] font-bold hover:underline"
             >
               Contact
             </a>

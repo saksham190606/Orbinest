@@ -1,23 +1,27 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Roboto, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const roboto = Roboto({
+  weight: ["300", "400", "500", "700", "900"],
   subsets: ["latin"],
+  variable: "--font-roboto",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const robotoMono = Roboto_Mono({
+  weight: ["400", "500", "700"],
   subsets: ["latin"],
+  variable: "--font-roboto-mono",
+  display: "swap",
 });
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://orbinest.com";
 
 export const viewport: Viewport = {
-  themeColor: "#090D16",
+  themeColor: "#ffffff",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -182,7 +186,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} dark scroll-smooth h-full`}
+      className={`${roboto.variable} ${robotoMono.variable} scroll-smooth h-full`}
     >
       <head>
         <script
@@ -190,9 +194,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-canvas text-foreground antialiased selection:bg-indigo-500/30 selection:text-foreground">
+      <body className="min-h-full flex flex-col bg-white text-[#000000] font-sans antialiased selection:bg-[#fa9000]/25 selection:text-[#000000]">
         <Navbar />
-        <main className="min-h-screen flex-1">
+        <main className="min-h-screen flex-1 bg-white">
           {children}
         </main>
         <Footer />

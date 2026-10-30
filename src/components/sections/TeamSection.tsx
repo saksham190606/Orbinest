@@ -15,7 +15,7 @@ import {
 import { FOUNDING_TEAM, AGENCY_PRINCIPLES, TeamMember } from "@/data/teamData";
 import { cn } from "@/lib/utils";
 
-// Custom SVG icons for Github & LinkedIn to ensure clean vector styling
+// Custom SVG icons for Github & LinkedIn
 function GithubIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="currentColor">
@@ -45,62 +45,51 @@ const PRINCIPLE_ICONS: Record<string, React.ComponentType<{ className?: string }
 export function TeamSection() {
   return (
     <div className="w-full">
-      {/* Section Header */}
-      <div className="mx-auto max-w-3xl text-center mb-16 md:mb-20">
-        <span className="inline-flex items-center gap-1.5 rounded-md border border-indigo-500/30 bg-indigo-500/10 px-3 py-1 font-mono text-xs font-medium text-indigo-300">
-          <Sparkles className="h-3.5 w-3.5 text-indigo-400" />
-          <span>The Collective</span>
-        </span>
-        <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
+      {/* Section Header with Al Jazeera Signature Eyebrow Lockup */}
+      <div className="mb-12">
+        <div className="section-eyebrow-lockup">
+          <span className="section-eyebrow-bar" />
+          <span className="section-eyebrow-text">THE COLLECTIVE</span>
+        </div>
+        <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[#000000]">
           Direct Access to the Engineers Who Build Your Site
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-sm sm:text-base text-foreground-muted leading-relaxed">
+        <p className="mt-2 max-w-2xl text-sm sm:text-base text-[#595959] leading-relaxed">
           Zero account managers, zero sales fluff, and zero outsourcing. You communicate directly with the three
           founding developer engineers who write, review, and deploy every line of your codebase.
         </p>
       </div>
 
-      {/* 3-Column Founding Engineers Grid */}
+      {/* 3-Column Founding Engineers Grid (Al Jazeera Leader Card Style) */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-        {FOUNDING_TEAM.map((member: TeamMember, idx: number) => (
-          <motion.div
+        {FOUNDING_TEAM.map((member: TeamMember) => (
+          <div
             key={member.id}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: idx * 0.12 }}
-            className="glass-panel group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-surface-border transition-all duration-300 hover:border-indigo-500/50 hover:shadow-[0_16px_40px_rgba(99,102,241,0.12)]"
+            className="news-card group flex flex-col justify-between transition-colors"
           >
-            {/* Ambient card top backdrop */}
-            <div
-              className={cn(
-                "relative flex h-48 w-full flex-col justify-between p-6 bg-gradient-to-br border-b border-surface-border/70",
-                member.avatarGradient
-              )}
-            >
+            {/* Ambient Studio Header */}
+            <div className="relative flex h-44 w-full flex-col justify-between p-5 bg-[#f0f0f0] border-b border-[#d8d8d8]">
               {/* Header: Role badge and live status */}
               <div className="flex items-center justify-between">
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-black/40 px-3 py-1 font-mono text-[10px] font-semibold text-white backdrop-blur-md">
-                  <Terminal className="h-3 w-3 text-indigo-400" />
+                <span className="inline-flex items-center gap-1.5 border border-[#d8d8d8] bg-white px-2.5 py-0.5 font-mono text-[10px] font-bold text-[#000000] rounded-full">
+                  <Terminal className="h-3 w-3 text-[#fa9000]" />
                   <span>{member.roleBadge}</span>
                 </span>
 
-                <div className="flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/20 px-2.5 py-0.5 font-mono text-[10px] font-medium text-emerald-300 backdrop-blur-md">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                <div className="flex items-center gap-1.5 border border-[#d8d8d8] bg-white px-2.5 py-0.5 font-mono text-[10px] font-medium text-[#c31833] rounded-full">
+                  <span className="live-dot !h-1.5 !w-1.5" />
                   <span className="truncate max-w-[130px]">{member.status}</span>
                 </div>
               </div>
 
-              {/* Avatar Initial Circle & Terminal Command Snippet */}
+              {/* Avatar Initial Circle & Dateline Snippet */}
               <div className="flex items-end justify-between">
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-white/20 bg-canvas/80 font-mono text-xl font-extrabold text-white shadow-xl backdrop-blur-xl group-hover:scale-105 transition-transform duration-300">
-                  <span className="bg-gradient-to-br from-white via-slate-200 to-indigo-300 bg-clip-text text-transparent">
-                    {member.initials}
-                  </span>
+                <div className="flex h-14 w-14 items-center justify-center rounded-full border border-[#d8d8d8] bg-white font-mono text-lg font-extrabold text-[#000000] shadow-xs">
+                  <span>{member.initials}</span>
                 </div>
 
-                <div className="rounded-lg border border-white/10 bg-black/60 px-2.5 py-1 font-mono text-[10px] text-foreground-subtle backdrop-blur-md max-w-[180px] truncate">
-                  <span className="text-emerald-400">$ </span>
+                <div className="border border-[#d8d8d8] bg-white px-2.5 py-1 font-mono text-[10px] text-[#595959] max-w-[180px] truncate">
+                  <span className="text-[#000000] font-bold">$ </span>
                   {member.terminalCommand}
                 </div>
               </div>
@@ -109,28 +98,28 @@ export function TeamSection() {
             {/* Card Body: Name, Bio, and Technical Focus */}
             <div className="flex-1 p-6 space-y-4">
               <div>
-                <h3 className="text-lg font-bold text-white group-hover:text-indigo-200 transition-colors">
+                <h3 className="text-lg font-bold text-[#000000] group-hover:text-[#fa9000] transition-colors">
                   {member.name}
                 </h3>
-                <p className="mt-1 font-mono text-xs font-semibold text-emerald-400">
+                <p className="mt-0.5 font-mono text-xs font-semibold text-[#595959]">
                   {member.roleTitle}
                 </p>
-                <p className="mt-3 text-xs leading-relaxed text-foreground-muted">
+                <p className="mt-3 text-xs leading-relaxed text-[#333333]">
                   {member.bio}
                 </p>
               </div>
 
               {/* Core Stack & Technical Focus Tags */}
-              <div className="space-y-2 pt-3 border-t border-surface-border/60">
-                <div className="flex items-center gap-1.5 text-[10px] font-mono text-foreground-subtle uppercase tracking-wider">
-                  <Code2 className="h-3 w-3 text-indigo-400" />
+              <div className="space-y-2 pt-3 border-t border-[#d8d8d8]">
+                <div className="flex items-center gap-1.5 text-[10px] font-mono text-[#595959] uppercase tracking-wider font-bold">
+                  <Code2 className="h-3 w-3 text-[#000000]" />
                   <span>Core Stack & Specialization</span>
                 </div>
                 <div className="flex flex-wrap gap-1.5">
                   {member.technicalFocus.map((tech, tIdx) => (
                     <span
                       key={tIdx}
-                      className="rounded-lg border border-surface-border bg-surface px-2 py-0.5 font-mono text-[10px] text-foreground-subtle transition-colors group-hover:border-slate-600"
+                      className="border border-[#d8d8d8] bg-[#f0f0f0] px-2 py-0.5 font-mono text-[10px] text-[#333333]"
                     >
                       {tech}
                     </span>
@@ -140,7 +129,7 @@ export function TeamSection() {
             </div>
 
             {/* Card Footer: Social & Direct WhatsApp Action */}
-            <div className="p-6 pt-0 border-t border-surface-border/40 mt-auto">
+            <div className="p-6 pt-0 border-t border-[#d8d8d8] mt-auto">
               <div className="pt-4 flex items-center justify-between gap-3">
                 <div className="flex items-center gap-2">
                   <a
@@ -148,7 +137,7 @@ export function TeamSection() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`${member.name}'s GitHub Profile`}
-                    className="flex h-9 w-9 items-center justify-center rounded-xl border border-surface-border bg-surface/60 text-foreground-muted transition-colors hover:border-slate-500 hover:text-white hover:bg-surface-elevated"
+                    className="flex h-9 w-9 items-center justify-center border border-[#d8d8d8] bg-white text-[#000000] hover:bg-[#f0f0f0] transition-colors"
                   >
                     <GithubIcon className="h-4 w-4" />
                   </a>
@@ -157,7 +146,7 @@ export function TeamSection() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`${member.name}'s LinkedIn Profile`}
-                    className="flex h-9 w-9 items-center justify-center rounded-xl border border-surface-border bg-surface/60 text-foreground-muted transition-colors hover:border-slate-500 hover:text-white hover:bg-surface-elevated"
+                    className="flex h-9 w-9 items-center justify-center border border-[#d8d8d8] bg-white text-[#000000] hover:bg-[#f0f0f0] transition-colors"
                   >
                     <LinkedinIcon className="h-4 w-4" />
                   </a>
@@ -167,31 +156,22 @@ export function TeamSection() {
                   href={member.directWhatsApp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-xl bg-surface-elevated/80 border border-surface-border px-3 py-2 text-xs font-semibold text-white transition-all duration-200 hover:border-emerald-500/50 hover:bg-emerald-500/10 hover:text-emerald-300"
+                  className="button-pill-dark flex-1 py-2 text-xs justify-center"
                 >
-                  <MessageCircle className="h-3.5 w-3.5 text-emerald-400" />
+                  <MessageCircle className="h-3.5 w-3.5" />
                   <span>Direct Chat</span>
                 </a>
               </div>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
 
-      {/* Bottom Trust Banner: Agency Operating Principles */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.4, delay: 0.2 }}
-        className="mt-14 md:mt-20 glass-panel-elevated relative overflow-hidden rounded-3xl border border-surface-border p-6 md:p-10 shadow-xl"
-      >
-        <div className="pointer-events-none absolute -top-20 -right-20 h-64 w-64 rounded-full bg-emerald-500/10 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-indigo-500/10 blur-3xl" />
-
-        <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 divide-y md:divide-y-0 md:divide-x divide-surface-border/60">
-          {AGENCY_PRINCIPLES.map((principle, pIdx) => {
-            const Icon = PRINCIPLE_ICONS[principle.iconName] || ShieldCheck;
+      {/* Bottom Trust Banner: Agency Operating Principles (Al Jazeera Soft Panel) */}
+      <div className="mt-12 soft-panel p-6 md:p-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 divide-y md:divide-y-0 md:divide-x divide-[#d8d8d8]">
+          {AGENCY_PRINCIPLES.map((princource, pIdx) => {
+            const Icon = PRINCIPLE_ICONS[princource.iconName] || ShieldCheck;
 
             return (
               <div
@@ -200,30 +180,30 @@ export function TeamSection() {
               >
                 <div>
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-surface-border bg-canvas text-emerald-400">
-                      <Icon className="h-5 w-5" />
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center border border-[#d8d8d8] bg-white text-[#000000]">
+                      <Icon className="h-4 w-4" />
                     </div>
                     <div>
-                      <h4 className="text-sm font-bold text-white">{principle.title}</h4>
-                      <p className="font-mono text-[10px] text-emerald-400 font-semibold">
-                        {principle.subtitle}
+                      <h4 className="text-sm font-bold text-[#000000]">{princource.title}</h4>
+                      <p className="font-mono text-[10px] text-[#595959] font-bold">
+                        {princource.subtitle}
                       </p>
                     </div>
                   </div>
-                  <p className="text-xs leading-relaxed text-foreground-muted">
-                    {principle.description}
+                  <p className="text-xs leading-relaxed text-[#333333]">
+                    {princource.description}
                   </p>
                 </div>
 
-                <div className="mt-4 flex items-center gap-1.5 text-[10px] font-mono text-indigo-300">
-                  <CheckCircle2 className="h-3 w-3 text-indigo-400" />
+                <div className="mt-4 flex items-center gap-1.5 text-[10px] font-mono text-[#000000] font-bold">
+                  <CheckCircle2 className="h-3 w-3 text-[#000000]" />
                   <span>Guaranteed Studio Standard</span>
                 </div>
               </div>
             );
           })}
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }

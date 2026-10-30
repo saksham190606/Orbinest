@@ -14,7 +14,10 @@ import {
   Smartphone,
   Users,
   Coins,
+  MousePointerClick,
+  Sparkles,
 } from "lucide-react";
+import { SplineScene } from "@/components/ui/splite";
 import { cn, getWhatsAppUrl } from "@/lib/utils";
 
 const WHATSAPP_CTA_URL = getWhatsAppUrl(
@@ -32,28 +35,24 @@ export function Hero({ className }: HeroProps) {
       icon: GraduationCap,
       tag: "Tuitions & Institutes",
       href: "#packages",
-      accent: "hover:border-indigo-500/50 hover:text-indigo-300",
     },
     {
       title: "Business & E-Commerce",
       icon: Building2,
       tag: "Shops & Brands",
       href: "#packages",
-      accent: "hover:border-emerald-500/50 hover:text-emerald-300",
     },
     {
       title: "Clinics & Healthcare",
       icon: Stethoscope,
       tag: "Doctors & Centers",
       href: "#packages",
-      accent: "hover:border-indigo-500/50 hover:text-indigo-300",
     },
     {
       title: "Personal Digital Gifts",
       icon: Gift,
       tag: "Milestones & Love",
       href: "#packages",
-      accent: "hover:border-emerald-500/50 hover:text-emerald-300",
     },
   ];
 
@@ -61,26 +60,22 @@ export function Hero({ className }: HeroProps) {
     {
       icon: Coins,
       metric: "₹1,200 – ₹50,000+",
-      label: "Transparent, predictable tier pricing",
-      color: "text-emerald-400",
+      label: "Transparent, predictable tier pricing with zero surprises",
     },
     {
       icon: Smartphone,
       metric: "100% Mobile Ready",
-      label: "Tested across all device viewports",
-      color: "text-indigo-400",
+      label: "Responsive testing across desktop, tablet, and mobile viewports",
     },
     {
       icon: Users,
       metric: "3 Founding Engineers",
-      label: "Direct technical collaboration with zero middlemen",
-      color: "text-emerald-400",
+      label: "Direct technical collaboration with zero agency middlemen",
     },
     {
       icon: ShieldCheck,
       metric: "Zero Hidden Fees",
-      label: "Clear scopes & proposals before we write a line of code",
-      color: "text-indigo-400",
+      label: "Binding quotes and milestone schedules before code is written",
     },
   ];
 
@@ -88,113 +83,133 @@ export function Hero({ className }: HeroProps) {
     <section
       id="hero"
       className={cn(
-        "relative pt-28 pb-20 md:pt-40 md:pb-28 border-b border-surface-border/50 overflow-hidden",
+        "relative pt-28 pb-16 md:pt-36 md:pb-20 border-b border-[#d8d8d8] bg-white overflow-hidden",
         className
       )}
     >
-      {/* Dynamic Background Atmosphere */}
-      <div className="pointer-events-none absolute inset-0 radial-glow-hero opacity-85" />
-      <div className="pointer-events-none absolute inset-0 bg-grid-slate opacity-70" />
-
-      {/* Ambient gradient spheres */}
-      <div className="pointer-events-none absolute top-1/4 left-1/2 -translate-x-1/2 h-80 w-[700px] rounded-full bg-indigo-500/15 blur-[120px]" />
-      <div className="pointer-events-none absolute top-1/3 right-1/4 h-64 w-64 rounded-full bg-emerald-500/10 blur-[100px]" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-        {/* 1. Top Status Badge */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* ========================================================================= */}
+        {/* MAIN 3D INTERACTIVE HERO CARD (AL JAZEERA FLAT EDITORIAL CHROME) */}
+        {/* ========================================================================= */}
         <motion.div
-          initial={{ opacity: 0, y: -16 }}
+          initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="inline-flex"
+          className="w-full"
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 text-xs font-medium text-emerald-400 backdrop-blur-md shadow-[0_0_15px_rgba(16,185,129,0.2)]">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-            </span>
-            <span>Engineered by 3 Full-Stack Developers • Pan-India Delivery</span>
+          <div className="w-full min-h-[520px] lg:h-[580px] bg-white relative overflow-hidden border border-[#d8d8d8]">
+            <div className="flex flex-col lg:flex-row h-full min-h-[520px] lg:min-h-[580px]">
+              {/* Left Content Column */}
+              <div className="flex-1 p-6 sm:p-10 lg:p-12 relative z-10 flex flex-col justify-between">
+                <div>
+                  {/* Al Jazeera Section Eyebrow Lockup */}
+                  <div className="section-eyebrow-lockup mb-4">
+                    <span className="section-eyebrow-bar" />
+                    <span className="section-eyebrow-text">WEB ENGINEERING & 3D STUDIO</span>
+                  </div>
+
+                  {/* Live Updates Status Band */}
+                  <div className="inline-flex items-center gap-2 border border-[#d8d8d8] bg-[#f0f0f0] px-3 py-1 mb-5 rounded-full text-xs">
+                    <span className="live-badge text-[11px]">
+                      <span className="live-dot" /> LIVE UPDATES
+                    </span>
+                    <span className="text-[#bebebe]">|</span>
+                    <span className="text-xs text-[#333333] font-normal">
+                      Pan-India Delivery • 3 Founding Engineers Active
+                    </span>
+                  </div>
+
+                  {/* Main Headline - Bold Black Editorial Type */}
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[44px] font-bold tracking-tight text-[#000000] leading-[1.15]">
+                    Engineering Modern, <br />
+                    Interactive 3D Web <br />
+                    That Converts.
+                  </h1>
+
+                  {/* Subtitle Value Proposition */}
+                  <p className="mt-4 text-sm sm:text-base text-[#595959] max-w-lg leading-relaxed">
+                    Bring your digital presence to life with beautiful 3D scenes. We design, code,
+                    and deploy high-performance web experiences tailored for education institutes,
+                    local businesses, medical clinics, and personal milestones.
+                  </p>
+
+                  {/* Al Jazeera Action Pill Cluster */}
+                  <div className="mt-8 flex flex-wrap items-center gap-3">
+                    {/* Primary Button-Pill-Dark */}
+                    <a
+                      href="#packages"
+                      className="button-pill-dark"
+                    >
+                      <span>Explore All Packages</span>
+                      <ArrowRight className="h-4 w-4" />
+                    </a>
+
+                    {/* Secondary Ghost Button */}
+                    <a
+                      href="#estimator"
+                      className="button-pill-ghost"
+                    >
+                      <Calculator className="h-4 w-4 text-[#000000]" />
+                      <span>Cost Estimator</span>
+                    </a>
+
+                    {/* WhatsApp Action */}
+                    <a
+                      href={WHATSAPP_CTA_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Direct WhatsApp consultation"
+                      className="button-pill-ghost"
+                    >
+                      <MessageCircle className="h-4 w-4 text-[#000000]" />
+                      <span>WhatsApp</span>
+                    </a>
+                  </div>
+                </div>
+
+                {/* Wire-Style Metadata Line */}
+                <div className="mt-8 pt-5 border-t border-[#d8d8d8] flex flex-wrap items-center gap-4 text-xs text-[#595959]">
+                  <span className="flex items-center gap-1.5 font-medium text-[#000000]">
+                    <Sparkles className="h-3.5 w-3.5 text-[#fa9000]" />
+                    React 19 & Next.js 16
+                  </span>
+                  <span>•</span>
+                  <span>Sub-0.5s Initial Load</span>
+                  <span>•</span>
+                  <span>100% Mobile Ready</span>
+                  <span>•</span>
+                  <span>Zero Hidden Fees</span>
+                </div>
+              </div>
+
+              {/* Right Content Column: Interactive Spline 3D Scene */}
+              <div className="flex-1 relative min-h-[360px] sm:min-h-[420px] lg:min-h-full flex items-center justify-center bg-[#f8f8f8] border-t lg:border-t-0 lg:border-l border-[#d8d8d8]">
+                {/* Visual hint pill */}
+                <div className="absolute top-4 right-4 z-20 pointer-events-none">
+                  <div className="inline-flex items-center gap-2 border border-[#d8d8d8] bg-white px-3 py-1 text-[11px] font-medium text-[#000000] shadow-xs">
+                    <MousePointerClick className="h-3.5 w-3.5 text-[#000000] animate-bounce" />
+                    <span>Click & Drag 3D Model</span>
+                  </div>
+                </div>
+
+                {/* Spline 3D Scene */}
+                <SplineScene
+                  scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+                  className="w-full h-full min-h-[360px] sm:min-h-[420px] lg:min-h-[580px]"
+                />
+              </div>
+            </div>
           </div>
         </motion.div>
 
-        {/* 2. Main Headline */}
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-          className="mt-8 text-4xl font-extrabold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl leading-[1.08]"
-        >
-          Engineering Practical, <br className="hidden sm:inline" />
-          <span className="text-gradient-accent">High-Performance Websites</span> <br className="hidden sm:inline" />
-          That Convert.
-        </motion.h1>
-
-        {/* 3. Subtitle Value Proposition */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-          className="mx-auto mt-6 max-w-3xl text-base text-foreground-muted sm:text-lg lg:text-xl leading-relaxed"
-        >
-          We design, code, and deploy mobile-ready web experiences tailored for education institutes, local
-          businesses, medical clinics, and personal digital memories. Transparent pricing, modern engineering,
-          and zero hidden costs.
-        </motion.p>
-
-        {/* 4. Multi-Action CTA Cluster */}
+        {/* ========================================================================= */}
+        {/* SECTOR QUICK-SWITCH RIBBON (AL JAZEERA FLAT CHROME) */}
+        {/* ========================================================================= */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-          className="mt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4"
-        >
-          {/* Primary Action: Explore All Packages */}
-          <a
-            href="#packages"
-            className={cn(
-              "group inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-sm font-semibold text-white",
-              "bg-gradient-to-r from-indigo-600 via-indigo-500 to-indigo-600 hover:from-indigo-500 hover:to-indigo-400",
-              "shadow-[0_0_30px_-5px_rgba(99,102,241,0.55)] transition-all duration-300 hover:scale-[1.02]"
-            )}
-          >
-            <span>Explore All Packages</span>
-            <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
-          </a>
-
-          {/* Secondary Action: Instant Cost Estimator */}
-          <a
-            href="#estimator"
-            className={cn(
-              "inline-flex items-center gap-2 rounded-xl border border-surface-border bg-surface/70 px-7 py-3.5 text-sm font-semibold text-foreground-muted backdrop-blur-md",
-              "transition-all duration-200 hover:border-slate-500 hover:text-white hover:bg-surface-elevated hover:scale-[1.02]"
-            )}
-          >
-            <Calculator className="h-4 w-4 text-emerald-400" />
-            <span>Instant Cost Estimator</span>
-          </a>
-
-          {/* WhatsApp Quick Action Pill */}
-          <a
-            href={WHATSAPP_CTA_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Direct WhatsApp consultation"
-            className={cn(
-              "inline-flex items-center gap-2 rounded-xl border border-emerald-500/40 bg-emerald-500/10 px-5 py-3.5 text-sm font-medium text-emerald-400 backdrop-blur-md",
-              "transition-all duration-200 hover:bg-emerald-500/20 hover:border-emerald-400/70 hover:shadow-[0_0_20px_rgba(16,185,129,0.3)]"
-            )}
-          >
-            <MessageCircle className="h-4 w-4 text-emerald-400" />
-            <span>WhatsApp Quick Chat</span>
-          </a>
-        </motion.div>
-
-        {/* 5. Sector Quick-Switch Ribbon */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-          className="mt-14 max-w-4xl mx-auto"
+          transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
+          className="mt-6"
         >
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
             {sectorChips.map((chip, idx) => {
@@ -203,20 +218,16 @@ export function Hero({ className }: HeroProps) {
                 <a
                   key={idx}
                   href={chip.href}
-                  className={cn(
-                    "glass-panel group flex items-center gap-3 rounded-2xl p-3.5 text-left transition-all duration-200",
-                    "border border-surface-border/80 bg-surface/60 hover:bg-surface-elevated/90",
-                    chip.accent
-                  )}
+                  className="group flex items-center gap-3 border border-[#d8d8d8] bg-white p-3.5 text-left transition-colors hover:border-[#000000]"
                 >
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-canvas border border-surface-border text-indigo-400 transition-colors group-hover:scale-105 group-hover:text-emerald-400">
-                    <Icon className="h-5 w-5" />
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center border border-[#d8d8d8] bg-[#f0f0f0] text-[#000000] group-hover:bg-[#000000] group-hover:text-white transition-colors">
+                    <Icon className="h-4 w-4" />
                   </div>
                   <div className="truncate">
-                    <p className="text-xs font-bold text-white group-hover:text-white transition-colors truncate">
+                    <p className="text-xs font-bold text-[#000000] group-hover:text-[#fa9000] transition-colors truncate">
                       {chip.title}
                     </p>
-                    <p className="font-mono text-[10px] text-foreground-subtle uppercase tracking-wider truncate">
+                    <p className="font-mono text-[10px] text-[#595959] uppercase tracking-wider truncate">
                       {chip.tag}
                     </p>
                   </div>
@@ -226,12 +237,14 @@ export function Hero({ className }: HeroProps) {
           </div>
         </motion.div>
 
-        {/* 6. Agency Proof Strip / Micro-Metrics */}
+        {/* ========================================================================= */}
+        {/* AGENCY PROOF STRIP / MICRO-METRICS (RANKED LIST / DATA TABLE STYLE) */}
+        {/* ========================================================================= */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
-          className="mt-16 lg:mt-24 pt-8 border-t border-surface-border/60"
+          transition={{ duration: 0.5, delay: 0.25, ease: "easeOut" }}
+          className="mt-8 pt-8 border-t border-[#d8d8d8]"
         >
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 text-left">
             {proofMetrics.map((item, idx) => {
@@ -239,17 +252,17 @@ export function Hero({ className }: HeroProps) {
               return (
                 <div
                   key={idx}
-                  className="glass-panel group relative rounded-2xl border border-surface-border/70 bg-surface/40 p-5 transition-all duration-200 hover:border-slate-600 hover:bg-surface-elevated/60"
+                  className="border border-[#d8d8d8] bg-white p-5 hover:border-[#595959] transition-colors"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-canvas border border-surface-border/80 text-foreground-muted group-hover:text-white transition-colors">
+                    <div className="flex h-8 w-8 items-center justify-center border border-[#d8d8d8] bg-[#f0f0f0] text-[#000000]">
                       <Icon className="h-4 w-4" />
                     </div>
-                    <p className={cn("text-base font-extrabold tracking-tight", item.color)}>
+                    <p className="text-base font-bold tracking-tight text-[#000000]">
                       {item.metric}
                     </p>
                   </div>
-                  <p className="mt-2 text-xs leading-relaxed text-foreground-muted">
+                  <p className="mt-2 text-xs leading-relaxed text-[#595959]">
                     {item.label}
                   </p>
                 </div>

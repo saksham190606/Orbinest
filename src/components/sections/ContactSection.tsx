@@ -99,33 +99,33 @@ export function ContactSection() {
 
   return (
     <div className="w-full">
-      {/* Section Header */}
-      <div className="mx-auto max-w-3xl text-center mb-16 md:mb-20">
-        <span className="inline-flex items-center gap-1.5 rounded-md border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 font-mono text-xs font-medium text-emerald-300">
-          <Sparkles className="h-3.5 w-3.5 text-emerald-400" />
-          <span>Connect</span>
-        </span>
-        <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
+      {/* Section Header with Al Jazeera Signature Eyebrow Lockup */}
+      <div className="mb-12">
+        <div className="section-eyebrow-lockup">
+          <span className="section-eyebrow-bar" />
+          <span className="section-eyebrow-text">CONNECT & INITIATE</span>
+        </div>
+        <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[#000000]">
           Start Your Next Project
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-sm sm:text-base text-foreground-muted leading-relaxed">
+        <p className="mt-2 max-w-2xl text-sm sm:text-base text-[#595959] leading-relaxed">
           Have a website in mind for your school, clinic, business, or personal milestone? Reach out directly to our
           engineers for an honest technical assessment and rapid delivery plan.
         </p>
       </div>
 
       {/* Two-Column Responsive Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
         {/* ===================================================================== */}
         {/* LEFT COLUMN: Direct Touchpoints & Process Transparency (5 Cols) */}
         {/* ===================================================================== */}
-        <div className="lg:col-span-5 space-y-8">
+        <div className="lg:col-span-5 space-y-6">
           {/* Fastest Way to Connect Cards */}
-          <div className="space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <span>Fastest Direct Channels</span>
-              <span className="rounded-full bg-emerald-500/10 border border-emerald-500/30 px-2 py-0.5 font-mono text-[10px] text-emerald-400">
-                Direct Line
+          <div className="space-y-3">
+            <h3 className="text-sm font-bold text-[#000000] flex items-center gap-2">
+              <span>Direct Communication Lines</span>
+              <span className="border border-[#d8d8d8] bg-white px-2 py-0.5 font-mono text-[10px] font-bold text-[#000000] rounded-full">
+                ACTIVE
               </span>
             </h3>
 
@@ -134,140 +134,134 @@ export function ContactSection() {
               href={WHATSAPP_CTA_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center justify-between rounded-2xl border border-emerald-500/40 bg-emerald-500/10 p-5 transition-all duration-200 hover:bg-emerald-500/20 hover:border-emerald-400/80 hover:shadow-[0_0_25px_rgba(16,185,129,0.25)]"
+              className="group flex items-center justify-between border border-[#d8d8d8] bg-white p-5 transition-colors hover:border-[#000000]"
             >
               <div className="flex items-center gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-emerald-500/20 text-emerald-400 group-hover:scale-105 transition-transform">
-                  <MessageCircle className="h-6 w-6" />
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center border border-[#d8d8d8] bg-[#f0f0f0] text-[#000000]">
+                  <MessageCircle className="h-5 w-5" />
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
-                    <h4 className="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">
+                    <h4 className="text-sm font-bold text-[#000000] group-hover:text-[#fa9000] transition-colors">
                       Chat on WhatsApp
                     </h4>
-                    <span className="flex items-center gap-1 rounded-full bg-emerald-500/20 px-2 py-0.5 font-mono text-[9px] text-emerald-300">
-                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                      Founders Online
+                    <span className="flex items-center gap-1 border border-[#c31833]/30 bg-red-50/50 px-2 py-0.5 font-mono text-[9px] font-bold text-[#c31833] rounded-[2px]">
+                      <span className="live-dot !h-1.5 !w-1.5" />
+                      FOUNDERS ONLINE
                     </span>
                   </div>
-                  <p className="text-xs text-foreground-subtle mt-0.5">
+                  <p className="text-xs text-[#595959] mt-0.5">
                     Fastest response • Audio notes & scope sharing welcome
                   </p>
                 </div>
               </div>
-              <ArrowRight className="h-5 w-5 text-emerald-400 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="h-4 w-4 text-[#000000] transition-transform group-hover:translate-x-1" />
             </a>
 
             {/* Formal RFP Email Card */}
             <a
               href="mailto:hello@orbinest.com?subject=Hi%20Orbinest%20Team%20-%20Project%20Inquiry"
-              className="group flex items-center justify-between rounded-2xl border border-surface-border bg-surface/60 p-5 transition-all duration-200 hover:border-indigo-500/50 hover:bg-surface-elevated hover:shadow-[0_0_25px_rgba(99,102,241,0.2)]"
+              className="group flex items-center justify-between border border-[#d8d8d8] bg-white p-5 transition-colors hover:border-[#000000]"
             >
               <div className="flex items-center gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-indigo-500/15 text-indigo-400 group-hover:scale-105 transition-transform">
-                  <Mail className="h-6 w-6" />
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center border border-[#d8d8d8] bg-[#f0f0f0] text-[#000000]">
+                  <Mail className="h-5 w-5" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-white group-hover:text-indigo-200 transition-colors">
+                  <h4 className="text-sm font-bold text-[#000000] group-hover:text-[#fa9000] transition-colors">
                     Send RFP / Official Email
                   </h4>
-                  <p className="text-xs text-foreground-subtle mt-0.5">
+                  <p className="text-xs text-[#595959] mt-0.5">
                     hello@orbinest.com • PDF scopes & tenders accepted
                   </p>
                 </div>
               </div>
-              <ArrowRight className="h-5 w-5 text-foreground-subtle transition-transform group-hover:text-indigo-400 group-hover:translate-x-1" />
+              <ArrowRight className="h-4 w-4 text-[#000000] transition-transform group-hover:translate-x-1" />
             </a>
           </div>
 
-          {/* "What Happens Next?" 3-Step Timeline */}
-          <div className="rounded-3xl border border-surface-border bg-surface/40 p-6 md:p-7 backdrop-blur-md">
-            <div className="flex items-center justify-between mb-6 pb-3 border-b border-surface-border/60">
-              <h4 className="text-sm font-bold text-white flex items-center gap-2">
-                <Clock className="h-4 w-4 text-indigo-400" />
+          {/* "What Happens Next?" 3-Step Timeline (Al Jazeera Ranked Numeral Pattern) */}
+          <div className="border border-[#d8d8d8] bg-white p-6">
+            <div className="flex items-center justify-between mb-5 pb-3 border-b border-[#d8d8d8]">
+              <h4 className="text-sm font-bold text-[#000000] flex items-center gap-2">
+                <Clock className="h-4 w-4 text-[#000000]" />
                 <span>What Happens Next?</span>
               </h4>
-              <span className="font-mono text-[10px] text-foreground-subtle">
+              <span className="font-mono text-[10px] text-[#595959]">
                 Zero Sales Pressure
               </span>
             </div>
 
-            <div className="space-y-6">
-              {PROCESS_STEPS.map((step, idx) => {
-                const Icon = step.icon;
-                return (
-                  <div key={idx} className="flex items-start gap-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-surface-border bg-canvas text-indigo-400">
-                      <Icon className="h-5 w-5" />
+            <div className="divide-y divide-[#d8d8d8]">
+              {PROCESS_STEPS.map((step, idx) => (
+                <div key={idx} className="py-4 first:pt-0 last:pb-0 flex items-start gap-4">
+                  {/* Oversized Slate Numeral */}
+                  <span className="font-sans text-2xl font-bold text-[#595959] shrink-0 leading-none">
+                    {step.step}
+                  </span>
+                  <div className="space-y-1">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <h5 className="text-xs font-bold text-[#000000]">{step.title}</h5>
+                      <span className="font-mono text-[10px] text-[#595959] font-medium">
+                        ({step.timeframe})
+                      </span>
                     </div>
-                    <div className="space-y-1">
-                      <div className="flex flex-wrap items-center gap-2">
-                        <h5 className="text-xs font-bold text-white">{step.title}</h5>
-                        <span className="font-mono text-[10px] text-emerald-400 font-semibold">
-                          ({step.timeframe})
-                        </span>
-                      </div>
-                      <p className="text-xs leading-relaxed text-foreground-muted">
-                        {step.description}
-                      </p>
-                    </div>
+                    <p className="text-xs leading-relaxed text-[#595959]">
+                      {step.description}
+                    </p>
                   </div>
-                );
-              })}
+                </div>
+              ))}
             </div>
 
             {/* SLA Trust Footnote */}
-            <div className="mt-6 pt-4 border-t border-surface-border/60 flex items-center gap-2 text-[11px] text-foreground-subtle font-mono">
-              <ShieldCheck className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
+            <div className="mt-5 pt-4 border-t border-[#d8d8d8] flex items-center gap-2 text-[11px] text-[#595959] font-mono">
+              <ShieldCheck className="h-3.5 w-3.5 text-[#000000] shrink-0" />
               <span>Direct engineer response SLA guaranteed within 2-4 hours</span>
             </div>
           </div>
         </div>
 
         {/* ===================================================================== */}
-        {/* RIGHT COLUMN: Comprehensive Lead Intake Form (7 Cols) */}
+        {/* RIGHT COLUMN: Comprehensive Lead Intake Form (Al Jazeera Soft Panel) */}
         {/* ===================================================================== */}
         <div className="lg:col-span-7">
-          <div className="glass-panel-elevated relative overflow-hidden rounded-3xl border border-surface-border p-6 md:p-8 shadow-2xl">
-            {/* Ambient subtle glow */}
-            <div className="pointer-events-none absolute -top-16 -right-16 h-52 w-52 rounded-full bg-emerald-500/10 blur-3xl" />
-            <div className="pointer-events-none absolute -bottom-16 -left-16 h-52 w-52 rounded-full bg-indigo-500/10 blur-3xl" />
-
+          <div className="soft-panel p-6 md:p-8">
             <AnimatePresence mode="wait">
               {state.success ? (
                 /* Success Confirmation View */
                 <motion.div
                   key="success-card"
-                  initial={{ opacity: 0, scale: 0.95 }}
+                  initial={{ opacity: 0, scale: 0.96 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.3 }}
-                  className="py-8 text-center space-y-6"
+                  exit={{ opacity: 0, scale: 0.96 }}
+                  transition={{ duration: 0.25 }}
+                  className="py-8 text-center space-y-6 bg-white border border-[#d8d8d8] p-6"
                 >
-                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 shadow-[0_0_30px_rgba(16,185,129,0.3)]">
-                    <CheckCircle2 className="h-9 w-9 stroke-[2.5]" />
+                  <div className="mx-auto flex h-14 w-14 items-center justify-center border border-[#d8d8d8] bg-[#f0f0f0] text-[#000000]">
+                    <CheckCircle2 className="h-8 w-8 stroke-[2.5]" />
                   </div>
 
                   <div className="space-y-2 max-w-md mx-auto">
-                    <h3 className="text-2xl font-bold text-white">Inquiry Received!</h3>
-                    <p className="text-sm text-foreground-muted leading-relaxed">
-                      Thank you, <span className="font-semibold text-white">{state.submittedData?.fullName}</span>.
+                    <h3 className="text-2xl font-bold text-[#000000]">Inquiry Received!</h3>
+                    <p className="text-sm text-[#595959] leading-relaxed">
+                      Thank you, <span className="font-semibold text-[#000000]">{state.submittedData?.fullName}</span>.
                       Your requirements have been logged directly into our founders&apos; inbox.
                     </p>
                   </div>
 
-                  <div className="rounded-2xl border border-surface-border bg-surface/60 p-4 max-w-md mx-auto text-left text-xs space-y-2 font-mono">
-                    <div className="flex justify-between text-foreground-subtle">
+                  <div className="border border-[#d8d8d8] bg-[#f0f0f0] p-4 max-w-md mx-auto text-left text-xs space-y-2 font-mono">
+                    <div className="flex justify-between text-[#595959]">
                       <span>Target Sector:</span>
-                      <span className="text-white capitalize">{state.submittedData?.sector}</span>
+                      <span className="text-[#000000] font-semibold capitalize">{state.submittedData?.sector}</span>
                     </div>
-                    <div className="flex justify-between text-foreground-subtle">
+                    <div className="flex justify-between text-[#595959]">
                       <span>Investment Budget:</span>
-                      <span className="text-emerald-400 font-semibold">{state.submittedData?.budget}</span>
+                      <span className="text-[#000000] font-semibold">{state.submittedData?.budget}</span>
                     </div>
-                    <div className="flex justify-between text-foreground-subtle">
+                    <div className="flex justify-between text-[#595959]">
                       <span>Founder Response SLA:</span>
-                      <span className="text-indigo-300">Within 2 – 4 Hours</span>
+                      <span className="text-[#000000] font-semibold">Within 2 – 4 Hours</span>
                     </div>
                   </div>
 
@@ -276,7 +270,7 @@ export function ContactSection() {
                       href={generateWhatsAppTransferUrl()}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 py-3.5 text-xs font-semibold text-white shadow-lg shadow-emerald-500/30 transition-all hover:from-emerald-500 hover:to-emerald-400"
+                      className="button-pill-dark w-full py-3.5 text-xs justify-center"
                     >
                       <MessageCircle className="h-4 w-4" />
                       <span>Chat Immediately on WhatsApp</span>
@@ -286,7 +280,7 @@ export function ContactSection() {
                     <button
                       type="button"
                       onClick={() => window.location.reload()}
-                      className="inline-flex items-center gap-1.5 text-xs text-foreground-subtle hover:text-white transition-colors"
+                      className="inline-flex items-center gap-1.5 text-xs text-[#595959] hover:text-[#000000] transition-colors"
                     >
                       <RotateCcw className="h-3 w-3" />
                       <span>Submit another requirement</span>
@@ -296,15 +290,15 @@ export function ContactSection() {
               ) : (
                 /* Active Intake Form */
                 <form action={formAction} className="space-y-5">
-                  <div className="flex items-center justify-between border-b border-surface-border/60 pb-3">
-                    <h3 className="text-lg font-bold text-white">Project Scope Intake</h3>
-                    <span className="rounded bg-indigo-500/10 px-2 py-0.5 font-mono text-[10px] text-indigo-300 border border-indigo-500/20">
+                  <div className="flex items-center justify-between border-b border-[#d8d8d8] pb-3">
+                    <h3 className="text-base font-bold text-[#000000]">Project Scope Intake</h3>
+                    <span className="border border-[#d8d8d8] bg-white px-2.5 py-0.5 font-mono text-[10px] text-[#000000] font-semibold rounded-full">
                       100% Free Consultation
                     </span>
                   </div>
 
                   {state.message && !state.success && (
-                    <div className="flex items-center gap-2 rounded-xl border border-rose-500/40 bg-rose-500/10 p-3 text-xs text-rose-300">
+                    <div className="flex items-center gap-2 border border-[#c31833] bg-red-50 p-3 text-xs text-[#c31833]">
                       <AlertCircle className="h-4 w-4 shrink-0" />
                       <span>{state.message}</span>
                     </div>
@@ -314,11 +308,11 @@ export function ContactSection() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {/* Full Name */}
                     <div className="space-y-1.5">
-                      <label htmlFor="fullName" className="block text-xs font-semibold text-white">
-                        Full Name <span className="text-emerald-400">*</span>
+                      <label htmlFor="fullName" className="block text-xs font-semibold text-[#000000]">
+                        Full Name <span className="text-[#c31833]">*</span>
                       </label>
                       <div className="relative">
-                        <User className="pointer-events-none absolute left-3.5 top-3 h-4 w-4 text-foreground-subtle" />
+                        <User className="pointer-events-none absolute left-3.5 top-3 h-4 w-4 text-[#595959]" />
                         <input
                           id="fullName"
                           name="fullName"
@@ -328,25 +322,25 @@ export function ContactSection() {
                           onChange={(e) => setFullName(e.target.value)}
                           placeholder="Dr. Rajesh Varma"
                           className={cn(
-                            "w-full rounded-xl border bg-surface-elevated/70 py-2.5 pl-10 pr-3 text-xs text-white placeholder:text-foreground-subtle/50 transition-colors focus:outline-none focus:ring-1 focus:ring-indigo-500",
+                            "w-full rounded-full border bg-white py-2.5 pl-10 pr-4 text-xs text-[#000000] placeholder:text-[#bebebe] transition-colors focus:outline-none",
                             state.errors?.fullName
-                              ? "border-rose-500/80 focus:border-rose-500"
-                              : "border-surface-border focus:border-indigo-500"
+                              ? "border-[#c31833]"
+                              : "border-[#d8d8d8] focus:border-[#000000]"
                           )}
                         />
                       </div>
                       {state.errors?.fullName && (
-                        <p className="text-[11px] text-rose-400">{state.errors.fullName}</p>
+                        <p className="text-[11px] text-[#c31833]">{state.errors.fullName}</p>
                       )}
                     </div>
 
                     {/* WhatsApp / Phone */}
                     <div className="space-y-1.5">
-                      <label htmlFor="phone" className="block text-xs font-semibold text-white">
-                        WhatsApp / Phone <span className="text-emerald-400">*</span>
+                      <label htmlFor="phone" className="block text-xs font-semibold text-[#000000]">
+                        WhatsApp / Phone <span className="text-[#c31833]">*</span>
                       </label>
                       <div className="relative">
-                        <Phone className="pointer-events-none absolute left-3.5 top-3 h-4 w-4 text-foreground-subtle" />
+                        <Phone className="pointer-events-none absolute left-3.5 top-3 h-4 w-4 text-[#595959]" />
                         <input
                           id="phone"
                           name="phone"
@@ -356,26 +350,26 @@ export function ContactSection() {
                           onChange={(e) => setPhone(e.target.value)}
                           placeholder="+91 98765 43210"
                           className={cn(
-                            "w-full rounded-xl border bg-surface-elevated/70 py-2.5 pl-10 pr-3 text-xs text-white placeholder:text-foreground-subtle/50 transition-colors focus:outline-none focus:ring-1 focus:ring-indigo-500",
+                            "w-full rounded-full border bg-white py-2.5 pl-10 pr-4 text-xs text-[#000000] placeholder:text-[#bebebe] transition-colors focus:outline-none",
                             state.errors?.phone
-                              ? "border-rose-500/80 focus:border-rose-500"
-                              : "border-surface-border focus:border-indigo-500"
+                              ? "border-[#c31833]"
+                              : "border-[#d8d8d8] focus:border-[#000000]"
                           )}
                         />
                       </div>
                       {state.errors?.phone && (
-                        <p className="text-[11px] text-rose-400">{state.errors.phone}</p>
+                        <p className="text-[11px] text-[#c31833]">{state.errors.phone}</p>
                       )}
                     </div>
                   </div>
 
                   {/* Row 2: Email Address */}
                   <div className="space-y-1.5">
-                    <label htmlFor="email" className="block text-xs font-semibold text-white">
-                      Email Address <span className="text-emerald-400">*</span>
+                    <label htmlFor="email" className="block text-xs font-semibold text-[#000000]">
+                      Email Address <span className="text-[#c31833]">*</span>
                     </label>
                     <div className="relative">
-                      <AtSign className="pointer-events-none absolute left-3.5 top-3 h-4 w-4 text-foreground-subtle" />
+                      <AtSign className="pointer-events-none absolute left-3.5 top-3 h-4 w-4 text-[#595959]" />
                       <input
                         id="email"
                         name="email"
@@ -385,22 +379,22 @@ export function ContactSection() {
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="rajesh@clinic.com"
                         className={cn(
-                          "w-full rounded-xl border bg-surface-elevated/70 py-2.5 pl-10 pr-3 text-xs text-white placeholder:text-foreground-subtle/50 transition-colors focus:outline-none focus:ring-1 focus:ring-indigo-500",
+                          "w-full rounded-full border bg-white py-2.5 pl-10 pr-4 text-xs text-[#000000] placeholder:text-[#bebebe] transition-colors focus:outline-none",
                           state.errors?.email
-                            ? "border-rose-500/80 focus:border-rose-500"
-                            : "border-surface-border focus:border-indigo-500"
+                            ? "border-[#c31833]"
+                            : "border-[#d8d8d8] focus:border-[#000000]"
                         )}
                       />
                     </div>
                     {state.errors?.email && (
-                      <p className="text-[11px] text-rose-400">{state.errors.email}</p>
+                      <p className="text-[11px] text-[#c31833]">{state.errors.email}</p>
                     )}
                   </div>
 
                   {/* Row 3: Target Sector Selection */}
                   <div className="space-y-1.5">
-                    <label className="block text-xs font-semibold text-white">
-                      Target Sector <span className="text-emerald-400">*</span>
+                    <label className="block text-xs font-semibold text-[#000000]">
+                      Target Sector <span className="text-[#c31833]">*</span>
                     </label>
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                       {SECTORS.map((s) => {
@@ -411,10 +405,10 @@ export function ContactSection() {
                             type="button"
                             onClick={() => setSector(s.id)}
                             className={cn(
-                              "rounded-xl border p-2.5 text-center text-xs transition-all",
+                              "rounded-full border p-2 text-center text-xs transition-all",
                               isSelected
-                                ? "border-indigo-500 bg-indigo-500/20 text-white font-semibold shadow-sm"
-                                : "border-surface-border bg-surface/50 text-foreground-muted hover:border-slate-600 hover:text-white"
+                                ? "border-[#000000] bg-[#000000] text-white font-bold"
+                                : "border-[#d8d8d8] bg-white text-[#595959] hover:border-[#000000] hover:text-[#000000]"
                             )}
                           >
                             <span className="truncate block">{s.label}</span>
@@ -422,17 +416,16 @@ export function ContactSection() {
                         );
                       })}
                     </div>
-                    {/* Hidden input to pass sector to Server Action */}
                     <input type="hidden" name="sector" value={sector} />
                     {state.errors?.sector && (
-                      <p className="text-[11px] text-rose-400">{state.errors.sector}</p>
+                      <p className="text-[11px] text-[#c31833]">{state.errors.sector}</p>
                     )}
                   </div>
 
                   {/* Row 4: Estimated Budget Band */}
                   <div className="space-y-1.5">
-                    <label className="block text-xs font-semibold text-white">
-                      Estimated Investment Budget <span className="text-emerald-400">*</span>
+                    <label className="block text-xs font-semibold text-[#000000]">
+                      Estimated Investment Budget <span className="text-[#c31833]">*</span>
                     </label>
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                       {BUDGET_BANDS.map((b) => {
@@ -443,10 +436,10 @@ export function ContactSection() {
                             type="button"
                             onClick={() => setBudget(b)}
                             className={cn(
-                              "rounded-xl border p-2 text-center text-xs font-mono transition-all",
+                              "rounded-full border p-2 text-center text-xs font-mono transition-all",
                               isSelected
-                                ? "border-emerald-500 bg-emerald-500/20 text-emerald-300 font-bold shadow-sm"
-                                : "border-surface-border bg-surface/50 text-foreground-muted hover:border-slate-600 hover:text-white"
+                                ? "border-[#000000] bg-[#000000] text-white font-bold"
+                                : "border-[#d8d8d8] bg-white text-[#595959] hover:border-[#000000] hover:text-[#000000]"
                             )}
                           >
                             <span className="truncate block">{b}</span>
@@ -454,17 +447,16 @@ export function ContactSection() {
                         );
                       })}
                     </div>
-                    {/* Hidden input to pass budget to Server Action */}
                     <input type="hidden" name="budget" value={budget} />
                     {state.errors?.budget && (
-                      <p className="text-[11px] text-rose-400">{state.errors.budget}</p>
+                      <p className="text-[11px] text-[#c31833]">{state.errors.budget}</p>
                     )}
                   </div>
 
                   {/* Row 5: Project Scope Textarea */}
                   <div className="space-y-1.5">
-                    <label htmlFor="scope" className="block text-xs font-semibold text-white">
-                      Project Scope & Key Features <span className="text-emerald-400">*</span>
+                    <label htmlFor="scope" className="block text-xs font-semibold text-[#000000]">
+                      Project Scope & Key Features <span className="text-[#c31833]">*</span>
                     </label>
                     <textarea
                       id="scope"
@@ -475,28 +467,23 @@ export function ContactSection() {
                       onChange={(e) => setScope(e.target.value)}
                       placeholder="e.g., We need a clinic website with doctor qualifications, appointment booking via WhatsApp, and patient treatment guides before next month..."
                       className={cn(
-                        "w-full rounded-xl border bg-surface-elevated/70 p-3 text-xs text-white placeholder:text-foreground-subtle/50 transition-colors focus:outline-none focus:ring-1 focus:ring-indigo-500",
+                        "w-full rounded-2xl border bg-white p-3 text-xs text-[#000000] placeholder:text-[#bebebe] transition-colors focus:outline-none",
                         state.errors?.scope
-                          ? "border-rose-500/80 focus:border-rose-500"
-                          : "border-surface-border focus:border-indigo-500"
+                          ? "border-[#c31833]"
+                          : "border-[#d8d8d8] focus:border-[#000000]"
                       )}
                     />
                     {state.errors?.scope && (
-                      <p className="text-[11px] text-rose-400">{state.errors.scope}</p>
+                      <p className="text-[11px] text-[#c31833]">{state.errors.scope}</p>
                     )}
                   </div>
 
-                  {/* Action Buttons: Submit Proposal & Prefer WhatsApp */}
+                  {/* Action Buttons: Submit Scope & Prefer WhatsApp */}
                   <div className="pt-2 space-y-3">
                     <button
                       type="submit"
                       disabled={isPending}
-                      className={cn(
-                        "group flex w-full items-center justify-center gap-2 rounded-xl py-3.5 text-xs font-semibold text-white transition-all duration-300",
-                        "bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-indigo-400",
-                        "shadow-[0_0_25px_rgba(99,102,241,0.35)] hover:shadow-[0_0_35px_rgba(99,102,241,0.5)]",
-                        "disabled:opacity-60 disabled:cursor-not-allowed"
-                      )}
+                      className="button-pill-dark w-full py-3.5 text-xs justify-center disabled:opacity-60 disabled:cursor-not-allowed"
                     >
                       {isPending ? (
                         <>
@@ -505,23 +492,23 @@ export function ContactSection() {
                         </>
                       ) : (
                         <>
-                          <Send className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                          <Send className="h-4 w-4" />
                           <span>Submit Scope for Engineering Assessment</span>
-                          <ArrowRight className="h-3.5 w-3.5 opacity-80 transition-transform group-hover:translate-x-1" />
+                          <ArrowRight className="h-3.5 w-3.5" />
                         </>
                       )}
                     </button>
 
                     {/* "Prefer WhatsApp?" Utility Transfer Button */}
-                    <div className="flex items-center justify-between pt-2 border-t border-surface-border/50">
-                      <span className="text-[11px] text-foreground-subtle">
+                    <div className="flex items-center justify-between pt-2 border-t border-[#d8d8d8]">
+                      <span className="text-[11px] text-[#595959]">
                         Want instant real-time answers?
                       </span>
                       <a
                         href={generateWhatsAppTransferUrl()}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-emerald-400 hover:text-emerald-300 transition-colors"
+                        className="inline-flex items-center gap-1.5 text-[11px] font-bold text-[#000000] hover:text-[#fa9000] transition-colors"
                       >
                         <MessageCircle className="h-3.5 w-3.5" />
                         <span>Send Form via WhatsApp Instead &rarr;</span>

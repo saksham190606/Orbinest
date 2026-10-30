@@ -15,14 +15,14 @@ import {
   Clock,
   Plus,
   Minus,
-  Globe,
-  Zap,
-  CreditCard,
   FileText,
   RotateCcw,
   ShieldCheck,
   Sparkles,
   ArrowRight,
+  CreditCard,
+  Zap,
+  Globe,
 } from "lucide-react";
 import {
   SERVICES_DATA,
@@ -73,13 +73,13 @@ export function BudgetEstimator({
   const tier: ServiceTier =
     category.tiers.find((t) => t.id === selectedTierId) || category.tiers[0];
 
-  // When changing category, if tier doesn't exist, reset to starter/professional
+  // When changing category, reset care plan
   const handleCategoryChange = (catId: CategoryId) => {
     setSelectedCategory(catId);
-    setSelectedCarePlanId(null); // Reset care plan when switching category
+    setSelectedCarePlanId(null);
   };
 
-  // Check if Payment Gateway is already included in selected tier (e.g., Business Premium)
+  // Check if Payment Gateway is already included in selected tier
   const isPaymentIncludedInTier = useMemo(() => {
     return selectedCategory === "business" && selectedTierId === "premium";
   }, [selectedCategory, selectedTierId]);
@@ -201,16 +201,16 @@ export function BudgetEstimator({
         {/* ===================================================================== */}
         {/* LEFT COLUMN: 3-Step Interactive Configurator (7 Cols on LG) */}
         {/* ===================================================================== */}
-        <div className="lg:col-span-7 space-y-10">
+        <div className="lg:col-span-7 space-y-8">
           {/* STEP 1: Sector Selection */}
-          <div className="rounded-3xl border border-surface-border bg-surface/40 p-6 md:p-8 backdrop-blur-md">
-            <div className="flex items-center justify-between mb-4">
-              <span className="font-mono text-xs text-indigo-400 uppercase tracking-wider font-semibold">
+          <div className="border border-[#d8d8d8] bg-white p-6 md:p-8">
+            <div className="flex items-center justify-between mb-4 border-b border-[#d8d8d8] pb-3">
+              <span className="font-mono text-xs text-[#000000] uppercase tracking-wider font-bold">
                 Step 1 of 3
               </span>
-              <span className="text-xs text-foreground-subtle">Select Industry Vertical</span>
+              <span className="text-xs text-[#595959]">Select Industry Vertical</span>
             </div>
-            <h3 className="text-lg md:text-xl font-bold text-white mb-5">Choose Your Sector</h3>
+            <h3 className="text-lg md:text-xl font-bold text-[#000000] mb-5">Choose Your Sector</h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {CATEGORY_IDS.map((catId) => {
@@ -224,25 +224,25 @@ export function BudgetEstimator({
                     type="button"
                     onClick={() => handleCategoryChange(catId)}
                     className={cn(
-                      "flex items-center gap-3.5 rounded-2xl p-4 text-left transition-all duration-200 border",
+                      "flex items-center gap-3.5 p-4 text-left transition-colors border",
                       isSelected
-                        ? "border-indigo-500/80 bg-indigo-500/15 shadow-[0_0_20px_rgba(99,102,241,0.25)]"
-                        : "border-surface-border bg-surface/50 hover:border-slate-600 hover:bg-surface-elevated/80"
+                        ? "border-2 border-[#000000] bg-white shadow-xs"
+                        : "border-[#d8d8d8] bg-white hover:border-[#595959]"
                     )}
                   >
                     <div
                       className={cn(
-                        "flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border transition-colors",
+                        "flex h-11 w-11 shrink-0 items-center justify-center border transition-colors",
                         isSelected
-                          ? "border-indigo-400 bg-indigo-500 text-white"
-                          : "border-surface-border bg-canvas text-foreground-muted"
+                          ? "border-[#000000] bg-[#000000] text-white"
+                          : "border-[#d8d8d8] bg-[#f0f0f0] text-[#000000]"
                       )}
                     >
                       <Icon className="h-5 w-5" />
                     </div>
                     <div className="min-w-0">
-                      <p className="text-xs font-bold text-white truncate">{cat.title}</p>
-                      <p className="text-[11px] text-foreground-subtle truncate mt-0.5">
+                      <p className="text-xs font-bold text-[#000000] truncate">{cat.title}</p>
+                      <p className="text-[11px] text-[#595959] truncate mt-0.5">
                         {cat.tiers.length} Tier Options
                       </p>
                     </div>
@@ -253,15 +253,15 @@ export function BudgetEstimator({
           </div>
 
           {/* STEP 2: Tier Selection */}
-          <div className="rounded-3xl border border-surface-border bg-surface/40 p-6 md:p-8 backdrop-blur-md">
-            <div className="flex items-center justify-between mb-4">
-              <span className="font-mono text-xs text-emerald-400 uppercase tracking-wider font-semibold">
+          <div className="border border-[#d8d8d8] bg-white p-6 md:p-8">
+            <div className="flex items-center justify-between mb-4 border-b border-[#d8d8d8] pb-3">
+              <span className="font-mono text-xs text-[#000000] uppercase tracking-wider font-bold">
                 Step 2 of 3
               </span>
-              <span className="text-xs text-foreground-subtle">{category.title} Packages</span>
+              <span className="text-xs text-[#595959]">{category.title} Packages</span>
             </div>
-            <h3 className="text-lg md:text-xl font-bold text-white mb-2">Select Base Package Tier</h3>
-            <p className="text-xs text-foreground-muted mb-6">
+            <h3 className="text-lg md:text-xl font-bold text-[#000000] mb-2">Select Base Package Tier</h3>
+            <p className="text-xs text-[#595959] mb-6">
               Each tier includes clean responsive engineering, foundational SEO, and revision rounds.
             </p>
 
@@ -275,39 +275,39 @@ export function BudgetEstimator({
                     type="button"
                     onClick={() => setSelectedTierId(t.id)}
                     className={cn(
-                      "relative flex flex-col justify-between rounded-2xl p-5 text-left transition-all duration-200 border",
+                      "relative flex flex-col justify-between p-5 text-left transition-colors border",
                       isSelected
-                        ? "border-emerald-500/80 bg-emerald-500/10 shadow-[0_0_25px_rgba(16,185,129,0.2)]"
-                        : "border-surface-border bg-surface/50 hover:border-slate-600 hover:bg-surface-elevated/70"
+                        ? "border-2 border-[#000000] bg-white shadow-xs"
+                        : "border-[#d8d8d8] bg-white hover:border-[#595959]"
                     )}
                   >
                     {t.popular && (
-                      <span className="absolute -top-2.5 right-4 rounded-full bg-indigo-600 px-2.5 py-0.5 font-mono text-[9px] font-bold text-white uppercase tracking-wider">
-                        Popular
+                      <span className="absolute -top-2.5 right-4 bg-[#000000] text-white px-2.5 py-0.5 font-mono text-[9px] font-bold uppercase tracking-wider rounded-full">
+                        POPULAR
                       </span>
                     )}
 
                     <div>
                       <div className="flex items-center justify-between">
-                        <h4 className="text-sm font-bold text-white">{t.name}</h4>
+                        <h4 className="text-sm font-bold text-[#000000]">{t.name}</h4>
                         {isSelected && (
-                          <div className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500 text-canvas">
+                          <div className="flex h-5 w-5 items-center justify-center rounded-full bg-[#000000] text-white">
                             <Check className="h-3 w-3 stroke-[3]" />
                           </div>
                         )}
                       </div>
 
                       <div className="mt-3 flex items-baseline gap-1">
-                        <span className="text-xl font-extrabold text-white">{t.priceDisplay}</span>
+                        <span className="text-xl font-extrabold text-[#000000]">{t.priceDisplay}</span>
                       </div>
 
-                      <div className="mt-3 space-y-1 text-[11px] text-foreground-subtle">
-                        <p className="font-medium text-foreground-muted">{t.pageScope}</p>
+                      <div className="mt-3 space-y-1 text-[11px] text-[#595959]">
+                        <p className="font-medium text-[#000000]">{t.pageScope}</p>
                         <p>{t.revisionCount}</p>
                       </div>
                     </div>
 
-                    <div className="mt-4 pt-3 border-t border-surface-border/50 text-[10px] text-foreground-subtle">
+                    <div className="mt-4 pt-3 border-t border-[#d8d8d8] text-[10px] text-[#595959]">
                       {t.targetAudience}
                     </div>
                   </button>
@@ -317,28 +317,28 @@ export function BudgetEstimator({
           </div>
 
           {/* STEP 3: Add-Ons & Maintenance Configurator */}
-          <div className="rounded-3xl border border-surface-border bg-surface/40 p-6 md:p-8 backdrop-blur-md">
-            <div className="flex items-center justify-between mb-4">
-              <span className="font-mono text-xs text-indigo-400 uppercase tracking-wider font-semibold">
+          <div className="border border-[#d8d8d8] bg-white p-6 md:p-8">
+            <div className="flex items-center justify-between mb-4 border-b border-[#d8d8d8] pb-3">
+              <span className="font-mono text-xs text-[#000000] uppercase tracking-wider font-bold">
                 Step 3 of 3
               </span>
-              <span className="text-xs text-foreground-subtle">Custom Inclusions & Add-Ons</span>
+              <span className="text-xs text-[#595959]">Custom Inclusions & Add-Ons</span>
             </div>
-            <h3 className="text-lg md:text-xl font-bold text-white mb-2">Tailor Scope & Maintenance</h3>
-            <p className="text-xs text-foreground-muted mb-6">
+            <h3 className="text-lg md:text-xl font-bold text-[#000000] mb-2">Tailor Scope & Maintenance</h3>
+            <p className="text-xs text-[#595959] mb-6">
               Configure extra pages, express delivery speed, and ongoing maintenance retainers.
             </p>
 
-            <div className="space-y-3.5">
+            <div className="space-y-3">
               {/* Add-on 1: Extra Pages Counter */}
-              <div className="flex items-center justify-between rounded-2xl border border-surface-border bg-surface/60 p-4 transition-colors hover:border-slate-700">
+              <div className="flex items-center justify-between border border-[#d8d8d8] bg-white p-4">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-canvas border border-surface-border text-indigo-400">
+                  <div className="flex h-10 w-10 items-center justify-center border border-[#d8d8d8] bg-[#f0f0f0] text-[#000000]">
                     <FileText className="h-5 w-5" />
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-white">Additional Custom Page(s)</p>
-                    <p className="text-[11px] text-foreground-subtle">
+                    <p className="text-xs font-semibold text-[#000000]">Additional Custom Page(s)</p>
+                    <p className="text-[11px] text-[#595959]">
                       +₹1,200 per bespoke page or interactive section
                     </p>
                   </div>
@@ -349,18 +349,18 @@ export function BudgetEstimator({
                     type="button"
                     onClick={() => setExtraPages((prev) => Math.max(0, prev - 1))}
                     disabled={extraPages === 0}
-                    className="flex h-8 w-8 items-center justify-center rounded-lg border border-surface-border bg-canvas text-foreground-muted transition-colors hover:text-white disabled:opacity-40"
+                    className="flex h-8 w-8 items-center justify-center border border-[#d8d8d8] bg-[#f0f0f0] text-[#000000] transition-colors hover:border-[#000000] disabled:opacity-40"
                     aria-label="Decrease extra pages"
                   >
                     <Minus className="h-3.5 w-3.5" />
                   </button>
-                  <span className="font-mono text-sm font-bold text-white w-5 text-center">
+                  <span className="font-mono text-sm font-bold text-[#000000] w-5 text-center">
                     {extraPages}
                   </span>
                   <button
                     type="button"
                     onClick={() => setExtraPages((prev) => prev + 1)}
-                    className="flex h-8 w-8 items-center justify-center rounded-lg border border-surface-border bg-canvas text-foreground-muted transition-colors hover:text-white"
+                    className="flex h-8 w-8 items-center justify-center border border-[#d8d8d8] bg-[#f0f0f0] text-[#000000] transition-colors hover:border-[#000000]"
                     aria-label="Increase extra pages"
                   >
                     <Plus className="h-3.5 w-3.5" />
@@ -368,16 +368,16 @@ export function BudgetEstimator({
                 </div>
               </div>
 
-              {/* Add-on 2: Custom Domain & Cloudflare DNS */}
-              <label className="flex items-center justify-between rounded-2xl border border-surface-border bg-surface/60 p-4 transition-colors hover:border-slate-700 cursor-pointer">
+              {/* Add-on 2: Domain Setup */}
+              <label className="flex items-center justify-between border border-[#d8d8d8] bg-white p-4 cursor-pointer hover:border-[#595959] transition-colors">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-canvas border border-surface-border text-emerald-400">
+                  <div className="flex h-10 w-10 items-center justify-center border border-[#d8d8d8] bg-[#f0f0f0] text-[#000000]">
                     <Globe className="h-5 w-5" />
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-white">Custom Domain & Cloudflare DNS</p>
-                    <p className="text-[11px] text-foreground-subtle">
-                      Complete .com/.in setup, DNS routing & automated SSL (+₹1,500)
+                    <p className="text-xs font-semibold text-[#000000]">Custom Domain & Cloudflare DNS</p>
+                    <p className="text-[11px] text-[#595959]">
+                      DNS configuration, SSL certificate, and security firewall routing (+₹1,500)
                     </p>
                   </div>
                 </div>
@@ -386,20 +386,20 @@ export function BudgetEstimator({
                   type="checkbox"
                   checked={domainSetup}
                   onChange={(e) => setDomainSetup(e.target.checked)}
-                  className="h-5 w-5 rounded border-slate-700 bg-canvas text-emerald-500 focus:ring-emerald-500"
+                  className="h-5 w-5 accent-[#000000] border-[#d8d8d8]"
                 />
               </label>
 
-              {/* Add-on 3: Fast-Track 48-Hour Priority Delivery */}
-              <label className="flex items-center justify-between rounded-2xl border border-surface-border bg-surface/60 p-4 transition-colors hover:border-slate-700 cursor-pointer">
+              {/* Add-on 3: Fast-Track Express */}
+              <label className="flex items-center justify-between border border-[#d8d8d8] bg-white p-4 cursor-pointer hover:border-[#595959] transition-colors">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-canvas border border-surface-border text-indigo-400">
+                  <div className="flex h-10 w-10 items-center justify-center border border-[#d8d8d8] bg-[#f0f0f0] text-[#000000]">
                     <Zap className="h-5 w-5" />
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-white">Fast-Track Express Rush</p>
-                    <p className="text-[11px] text-foreground-subtle">
-                      48-72 Hour dedicated priority sprint (+₹2,500)
+                    <p className="text-xs font-semibold text-[#000000]">Fast-Track Express Rush</p>
+                    <p className="text-[11px] text-[#595959]">
+                      High-priority engineering queue with 48h to 72h first staging delivery (+₹2,500)
                     </p>
                   </div>
                 </div>
@@ -408,56 +408,56 @@ export function BudgetEstimator({
                   type="checkbox"
                   checked={fastTrack}
                   onChange={(e) => setFastTrack(e.target.checked)}
-                  className="h-5 w-5 rounded border-slate-700 bg-canvas text-indigo-500 focus:ring-indigo-500"
+                  className="h-5 w-5 accent-[#000000] border-[#d8d8d8]"
                 />
               </label>
 
               {/* Add-on 4: Payment Gateway Integration */}
               <label
                 className={cn(
-                  "flex items-center justify-between rounded-2xl border bg-surface/60 p-4 transition-colors",
+                  "flex items-center justify-between border border-[#d8d8d8] p-4 transition-colors",
                   isPaymentIncludedInTier
-                    ? "opacity-60 border-surface-border cursor-not-allowed"
-                    : "border-surface-border hover:border-slate-700 cursor-pointer"
+                    ? "bg-[#f0f0f0] cursor-not-allowed opacity-80"
+                    : "bg-white cursor-pointer hover:border-[#595959]"
                 )}
               >
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-canvas border border-surface-border text-emerald-400">
+                  <div className="flex h-10 w-10 items-center justify-center border border-[#d8d8d8] bg-[#f0f0f0] text-[#000000]">
                     <CreditCard className="h-5 w-5" />
                   </div>
                   <div>
                     <div className="flex items-center gap-2">
-                      <p className="text-xs font-semibold text-white">Payment Gateway Integration</p>
+                      <p className="text-xs font-semibold text-[#000000]">Razorpay / Stripe Gateway Setup</p>
                       {isPaymentIncludedInTier && (
-                        <span className="rounded bg-emerald-500/20 px-2 py-0.5 font-mono text-[9px] text-emerald-400">
-                          Included in Tier
+                        <span className="bg-[#000000] text-white px-2 py-0.5 font-mono text-[9px] font-bold rounded-full">
+                          INCLUDED IN TIER
                         </span>
                       )}
                     </div>
-                    <p className="text-[11px] text-foreground-subtle">
-                      Razorpay / Stripe / UPI checkout & automated receipts (+₹3,500)
+                    <p className="text-[11px] text-[#595959]">
+                      Secure UPI, Cards, and Net Banking checkout with automated webhooks (+₹3,500)
                     </p>
                   </div>
                 </div>
 
                 <input
                   type="checkbox"
+                  checked={paymentGateway || isPaymentIncludedInTier}
                   disabled={isPaymentIncludedInTier}
-                  checked={isPaymentIncludedInTier || paymentGateway}
                   onChange={(e) => setPaymentGateway(e.target.checked)}
-                  className="h-5 w-5 rounded border-slate-700 bg-canvas text-emerald-500 focus:ring-emerald-500 disabled:opacity-50"
+                  className="h-5 w-5 accent-[#000000] border-[#d8d8d8]"
                 />
               </label>
 
               {/* Add-on 5: Professional Copywriting */}
-              <label className="flex items-center justify-between rounded-2xl border border-surface-border bg-surface/60 p-4 transition-colors hover:border-slate-700 cursor-pointer">
+              <label className="flex items-center justify-between border border-[#d8d8d8] bg-white p-4 cursor-pointer hover:border-[#595959] transition-colors">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-canvas border border-surface-border text-indigo-400">
-                    <Sparkles className="h-5 w-5" />
+                  <div className="flex h-10 w-10 items-center justify-center border border-[#d8d8d8] bg-[#f0f0f0] text-[#000000]">
+                    <Sparkles className="h-5 w-5 text-[#fa9000]" />
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-white">Professional Copywriting</p>
-                    <p className="text-[11px] text-foreground-subtle">
+                    <p className="text-xs font-semibold text-[#000000]">Professional Copywriting</p>
+                    <p className="text-[11px] text-[#595959]">
                       High-converting headlines, value props, and SEO content ingestion (+₹2,000)
                     </p>
                   </div>
@@ -467,19 +467,19 @@ export function BudgetEstimator({
                   type="checkbox"
                   checked={copywriting}
                   onChange={(e) => setCopywriting(e.target.checked)}
-                  className="h-5 w-5 rounded border-slate-700 bg-canvas text-indigo-500 focus:ring-indigo-500"
+                  className="h-5 w-5 accent-[#000000] border-[#d8d8d8]"
                 />
               </label>
 
               {/* Add-on 6: Monthly Maintenance Care Selector */}
               {category.maintenancePlans && category.maintenancePlans.length > 0 && (
-                <div className="rounded-2xl border border-surface-border/80 bg-surface/40 p-4 mt-6">
+                <div className="border border-[#d8d8d8] bg-[#f0f0f0] p-4 mt-6">
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">
-                      <ShieldCheck className="h-4 w-4 text-emerald-400" />
-                      <p className="text-xs font-semibold text-white">Ongoing Monthly Care Retainer</p>
+                      <ShieldCheck className="h-4 w-4 text-[#000000]" />
+                      <p className="text-xs font-semibold text-[#000000]">Ongoing Monthly Care Retainer</p>
                     </div>
-                    <span className="font-mono text-[10px] text-foreground-subtle">Optional</span>
+                    <span className="font-mono text-[10px] text-[#595959]">Optional</span>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-4 gap-2">
@@ -487,14 +487,14 @@ export function BudgetEstimator({
                       type="button"
                       onClick={() => setSelectedCarePlanId(null)}
                       className={cn(
-                        "rounded-xl border p-2.5 text-center text-xs transition-colors",
+                        "p-2.5 text-center text-xs transition-colors border",
                         selectedCarePlanId === null
-                          ? "border-emerald-500/70 bg-emerald-500/10 text-emerald-300 font-semibold"
-                          : "border-surface-border bg-surface/50 text-foreground-muted hover:border-slate-600"
+                          ? "border-2 border-[#000000] bg-white text-[#000000] font-bold"
+                          : "border-[#d8d8d8] bg-white text-[#595959] hover:border-[#000000]"
                       )}
                     >
                       <span>No Retainer</span>
-                      <p className="text-[10px] text-foreground-subtle mt-0.5">₹0/mo</p>
+                      <p className="text-[10px] text-[#595959] mt-0.5">₹0/mo</p>
                     </button>
 
                     {category.maintenancePlans.map((plan) => {
@@ -505,14 +505,14 @@ export function BudgetEstimator({
                           type="button"
                           onClick={() => setSelectedCarePlanId(plan.id)}
                           className={cn(
-                            "rounded-xl border p-2.5 text-center text-xs transition-colors",
+                            "p-2.5 text-center text-xs transition-colors border",
                             isCareSelected
-                              ? "border-emerald-500/70 bg-emerald-500/10 text-emerald-300 font-semibold shadow-sm"
-                              : "border-surface-border bg-surface/50 text-foreground-muted hover:border-slate-600"
+                              ? "border-2 border-[#000000] bg-white text-[#000000] font-bold shadow-xs"
+                              : "border-[#d8d8d8] bg-white text-[#595959] hover:border-[#000000]"
                           )}
                         >
                           <span className="truncate block">{plan.name}</span>
-                          <p className="text-[10px] text-emerald-400 mt-0.5">{plan.monthlyPriceDisplay}</p>
+                          <p className="text-[10px] text-[#000000] font-semibold mt-0.5">{plan.monthlyPriceDisplay}</p>
                         </button>
                       );
                     })}
@@ -524,19 +524,15 @@ export function BudgetEstimator({
         </div>
 
         {/* ===================================================================== */}
-        {/* RIGHT COLUMN: Sticky Real-Time Price Receipt & CTAs (5 Cols on LG) */}
+        {/* RIGHT COLUMN: Sticky Real-Time Price Receipt & CTAs (Al Jazeera Soft Panel) */}
         {/* ===================================================================== */}
         <div className="lg:col-span-5 sticky top-28">
-          <div className="glass-panel-elevated relative overflow-hidden rounded-3xl border border-surface-border p-6 md:p-8 shadow-2xl">
-            {/* Ambient receipt glow */}
-            <div className="pointer-events-none absolute -top-12 -right-12 h-44 w-44 rounded-full bg-emerald-500/10 blur-2xl" />
-            <div className="pointer-events-none absolute -bottom-12 -left-12 h-44 w-44 rounded-full bg-indigo-500/10 blur-2xl" />
-
+          <div className="soft-panel p-6 md:p-8">
             {/* Receipt Header */}
-            <div className="flex items-center justify-between border-b border-surface-border/60 pb-4">
+            <div className="flex items-center justify-between border-b border-[#d8d8d8] pb-4">
               <div className="flex items-center gap-2">
-                <Calculator className="h-4 w-4 text-emerald-400" />
-                <span className="font-mono text-xs font-semibold text-white uppercase tracking-wider">
+                <Calculator className="h-4 w-4 text-[#000000]" />
+                <span className="font-mono text-xs font-bold text-[#000000] uppercase tracking-wider">
                   Scope Estimate Receipt
                 </span>
               </div>
@@ -544,13 +540,13 @@ export function BudgetEstimator({
                 <button
                   type="button"
                   onClick={handleReset}
-                  className="flex items-center gap-1 rounded-md px-1.5 py-0.5 text-[10px] font-mono text-foreground-subtle transition-colors hover:bg-surface hover:text-white"
+                  className="flex items-center gap-1 rounded-full border border-[#d8d8d8] bg-white px-2 py-0.5 text-[10px] font-mono text-[#595959] transition-colors hover:text-[#000000] hover:border-[#000000]"
                   title="Reset optional add-ons to clean baseline"
                 >
                   <RotateCcw className="h-3 w-3" />
                   <span>Reset</span>
                 </button>
-                <span className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-0.5 font-mono text-[10px] text-emerald-400">
+                <span className="border border-[#d8d8d8] bg-white px-2 py-0.5 font-mono text-[10px] text-[#000000] rounded-full">
                   Live Pricing
                 </span>
               </div>
@@ -561,14 +557,14 @@ export function BudgetEstimator({
               {/* Sector & Base Tier */}
               <div className="flex items-start justify-between">
                 <div>
-                  <p className="font-semibold text-white">
+                  <p className="font-bold text-[#000000]">
                     {category.title} — {tier.name}
                   </p>
-                  <p className="text-[11px] text-foreground-subtle mt-0.5">
+                  <p className="text-[11px] text-[#595959] mt-0.5">
                     {tier.pageScope} • {tier.revisionCount}
                   </p>
                 </div>
-                <span className="font-mono font-bold text-white">
+                <span className="font-mono font-bold text-[#000000]">
                   ₹{tier.price.toLocaleString("en-IN")}
                 </span>
               </div>
@@ -582,10 +578,10 @@ export function BudgetEstimator({
                     animate={{ opacity: 1, height: "auto" }}
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.2 }}
-                    className="flex items-center justify-between text-foreground-muted overflow-hidden"
+                    className="flex items-center justify-between text-[#595959] overflow-hidden"
                   >
                     <span>{extraPages} Extra Custom Page(s)</span>
-                    <span className="font-mono font-medium text-white">
+                    <span className="font-mono font-medium text-[#000000]">
                       +₹{extraPagesCost.toLocaleString("en-IN")}
                     </span>
                   </motion.div>
@@ -599,10 +595,10 @@ export function BudgetEstimator({
                     animate={{ opacity: 1, height: "auto" }}
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.2 }}
-                    className="flex items-center justify-between text-foreground-muted overflow-hidden"
+                    className="flex items-center justify-between text-[#595959] overflow-hidden"
                   >
                     <span>Custom Domain & Cloudflare DNS</span>
-                    <span className="font-mono font-medium text-white">+₹1,500</span>
+                    <span className="font-mono font-medium text-[#000000]">+₹1,500</span>
                   </motion.div>
                 )}
 
@@ -614,10 +610,10 @@ export function BudgetEstimator({
                     animate={{ opacity: 1, height: "auto" }}
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.2 }}
-                    className="flex items-center justify-between text-foreground-muted overflow-hidden"
+                    className="flex items-center justify-between text-[#595959] overflow-hidden"
                   >
                     <span>Fast-Track Express Rush (48h)</span>
-                    <span className="font-mono font-medium text-white">+₹2,500</span>
+                    <span className="font-mono font-medium text-[#000000]">+₹2,500</span>
                   </motion.div>
                 )}
 
@@ -629,10 +625,10 @@ export function BudgetEstimator({
                     animate={{ opacity: 1, height: "auto" }}
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.2 }}
-                    className="flex items-center justify-between text-foreground-muted overflow-hidden"
+                    className="flex items-center justify-between text-[#595959] overflow-hidden"
                   >
                     <span>Payment Gateway Integration</span>
-                    <span className="font-mono font-medium text-white">+₹3,500</span>
+                    <span className="font-mono font-medium text-[#000000]">+₹3,500</span>
                   </motion.div>
                 )}
 
@@ -644,10 +640,10 @@ export function BudgetEstimator({
                     animate={{ opacity: 1, height: "auto" }}
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.2 }}
-                    className="flex items-center justify-between text-foreground-muted overflow-hidden"
+                    className="flex items-center justify-between text-[#595959] overflow-hidden"
                   >
                     <span>Professional Copywriting</span>
-                    <span className="font-mono font-medium text-white">+₹2,000</span>
+                    <span className="font-mono font-medium text-[#000000]">+₹2,000</span>
                   </motion.div>
                 )}
 
@@ -659,13 +655,13 @@ export function BudgetEstimator({
                     animate={{ opacity: 1, height: "auto" }}
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.2 }}
-                    className="flex items-center justify-between border-t border-surface-border/50 pt-3 text-emerald-300 overflow-hidden"
+                    className="flex items-center justify-between border-t border-[#d8d8d8] pt-3 text-[#000000] overflow-hidden"
                   >
-                    <span className="flex items-center gap-1.5">
-                      <ShieldCheck className="h-3.5 w-3.5 text-emerald-400" />
+                    <span className="flex items-center gap-1.5 font-medium">
+                      <ShieldCheck className="h-3.5 w-3.5 text-[#000000]" />
                       Monthly Retainer ({selectedCarePlan.name})
                     </span>
-                    <span className="font-mono font-medium">
+                    <span className="font-mono font-bold">
                       {selectedCarePlan.monthlyPriceDisplay}
                     </span>
                   </motion.div>
@@ -674,34 +670,34 @@ export function BudgetEstimator({
             </div>
 
             {/* Total Grand Cost Summary */}
-            <div className="border-t border-surface-border/80 pt-5 space-y-3">
+            <div className="border-t border-[#d8d8d8] pt-5 space-y-3">
               <div className="flex items-baseline justify-between">
                 <div>
-                  <span className="text-xs uppercase font-mono tracking-wider text-foreground-subtle">
+                  <span className="text-xs uppercase font-mono tracking-wider text-[#595959] font-bold">
                     Initial Investment
                   </span>
-                  <p className="text-[11px] text-foreground-muted">One-time transparent fee</p>
+                  <p className="text-[11px] text-[#595959]">One-time transparent fee</p>
                 </div>
-                <span className="text-3xl font-extrabold text-white tracking-tight">
+                <span className="text-3xl font-extrabold text-[#000000] tracking-tight">
                   ₹{totalOneTime.toLocaleString("en-IN")}
                 </span>
               </div>
 
               {recurringMonthly > 0 && (
-                <div className="flex items-baseline justify-between text-xs pt-1">
-                  <span className="text-foreground-muted">Ongoing Maintenance:</span>
-                  <span className="font-mono font-bold text-emerald-400">
+                <div className="flex items-baseline justify-between text-xs pt-1 border-t border-[#d8d8d8]">
+                  <span className="text-[#595959]">Ongoing Maintenance:</span>
+                  <span className="font-mono font-bold text-[#000000]">
                     ₹{recurringMonthly.toLocaleString("en-IN")}/month
                   </span>
                 </div>
               )}
 
-              <div className="flex items-center justify-between rounded-xl bg-surface/60 border border-surface-border p-3 text-xs">
-                <div className="flex items-center gap-2 text-foreground-muted">
-                  <Clock className="h-3.5 w-3.5 text-indigo-400" />
+              <div className="flex items-center justify-between bg-white border border-[#d8d8d8] p-3 text-xs">
+                <div className="flex items-center gap-2 text-[#595959]">
+                  <Clock className="h-3.5 w-3.5 text-[#000000]" />
                   <span>Target Turnaround:</span>
                 </div>
-                <span className="font-mono font-semibold text-white">{turnaround}</span>
+                <span className="font-mono font-semibold text-[#000000]">{turnaround}</span>
               </div>
             </div>
 
@@ -711,29 +707,22 @@ export function BudgetEstimator({
                 href={generateWhatsAppUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={cn(
-                  "group flex w-full items-center justify-center gap-2 rounded-xl py-3.5 text-xs font-semibold text-white transition-all duration-300",
-                  "bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400",
-                  "shadow-[0_0_25px_rgba(16,185,129,0.35)] hover:shadow-[0_0_32px_rgba(16,185,129,0.5)]"
-                )}
+                className="button-pill-dark w-full py-3.5 text-xs justify-center"
               >
-                <MessageCircle className="h-4 w-4 transition-transform group-hover:scale-110" />
+                <MessageCircle className="h-4 w-4 text-white" />
                 <span>Send Scope via WhatsApp</span>
-                <ArrowRight className="h-3.5 w-3.5 opacity-80 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="h-3.5 w-3.5" />
               </a>
 
               <button
                 type="button"
                 onClick={handleCopyBreakdown}
-                className={cn(
-                  "flex w-full items-center justify-center gap-2 rounded-xl border border-surface-border bg-surface/70 py-3 text-xs font-semibold text-foreground-muted transition-all",
-                  "hover:border-slate-500 hover:text-white hover:bg-surface-elevated"
-                )}
+                className="button-pill-ghost w-full py-3 text-xs justify-center"
               >
                 {copied ? (
                   <>
-                    <CheckCheck className="h-4 w-4 text-emerald-400" />
-                    <span className="text-emerald-400 font-bold">Estimate Copied to Clipboard!</span>
+                    <CheckCheck className="h-4 w-4 text-[#000000]" />
+                    <span className="text-[#000000] font-bold">Estimate Copied to Clipboard!</span>
                   </>
                 ) : (
                   <>
@@ -745,7 +734,7 @@ export function BudgetEstimator({
             </div>
 
             {/* Legal / SOW footnote */}
-            <p className="mt-5 text-[10px] text-foreground-subtle text-center leading-relaxed">
+            <p className="mt-5 text-[10px] text-[#595959] text-center leading-relaxed">
               *Estimates reflect standard engineering deliverables. Exact requirements formalized in a binding
               Statement of Work (SOW) before development kicks off.
             </p>

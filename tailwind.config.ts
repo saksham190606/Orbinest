@@ -28,92 +28,95 @@ const config: Config = {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ["var(--font-roboto)", "Roboto", "sans-serif"],
+        mono: ["var(--font-roboto-mono)", "Roboto Mono", "monospace"],
+      },
       colors: {
-        // Deep obsidian/slate dark developer & agency backgrounds
+        // Al Jazeera Signature Palette
+        primary: {
+          DEFAULT: "#fa9000", // Al Jazeera warm saturated orange
+          foreground: "#ffffff",
+        },
+        "live-red": "#c31833", // strictly for live/breaking state
+        ink: "#000000", // crisp news black
+        charcoal: "#333333",
+        slate: {
+          DEFAULT: "#595959",
+          50: "#f8f8f8",
+          100: "#f0f0f0",
+          200: "#e5e5e5",
+          300: "#d8d8d8",
+          400: "#999999",
+          500: "#595959",
+          600: "#444444",
+          700: "#333333",
+          800: "#222222",
+          900: "#111111",
+          950: "#000000",
+        },
         canvas: {
-          DEFAULT: "#090D16",
-          subtle: "#0D1322",
+          DEFAULT: "#ffffff",
+          subtle: "#f0f0f0",
         },
         surface: {
-          DEFAULT: "#0F172A",
-          elevated: "#162032",
-          card: "#0D1424",
-          hover: "#1E293B",
-          border: "#1E293B",
+          DEFAULT: "#ffffff",
+          elevated: "#ffffff",
+          card: "#ffffff",
+          hover: "#f8f8f8",
+          border: "#d8d8d8",
         },
-        // Crisp neutral text hierarchy
-        foreground: {
-          DEFAULT: "#F8FAFC",
-          muted: "#94A3B8",
-          subtle: "#64748B",
-          inverse: "#090D16",
-        },
-        // Vibrant Indigo accents
+        soft: "#f0f0f0",
+        hairline: "#d8d8d8",
+        silver: "#bebebe",
+        mist: "#dddddd",
+        graphite: "#323232",
+
+        // Al Jazeera Corporate / Network extension tokens
         indigo: {
-          50: "#EEF2FF",
-          100: "#E0E7FF",
-          200: "#C7D2FE",
-          300: "#A5B4FC",
-          400: "#818CF8",
-          500: "#6366F1",
-          600: "#4F46E5",
-          700: "#4338CA",
-          800: "#3730A3",
-          900: "#312E81",
-          glow: "rgba(99, 102, 241, 0.25)",
+          DEFAULT: "#272967",
+          50: "#f0f0fa",
+          100: "#e0e1f5",
+          500: "#272967",
+          600: "#202154",
+          700: "#181940",
+          900: "#100e2f",
         },
-        // Vibrant Emerald accents
-        emerald: {
-          50: "#ECFDF5",
-          100: "#D1FAE5",
-          200: "#A7F3D0",
-          300: "#6EE7B7",
-          400: "#34D399",
-          500: "#10B981",
-          600: "#059669",
-          700: "#047857",
-          800: "#065F46",
-          900: "#064E3B",
-          glow: "rgba(16, 185, 129, 0.25)",
-        },
-        // Slate extended shades
-        slate: {
-          850: "#162032",
-          950: "#090D16",
+        "night-navy": "#100e2f",
+        "network-canvas": "#181818",
+        gold: "#dba200",
+        amber: "#ffa000",
+        "select-gold": "#ffc500",
+        "rail-teal": "#00cbca",
+        "rail-red": "#bc0000",
+
+        foreground: {
+          DEFAULT: "#000000",
+          muted: "#595959",
+          subtle: "#595959",
+          inverse: "#ffffff",
         },
       },
       borderRadius: {
-        "2xl": "1rem",
-        "3xl": "1.5rem",
-        "4xl": "2rem",
-      },
-      backgroundImage: {
-        "radial-hero":
-          "radial-gradient(1200px circle at 50% -10%, rgba(99, 102, 241, 0.18), rgba(16, 185, 129, 0.06) 40%, transparent 70%)",
-        "radial-indigo":
-          "radial-gradient(600px circle at center, rgba(99, 102, 241, 0.2), transparent 70%)",
-        "radial-emerald":
-          "radial-gradient(600px circle at center, rgba(16, 185, 129, 0.2), transparent 70%)",
-        "gradient-accent":
-          "linear-gradient(135deg, #6366F1 0%, #38BDF8 50%, #10B981 100%)",
+        xs: "2px",
+        sm: "4px",
+        md: "10px",
+        lg: "18px",
+        xl: "22px",
+        full: "9999px",
       },
       boxShadow: {
-        "glow-indigo": "0 0 35px -5px rgba(99, 102, 241, 0.35)",
-        "glow-emerald": "0 0 35px -5px rgba(16, 185, 129, 0.35)",
-        glass: "0 8px 32px 0 rgba(0, 0, 0, 0.37)",
+        dropdown: "0 6px 12px rgba(0, 0, 0, 0.175)",
+        hairline: "0 0 0 1px #d8d8d8",
       },
       animation: {
         "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         float: "float 6s ease-in-out infinite",
-        shimmer: "shimmer 2.5s linear infinite",
       },
       keyframes: {
         float: {
           "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-10px)" },
-        },
-        shimmer: {
-          "100%": { transform: "translateX(100%)" },
+          "50%": { transform: "translateY(-6px)" },
         },
       },
     },

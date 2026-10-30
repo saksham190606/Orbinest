@@ -53,9 +53,9 @@ export function PortfolioShowcase() {
 
   return (
     <div className="w-full">
-      {/* Category Filter Bar */}
-      <div className="flex flex-wrap items-center justify-center gap-2 mb-12 sm:mb-16">
-        <div className="inline-flex flex-wrap items-center justify-center gap-1.5 rounded-2xl border border-surface-border bg-surface/50 p-1.5 backdrop-blur-md">
+      {/* Category Filter Bar - Al Jazeera Capsule Switcher */}
+      <div className="flex flex-wrap items-center justify-center gap-2 mb-10 sm:mb-14">
+        <div className="inline-flex flex-wrap items-center justify-center gap-1.5 border border-[#d8d8d8] bg-white p-1.5 rounded-full">
           {PORTFOLIO_FILTERS.map((filter) => {
             const isActive = selectedFilter === filter.id;
             const count = counts[filter.id] || 0;
@@ -66,26 +66,19 @@ export function PortfolioShowcase() {
                 type="button"
                 onClick={() => setSelectedFilter(filter.id)}
                 className={cn(
-                  "relative flex items-center gap-2 rounded-xl px-4 py-2 text-xs font-medium transition-colors duration-200",
+                  "relative flex items-center gap-2 rounded-full px-4 py-2 text-xs font-medium transition-colors duration-200",
                   isActive
-                    ? "text-white"
-                    : "text-foreground-muted hover:text-white hover:bg-surface/60"
+                    ? "bg-[#000000] text-white"
+                    : "text-[#595959] hover:text-[#000000] hover:bg-[#f0f0f0]"
                 )}
               >
-                {isActive && (
-                  <motion.div
-                    layoutId="portfolioActiveTab"
-                    className="absolute inset-0 rounded-xl bg-gradient-to-r from-indigo-600/90 to-indigo-500 shadow-md shadow-indigo-500/25"
-                    transition={{ type: "spring", bounce: 0.18, duration: 0.45 }}
-                  />
-                )}
-                <span className="relative z-10 font-semibold">{filter.label}</span>
+                <span className="font-semibold">{filter.label}</span>
                 <span
                   className={cn(
-                    "relative z-10 rounded-full px-1.5 py-0.2 font-mono text-[10px]",
+                    "rounded-full px-1.5 py-0.2 font-mono text-[10px]",
                     isActive
                       ? "bg-white/20 text-white"
-                      : "bg-surface-elevated text-foreground-subtle"
+                      : "bg-[#f0f0f0] text-[#595959]"
                   )}
                 >
                   {count}
@@ -96,45 +89,44 @@ export function PortfolioShowcase() {
         </div>
       </div>
 
-      {/* Projects Grid with Smooth Layout Transitions */}
+      {/* Projects Grid (Al Jazeera News-Card / Media-Thumb Architecture) */}
       <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
         <AnimatePresence mode="popLayout">
           {filteredProjects.map((project) => (
             <motion.div
               key={project.id}
               layout
-              initial={{ opacity: 0, scale: 0.94, y: 15 }}
+              initial={{ opacity: 0, scale: 0.96, y: 12 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.94, y: 15 }}
-              transition={{ duration: 0.35, ease: "easeOut" }}
-              className="glass-panel group flex flex-col justify-between overflow-hidden rounded-3xl border border-surface-border transition-all duration-300 hover:border-indigo-500/50 hover:shadow-[0_16px_40px_rgba(99,102,241,0.12)]"
+              exit={{ opacity: 0, scale: 0.96, y: 12 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="news-card flex flex-col justify-between transition-colors"
             >
               {/* Card Top: Browser / Device Mockup Header */}
-              <div className="relative overflow-hidden border-b border-surface-border/70 bg-canvas/80">
+              <div className="relative overflow-hidden border-b border-[#d8d8d8] bg-white">
                 {/* Browser Traffic Lights & Address Bar Simulation */}
-                <div className="flex items-center justify-between border-b border-surface-border/40 bg-surface/80 px-4 py-2.5 text-[11px] backdrop-blur-md">
+                <div className="flex items-center justify-between border-b border-[#d8d8d8] bg-[#f0f0f0] px-4 py-2 text-[11px]">
                   <div className="flex items-center gap-1.5">
-                    <span className="h-2.5 w-2.5 rounded-full bg-rose-500/80" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-amber-500/80" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-emerald-500/80" />
+                    <span className="h-2 w-2 rounded-full bg-[#595959]" />
+                    <span className="h-2 w-2 rounded-full bg-[#595959]/60" />
+                    <span className="h-2 w-2 rounded-full bg-[#595959]/40" />
                   </div>
 
-                  <div className="flex items-center gap-1 rounded-md bg-canvas/60 px-2.5 py-0.5 font-mono text-[10px] text-foreground-subtle border border-surface-border/50">
-                    <Lock className="h-2.5 w-2.5 text-emerald-400" />
+                  <div className="flex items-center gap-1 rounded bg-white px-2.5 py-0.5 font-mono text-[10px] text-[#595959] border border-[#d8d8d8]">
+                    <Lock className="h-2.5 w-2.5 text-[#000000]" />
                     <span className="truncate max-w-[130px] sm:max-w-[170px]">
                       orbinest.preview/{project.id}
                     </span>
                   </div>
 
-                  <div className="flex items-center gap-2 text-[10px] font-mono text-emerald-400">
-                    <div className="flex items-center gap-1">
-                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                      <span>Live</span>
-                    </div>
+                  {/* Al Jazeera Live Status Tag */}
+                  <div className="flex items-center gap-1.5 text-[10px] font-mono text-[#c31833] font-bold">
+                    <span className="live-dot !h-1.5 !w-1.5" />
+                    <span>LIVE</span>
                     <a
                       href={project.liveUrl || "#contact"}
                       aria-label={`View ${project.title} live preview`}
-                      className="text-foreground-subtle hover:text-white transition-colors"
+                      className="text-[#595959] hover:text-[#000000] ml-1 transition-colors"
                     >
                       <ExternalLink className="h-3 w-3" />
                     </a>
@@ -144,36 +136,36 @@ export function PortfolioShowcase() {
                 {/* Simulated Device Screen Canvas */}
                 <div
                   className={cn(
-                    "relative flex h-48 w-full flex-col justify-between p-5 bg-gradient-to-br transition-all duration-500 group-hover:scale-[1.02]",
+                    "relative flex h-48 w-full flex-col justify-between p-5 bg-gradient-to-br transition-all duration-300",
                     project.mockPreview.gradient
                   )}
                 >
                   <div className="flex items-center justify-between">
-                    <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-black/40 px-2.5 py-0.5 text-[10px] font-medium text-white backdrop-blur-md">
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-white/25 bg-black/60 px-2.5 py-0.5 text-[10px] font-medium text-white backdrop-blur-md">
                       {project.mockPreview.deviceType === "mobile" ? (
-                        <Smartphone className="h-3 w-3 text-purple-300" />
+                        <Smartphone className="h-3 w-3" />
                       ) : (
-                        <Globe className="h-3 w-3 text-indigo-300" />
+                        <Globe className="h-3 w-3" />
                       )}
                       <span>{project.categoryLabel}</span>
                     </span>
 
-                    <span className="inline-flex items-center gap-1 rounded-full border border-emerald-500/30 bg-emerald-500/20 px-2.5 py-0.5 font-mono text-[10px] font-medium text-emerald-300 backdrop-blur-md">
-                      <Clock className="h-3 w-3" />
+                    <span className="inline-flex items-center gap-1 rounded-full bg-white px-2.5 py-0.5 font-mono text-[10px] font-medium text-[#000000] shadow-xs">
+                      <Clock className="h-3 w-3 text-[#595959]" />
                       <span>{project.turnaround}</span>
                     </span>
                   </div>
 
-                  <div className="space-y-1.5 rounded-xl bg-canvas/60 p-3.5 backdrop-blur-md border border-white/10 shadow-lg">
+                  <div className="space-y-1.5 rounded-md bg-white/95 p-3.5 border border-[#d8d8d8] shadow-xs">
                     {project.mockPreview.badgeText && (
-                      <span className="font-mono text-[9px] font-semibold uppercase tracking-wider text-indigo-300">
+                      <span className="font-mono text-[9px] font-bold uppercase tracking-wider text-[#fa9000]">
                         {project.mockPreview.badgeText}
                       </span>
                     )}
-                    <h4 className="text-sm font-bold text-white tracking-tight leading-snug line-clamp-1">
+                    <h4 className="text-sm font-bold text-[#000000] tracking-tight leading-snug line-clamp-1">
                       {project.mockPreview.mockHeadline}
                     </h4>
-                    <p className="text-[11px] text-foreground-muted line-clamp-1">
+                    <p className="text-[11px] text-[#595959] line-clamp-1">
                       {project.mockPreview.mockSubtext}
                     </p>
                   </div>
@@ -183,37 +175,37 @@ export function PortfolioShowcase() {
               {/* Card Body: Project Info & Performance Badges */}
               <div className="flex-1 p-6 space-y-4">
                 <div>
-                  <div className="flex items-center justify-between text-[11px] text-foreground-subtle font-mono">
+                  <div className="flex items-center justify-between text-[11px] text-[#595959] font-mono">
                     <span>Client: {project.clientName}</span>
                     <span>{project.deliveryYear}</span>
                   </div>
-                  <h3 className="mt-1 text-lg font-bold text-white group-hover:text-indigo-200 transition-colors">
+                  <h3 className="mt-1 text-lg font-bold text-[#000000] group-hover:text-[#fa9000] transition-colors">
                     {project.title}
                   </h3>
-                  <p className="mt-1.5 text-xs text-indigo-300/90 font-medium">
+                  <p className="mt-1 text-xs text-[#000000] font-medium">
                     {project.tagline}
                   </p>
-                  <p className="mt-2 text-xs leading-relaxed text-foreground-muted line-clamp-3">
+                  <p className="mt-2 text-xs leading-relaxed text-[#595959] line-clamp-3">
                     {project.description}
                   </p>
                 </div>
 
-                {/* Performance Metrics Glass Strip */}
-                <div className="space-y-2 pt-2 border-t border-surface-border/60">
-                  <div className="flex items-center gap-1.5 text-[10px] font-mono text-emerald-400 font-semibold">
-                    <TrendingUp className="h-3 w-3" />
+                {/* Performance Metrics Data Strip */}
+                <div className="space-y-2 pt-3 border-t border-[#d8d8d8]">
+                  <div className="flex items-center gap-1.5 text-[10px] font-mono text-[#000000] font-bold">
+                    <TrendingUp className="h-3 w-3 text-[#000000]" />
                     <span>Verified Outcomes</span>
                   </div>
                   <div className="grid grid-cols-3 gap-2">
                     {project.metrics.map((metric, mIdx) => (
                       <div
                         key={mIdx}
-                        className="rounded-xl border border-surface-border bg-surface/70 p-2 text-center"
+                        className="border border-[#d8d8d8] bg-[#f0f0f0] p-2 text-center"
                       >
-                        <p className="font-mono text-xs font-bold text-emerald-400">
+                        <p className="font-mono text-xs font-bold text-[#000000]">
                           {metric.value}
                         </p>
-                        <p className="text-[10px] text-foreground-subtle mt-0.5 truncate">
+                        <p className="text-[10px] text-[#595959] mt-0.5 truncate">
                           {metric.label}
                         </p>
                       </div>
@@ -226,7 +218,7 @@ export function PortfolioShowcase() {
                   {project.tags.map((tag, tIdx) => (
                     <span
                       key={tIdx}
-                      className="rounded-lg bg-surface px-2 py-0.5 font-mono text-[10px] text-foreground-subtle border border-surface-border/80"
+                      className="border border-[#d8d8d8] bg-white px-2 py-0.5 font-mono text-[10px] text-[#595959]"
                     >
                       {tag}
                     </span>
@@ -240,9 +232,9 @@ export function PortfolioShowcase() {
                   <button
                     type="button"
                     onClick={() => setActiveProjectForModal(project)}
-                    className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-surface-border bg-surface/60 py-2.5 text-xs font-semibold text-white transition-all hover:border-slate-500 hover:bg-surface-elevated"
+                    className="button-pill-ghost py-2 text-xs justify-center"
                   >
-                    <Layers className="h-3.5 w-3.5 text-indigo-400" />
+                    <Layers className="h-3.5 w-3.5 text-[#000000]" />
                     <span>Architecture</span>
                   </button>
 
@@ -250,7 +242,7 @@ export function PortfolioShowcase() {
                     href={generateWhatsAppUrl(project)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 py-2.5 text-xs font-semibold text-white shadow-md shadow-emerald-500/20 transition-all hover:from-emerald-500 hover:to-emerald-400"
+                    className="button-pill-dark py-2 text-xs justify-center"
                   >
                     <MessageCircle className="h-3.5 w-3.5" />
                     <span>Build Similar</span>
@@ -262,7 +254,7 @@ export function PortfolioShowcase() {
         </AnimatePresence>
       </motion.div>
 
-      {/* Architecture Deep-Dive Modal */}
+      {/* Architecture Deep-Dive Modal (Al Jazeera Clean Paper Dialog) */}
       <AnimatePresence>
         {activeProjectForModal && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
@@ -272,22 +264,22 @@ export function PortfolioShowcase() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setActiveProjectForModal(null)}
-              className="fixed inset-0 bg-black/80 backdrop-blur-md"
+              className="fixed inset-0 bg-black/60 backdrop-blur-xs"
             />
 
             {/* Modal Dialog */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              initial={{ opacity: 0, scale: 0.97, y: 14 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              transition={{ duration: 0.25 }}
-              className="relative z-10 w-full max-w-2xl overflow-hidden rounded-3xl border border-surface-border bg-surface-elevated p-6 sm:p-8 shadow-2xl backdrop-blur-2xl"
+              exit={{ opacity: 0, scale: 0.97, y: 14 }}
+              transition={{ duration: 0.2 }}
+              className="relative z-10 w-full max-w-2xl overflow-hidden border border-[#d8d8d8] bg-white p-6 sm:p-8 shadow-dropdown"
             >
               {/* Close Button */}
               <button
                 type="button"
                 onClick={() => setActiveProjectForModal(null)}
-                className="absolute top-5 right-5 flex h-8 w-8 items-center justify-center rounded-full border border-surface-border bg-surface text-foreground-muted hover:text-white transition-colors"
+                className="absolute top-5 right-5 flex h-8 w-8 items-center justify-center border border-[#d8d8d8] bg-white text-[#000000] hover:bg-[#f0f0f0] transition-colors"
                 aria-label="Close dialog"
               >
                 <X className="h-4 w-4" />
@@ -296,17 +288,17 @@ export function PortfolioShowcase() {
               {/* Modal Header */}
               <div className="space-y-2 pr-8">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="rounded-full border border-indigo-500/30 bg-indigo-500/10 px-2.5 py-0.5 font-mono text-[10px] font-semibold text-indigo-400">
+                  <span className="border border-[#d8d8d8] bg-[#f0f0f0] px-2.5 py-0.5 font-mono text-[10px] font-bold text-[#000000]">
                     {activeProjectForModal.categoryLabel}
                   </span>
-                  <span className="font-mono text-xs text-foreground-subtle">
+                  <span className="font-mono text-xs text-[#595959]">
                     {activeProjectForModal.turnaround} • Delivered {activeProjectForModal.deliveryYear}
                   </span>
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-white">
+                <h3 className="text-xl sm:text-2xl font-bold text-[#000000]">
                   {activeProjectForModal.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-indigo-300 font-medium">
+                <p className="text-xs sm:text-sm text-[#595959] font-medium">
                   {activeProjectForModal.tagline}
                 </p>
               </div>
@@ -316,29 +308,29 @@ export function PortfolioShowcase() {
                 {activeProjectForModal.metrics.map((metric, idx) => (
                   <div
                     key={idx}
-                    className="rounded-2xl border border-surface-border bg-surface/80 p-3 text-center"
+                    className="border border-[#d8d8d8] bg-[#f0f0f0] p-3 text-center"
                   >
-                    <p className="font-mono text-sm sm:text-base font-bold text-emerald-400">
+                    <p className="font-mono text-sm sm:text-base font-bold text-[#000000]">
                       {metric.value}
                     </p>
-                    <p className="text-[11px] text-foreground-subtle mt-0.5">{metric.label}</p>
+                    <p className="text-[11px] text-[#595959] mt-0.5">{metric.label}</p>
                   </div>
                 ))}
               </div>
 
               {/* Architecture & Engineering Highlights */}
               <div className="space-y-3 mb-6">
-                <div className="flex items-center gap-2 text-xs font-semibold text-white">
-                  <Cpu className="h-4 w-4 text-indigo-400" />
+                <div className="flex items-center gap-2 text-xs font-bold text-[#000000]">
+                  <Cpu className="h-4 w-4 text-[#fa9000]" />
                   <span>Engineering Decisions & Architecture</span>
                 </div>
                 <ul className="space-y-2.5">
                   {activeProjectForModal.architectureHighlights?.map((highlight, hIdx) => (
                     <li
                       key={hIdx}
-                      className="flex items-start gap-2.5 rounded-xl border border-surface-border/60 bg-surface/40 p-3 text-xs leading-relaxed text-foreground-muted"
+                      className="flex items-start gap-2.5 border border-[#d8d8d8] bg-white p-3 text-xs leading-relaxed text-[#333333]"
                     >
-                      <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-400 mt-0.5" />
+                      <CheckCircle2 className="h-4 w-4 shrink-0 text-[#000000] mt-0.5" />
                       <span>{highlight}</span>
                     </li>
                   ))}
@@ -347,15 +339,15 @@ export function PortfolioShowcase() {
 
               {/* Tech Stack Pills in Modal */}
               <div className="space-y-2 mb-8">
-                <p className="flex items-center gap-1.5 text-[11px] font-mono text-foreground-subtle uppercase tracking-wider">
-                  <Code2 className="h-3.5 w-3.5 text-indigo-400" />
+                <p className="flex items-center gap-1.5 text-[11px] font-mono text-[#595959] uppercase tracking-wider font-bold">
+                  <Code2 className="h-3.5 w-3.5 text-[#000000]" />
                   <span>Verified Tech Stack</span>
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {activeProjectForModal.tags.map((tag, tIdx) => (
                     <span
                       key={tIdx}
-                      className="rounded-lg border border-surface-border bg-surface px-2.5 py-1 font-mono text-xs text-foreground-muted"
+                      className="border border-[#d8d8d8] bg-[#f0f0f0] px-2.5 py-1 font-mono text-xs text-[#333333]"
                     >
                       {tag}
                     </span>
@@ -364,14 +356,14 @@ export function PortfolioShowcase() {
               </div>
 
               {/* Modal CTAs */}
-              <div className="flex flex-col sm:flex-row items-center gap-3 pt-4 border-t border-surface-border/80">
+              <div className="flex flex-col sm:flex-row items-center gap-3 pt-4 border-t border-[#d8d8d8]">
                 <a
                   href={generateWhatsAppUrl(activeProjectForModal)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 py-3 text-xs font-semibold text-white shadow-lg shadow-emerald-500/25 transition-all hover:from-emerald-500 hover:to-emerald-400"
+                  className="button-pill-dark w-full sm:flex-1 py-3 text-xs justify-center"
                 >
-                  <MessageCircle className="h-4 w-4" />
+                  <MessageCircle className="h-4 w-4 text-white" />
                   <span>Request Similar Architecture via WhatsApp</span>
                   <ArrowRight className="h-3.5 w-3.5" />
                 </a>
@@ -379,9 +371,9 @@ export function PortfolioShowcase() {
                 <a
                   href="#estimator"
                   onClick={() => setActiveProjectForModal(null)}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-surface-border bg-surface/80 px-4 py-3 text-xs font-semibold text-foreground-muted hover:text-white transition-colors"
+                  className="button-pill-ghost w-full sm:w-auto px-5 py-3 text-xs justify-center"
                 >
-                  <Sparkles className="h-3.5 w-3.5 text-indigo-400" />
+                  <Sparkles className="h-3.5 w-3.5 text-[#fa9000]" />
                   <span>Estimate Cost</span>
                 </a>
               </div>
