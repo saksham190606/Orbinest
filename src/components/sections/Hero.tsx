@@ -43,9 +43,9 @@ export function Hero({ className }: HeroProps) {
       href: "#packages",
     },
     {
-      title: "Clinics & Healthcare",
+      title: "Medical & Healthcare",
       icon: Stethoscope,
-      tag: "Doctors & Centers",
+      tag: "Hospitals & Clinics",
       href: "#packages",
     },
     {

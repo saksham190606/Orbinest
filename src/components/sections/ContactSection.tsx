@@ -31,7 +31,7 @@ const WHATSAPP_CTA_URL = getWhatsAppUrl(
 const SECTORS: { id: ProjectSector; label: string }[] = [
   { id: "education", label: "Education & Coaching" },
   { id: "business", label: "Business & E-Commerce" },
-  { id: "healthcare", label: "Clinics & Healthcare" },
+  { id: "healthcare", label: "Medical & Healthcare" },
   { id: "personal", label: "Personal Digital Gifts" },
   { id: "custom", label: "Custom Engineering" },
 ];

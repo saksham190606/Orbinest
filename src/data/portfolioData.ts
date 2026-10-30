@@ -118,7 +118,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     title: 'Dr. Varma Advanced Dental Clinic',
     clientName: 'Dr. R. Varma, MDS',
     category: 'healthcare',
-    categoryLabel: 'Clinics & Healthcare',
+    categoryLabel: 'Medical & Healthcare',
     tagline: 'Patient trust portal with instant slot scheduling and treatment guides',
     description:
       'Built an accessible, sterile-aesthetic medical practice website featuring interactive dental treatment breakdowns, doctor credential verifications, clinic tour galleries, and one-touch appointment booking.',

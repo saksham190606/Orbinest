@@ -28,7 +28,7 @@ interface FooterLinkItem {
 const SOLUTIONS_LINKS: FooterLinkItem[] = [
   { label: "Education & Coaching", href: "#packages" },
   { label: "Business & E-Commerce", href: "#packages" },
-  { label: "Clinics & Healthcare", href: "#packages" },
+  { label: "Medical & Healthcare", href: "#packages" },
   { label: "Personal & Digital Gifts", href: "#packages" },
 ];
 
