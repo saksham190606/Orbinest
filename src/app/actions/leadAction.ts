@@ -113,7 +113,7 @@ export async function submitLead(
   return {
     success: true,
     message:
-      "Inquiry received! One of our 3 founders will reply via WhatsApp or email within 2-4 hours.",
+      "Inquiry received! One of our 3 engineers will reply via WhatsApp or email within 2-4 hours.",
     submittedData: leadPayload,
   };
 }

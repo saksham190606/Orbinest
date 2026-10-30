@@ -94,21 +94,21 @@ const jsonLd = {
         "https://github.com",
         "https://linkedin.com",
       ],
-      founder: [
+      member: [
         {
           "@type": "Person",
-          name: "Aarav Sharma",
-          jobTitle: "Lead Architect & Full-Stack Engineer",
+          name: "Saksham Shrivastava",
+          jobTitle: "Lead Full-Stack Architect & Systems Engineer",
         },
         {
           "@type": "Person",
-          name: "Rohan Mehta",
+          name: "Ayaan Siddiqui",
+          jobTitle: "Cloud & DevOps Infrastructure Engineer",
+        },
+        {
+          "@type": "Person",
+          name: "Palakshi Sharma",
           jobTitle: "UI/UX & Frontend Design Engineer",
-        },
-        {
-          "@type": "Person",
-          name: "Devon Vance",
-          jobTitle: "DevOps, Security & Cloud Engineer",
         },
       ],
     },

@@ -24,16 +24,16 @@ export interface AgencyPrinciple {
   iconName: string;
 }
 
-export const FOUNDING_TEAM: TeamMember[] = [
+export const TEAM_MEMBERS: TeamMember[] = [
   {
     id: "saksham",
     name: "Saksham Shrivastava",
-    roleTitle: "Founder & Full-Stack Architect",
+    roleTitle: "Lead Full-Stack Architect & Systems Engineer",
     roleBadge: "Systems & APIs",
     status: "Active on Core Codebase",
     initials: "SS",
     photoUrl: "/team/saksham.jpg",
-    bio: "Full-stack architect & founding engineer obsessed with sub-second performance, bulletproof Next.js App Router engineering, type-safe API schemas, and high-conversion system architecture.",
+    bio: "Full-stack architect & systems engineer obsessed with sub-second performance, bulletproof Next.js App Router engineering, type-safe API schemas, and high-conversion system architecture.",
     technicalFocus: [
       "Next.js 16",
       "TypeScript",
@@ -53,7 +53,7 @@ export const FOUNDING_TEAM: TeamMember[] = [
   {
     id: "ayaan",
     name: "Ayaan Siddiqui",
-    roleTitle: "Co-Founder & DevOps Architect",
+    roleTitle: "Cloud & DevOps Infrastructure Engineer",
     roleBadge: "Cloud & Infrastructure",
     status: "Maintaining 99.9% SLAs",
     initials: "AS",
@@ -78,7 +78,7 @@ export const FOUNDING_TEAM: TeamMember[] = [
   {
     id: "palakshi",
     name: "Palakshi Sharma",
-    roleTitle: "Co-Founder & Head of UI/UX",
+    roleTitle: "UI/UX & Frontend Design Engineer",
     roleBadge: "Design Systems & Motion",
     status: "Tuning Lighthouse 100",
     initials: "PS",
@@ -125,3 +125,6 @@ export const AGENCY_PRINCIPLES: AgencyPrinciple[] = [
     iconName: "ShieldCheck",
   },
 ];
+
+export const FOUNDING_TEAM = TEAM_MEMBERS;
+

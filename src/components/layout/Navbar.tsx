@@ -24,7 +24,7 @@ const TRENDING_TOPICS = [
   { label: "React 19 3D Mesh", href: "#hero" },
   { label: "Tiered Pricing", href: "#packages" },
   { label: "Instant Calculator", href: "#estimator" },
-  { label: "Founding Engineers", href: "#team" },
+  { label: "Engineering Team", href: "#team" },
   { label: "WhatsApp Routing", href: "#contact" },
 ];
 

@@ -56,11 +56,11 @@ export function TeamSection() {
           Meet the Three Engineers Building Your Website
         </h2>
         <p className="mt-2 max-w-2xl text-sm sm:text-base text-[#595959] leading-relaxed">
-          Zero account managers, zero sales middlemen, and zero offshore outsourcing. You collaborate directly with Saksham, Ayaan, and Palakshi — the founding engineers who write, review, and ship every single pixel of your digital platform.
+          Zero account managers, zero sales middlemen, and zero offshore outsourcing. You collaborate directly with Saksham, Ayaan, and Palakshi — the dedicated software engineers who write, review, and ship every single pixel of your digital platform.
         </p>
       </div>
 
-      {/* 3-Column Founding Engineers Grid (Al Jazeera Leader Card Style) */}
+      {/* 3-Column Engineering Collective Grid (Al Jazeera Leader Card Style) */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
         {FOUNDING_TEAM.map((member: TeamMember) => (
           <div
@@ -73,7 +73,7 @@ export function TeamSection() {
               <img
                 src={member.photoUrl}
                 alt={member.name}
-                className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                 loading="eager"
               />
 
@@ -108,7 +108,7 @@ export function TeamSection() {
                   <img
                     src={member.photoUrl}
                     alt={member.name}
-                    className="h-full w-full object-cover object-top"
+                    className="h-full w-full object-cover object-center"
                   />
                 </div>
                 <div className="min-w-0">

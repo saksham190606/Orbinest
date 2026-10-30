@@ -48,7 +48,7 @@ const PROCESS_STEPS = [
     step: "01",
     title: "Scope & Architecture Review",
     timeframe: "Within 2 – 4 Hours",
-    description: "One of our 3 founding engineers reviews your requirements, assesses technical feasibility, and prepares preliminary scope notes.",
+    description: "One of our 3 core engineers reviews your requirements, assesses technical feasibility, and prepares preliminary scope notes.",
     icon: Layers,
   },
   {
@@ -147,7 +147,7 @@ export function ContactSection() {
                     </h4>
                     <span className="flex items-center gap-1 border border-[#c31833]/30 bg-red-50/50 px-2 py-0.5 font-mono text-[9px] font-bold text-[#c31833] rounded-[2px]">
                       <span className="live-dot !h-1.5 !w-1.5" />
-                      FOUNDERS ONLINE
+                      ENGINEERS ONLINE
                     </span>
                   </div>
                   <p className="text-xs text-[#595959] mt-0.5">
@@ -246,7 +246,7 @@ export function ContactSection() {
                     <h3 className="text-2xl font-bold text-[#000000]">Inquiry Received!</h3>
                     <p className="text-sm text-[#595959] leading-relaxed">
                       Thank you, <span className="font-semibold text-[#000000]">{state.submittedData?.fullName}</span>.
-                      Your requirements have been logged directly into our founders&apos; inbox.
+                      Your requirements have been logged directly into our engineering inbox.
                     </p>
                   </div>
 
@@ -260,7 +260,7 @@ export function ContactSection() {
                       <span className="text-[#000000] font-semibold">{state.submittedData?.budget}</span>
                     </div>
                     <div className="flex justify-between text-[#595959]">
-                      <span>Founder Response SLA:</span>
+                      <span>Direct Engineer SLA:</span>
                       <span className="text-[#000000] font-semibold">Within 2 – 4 Hours</span>
                     </div>
                   </div>
@@ -488,7 +488,7 @@ export function ContactSection() {
                       {isPending ? (
                         <>
                           <Loader2 className="h-4 w-4 animate-spin" />
-                          <span>Routing to Founders&apos; Inbox...</span>
+                          <span>Routing to Engineering Inbox...</span>
                         </>
                       ) : (
                         <>

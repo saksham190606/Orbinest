@@ -36,7 +36,7 @@ const TOOLS_LINKS: FooterLinkItem[] = [
   { label: "Interactive Budget Estimator", href: "#estimator", badge: "LIVE" },
   { label: "Featured Projects", href: "#portfolio" },
   { label: "Transparent Pricing", href: "#packages" },
-  { label: "Founding Engineers", href: "#team" },
+  { label: "Engineering Team", href: "#team" },
 ];
 
 export interface FooterProps {

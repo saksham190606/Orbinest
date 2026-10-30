@@ -69,7 +69,7 @@ export function Hero({ className }: HeroProps) {
     },
     {
       icon: Users,
-      metric: "3 Founding Engineers",
+      metric: "3 Dedicated Engineers",
       label: "Direct technical collaboration with zero agency middlemen",
     },
     {
@@ -115,7 +115,7 @@ export function Hero({ className }: HeroProps) {
                     </span>
                     <span className="text-[#bebebe]">|</span>
                     <span className="text-xs text-[#333333] font-normal">
-                      Pan-India Delivery • 3 Founding Engineers Active
+                      Pan-India Delivery • 3 Core Engineers Active
                     </span>
                   </div>
 
