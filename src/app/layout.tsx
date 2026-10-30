@@ -77,6 +77,16 @@ export const metadata: Metadata = {
       "High-performance websites and digital solutions tailored for education institutes, local businesses, healthcare clinics, and personal digital milestones.",
     creator: "@orbinest",
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/logo.svg", type: "image/svg+xml" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-icon.png" },
+    ],
+  },
 };
 
 const jsonLd = {
@@ -87,7 +97,7 @@ const jsonLd = {
       "@id": `${SITE_URL}/#organization`,
       name: "Orbinest Studio",
       url: SITE_URL,
-      logo: `${SITE_URL}/icon.png`,
+      logo: `${SITE_URL}/logo.png`,
       description:
         "Full-stack web engineering collective building modern websites for education institutes, local businesses, medical clinics, and personal milestones.",
       sameAs: [

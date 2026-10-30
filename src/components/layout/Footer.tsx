@@ -5,12 +5,12 @@ import Link from "next/link";
 import {
   MessageCircle,
   Mail,
-  Sparkles,
   ArrowUpRight,
   Clock,
   ShieldCheck,
   CheckCircle2,
 } from "lucide-react";
+import { OrbinestLogo } from "@/components/ui/OrbinestLogo";
 import { cn, getWhatsAppUrl } from "@/lib/utils";
 
 export const WHATSAPP_CTA_URL = getWhatsAppUrl(
@@ -70,9 +70,9 @@ export function Footer({ className }: FooterProps) {
               className="group flex items-center gap-3 outline-none"
               aria-label="Orbinest Studio Home"
             >
-              {/* Al Jazeera Signature Orange Square */}
+              {/* Al Jazeera Signature Orange Square with Orbinest 'O' Logo Mark */}
               <div className="flex h-10 w-10 shrink-0 items-center justify-center bg-[#fa9000] text-white">
-                <Sparkles className="h-5 w-5 text-white" />
+                <OrbinestLogo className="h-6 w-6 text-white" strokeWidth={16} />
               </div>
               <div className="flex flex-col">
                 <span className="font-sans text-lg font-black tracking-tight text-[#000000] leading-none">

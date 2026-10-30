@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { MessageCircle, Menu, X, ArrowRight, Sparkles } from "lucide-react";
+import { MessageCircle, Menu, X, ArrowRight } from "lucide-react";
+import { OrbinestLogo } from "@/components/ui/OrbinestLogo";
 import { cn, getWhatsAppUrl } from "@/lib/utils";
 
 export interface NavLinkItem {
@@ -82,9 +83,9 @@ export function Navbar({ className }: NavbarProps) {
             className="group flex items-center gap-3 outline-none"
             aria-label="Orbinest Studio Home"
           >
-            {/* The Signature Orange Logo Block */}
+            {/* The Signature Orange Logo Block with Orbinest 'O' Logo Mark */}
             <div className="relative flex h-10 w-10 shrink-0 items-center justify-center bg-[#fa9000] text-white transition-transform group-hover:scale-105 shadow-xs">
-              <Sparkles className="h-5 w-5 text-white" />
+              <OrbinestLogo className="h-6 w-6 text-white" strokeWidth={16} />
             </div>
 
             <div className="flex flex-col">
