@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import {
   MessageSquare,
   Zap,
@@ -10,6 +9,8 @@ import {
   MessageCircle,
   Code2,
   CheckCircle2,
+  Heart,
+  Coffee,
   Sparkles,
 } from "lucide-react";
 import { FOUNDING_TEAM, AGENCY_PRINCIPLES, TeamMember } from "@/data/teamData";
@@ -49,14 +50,13 @@ export function TeamSection() {
       <div className="mb-12">
         <div className="section-eyebrow-lockup">
           <span className="section-eyebrow-bar" />
-          <span className="section-eyebrow-text">THE COLLECTIVE</span>
+          <span className="section-eyebrow-text">THE COLLECTIVE & TEAM</span>
         </div>
         <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[#000000]">
-          Direct Access to the Engineers Who Build Your Site
+          Meet the Three Engineers Building Your Website
         </h2>
         <p className="mt-2 max-w-2xl text-sm sm:text-base text-[#595959] leading-relaxed">
-          Zero account managers, zero sales fluff, and zero outsourcing. You communicate directly with the three
-          founding developer engineers who write, review, and deploy every line of your codebase.
+          Zero account managers, zero sales middlemen, and zero offshore outsourcing. You collaborate directly with Saksham, Ayaan, and Palakshi — the founding engineers who write, review, and ship every single pixel of your digital platform.
         </p>
       </div>
 
@@ -65,49 +65,66 @@ export function TeamSection() {
         {FOUNDING_TEAM.map((member: TeamMember) => (
           <div
             key={member.id}
-            className="news-card group flex flex-col justify-between transition-colors"
+            className="news-card group flex flex-col justify-between transition-all duration-200 hover:border-[#000000] bg-white"
           >
-            {/* Ambient Studio Header */}
-            <div className="relative flex h-44 w-full flex-col justify-between p-5 bg-[#f0f0f0] border-b border-[#d8d8d8]">
-              {/* Header: Role badge and live status */}
-              <div className="flex items-center justify-between">
-                <span className="inline-flex items-center gap-1.5 border border-[#d8d8d8] bg-white px-2.5 py-0.5 font-mono text-[10px] font-bold text-[#000000] rounded-full">
+            {/* Portrait Photo Studio Header */}
+            <div className="relative h-72 sm:h-80 w-full overflow-hidden bg-[#f0f0f0] border-b border-[#d8d8d8]">
+              {/* Actual Member Portrait */}
+              <img
+                src={member.photoUrl}
+                alt={member.name}
+                className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                loading="eager"
+              />
+
+              {/* Top Gradient & Pill Badges */}
+              <div className="absolute inset-x-0 top-0 p-4 flex items-center justify-between bg-gradient-to-b from-black/60 via-black/20 to-transparent">
+                <span className="inline-flex items-center gap-1.5 border border-white/20 bg-black/70 backdrop-blur-xs px-2.5 py-0.5 font-mono text-[10px] font-bold text-white rounded-full">
                   <Terminal className="h-3 w-3 text-[#fa9000]" />
                   <span>{member.roleBadge}</span>
                 </span>
 
-                <div className="flex items-center gap-1.5 border border-[#d8d8d8] bg-white px-2.5 py-0.5 font-mono text-[10px] font-medium text-[#c31833] rounded-full">
+                <div className="flex items-center gap-1.5 border border-white/20 bg-white/90 backdrop-blur-xs px-2.5 py-0.5 font-mono text-[10px] font-semibold text-[#c31833] rounded-full shadow-xs">
                   <span className="live-dot !h-1.5 !w-1.5" />
                   <span className="truncate max-w-[130px]">{member.status}</span>
                 </div>
               </div>
 
-              {/* Avatar Initial Circle & Dateline Snippet */}
-              <div className="flex items-end justify-between">
-                <div className="flex h-14 w-14 items-center justify-center rounded-full border border-[#d8d8d8] bg-white font-mono text-lg font-extrabold text-[#000000] shadow-xs">
-                  <span>{member.initials}</span>
-                </div>
-
-                <div className="border border-[#d8d8d8] bg-white px-2.5 py-1 font-mono text-[10px] text-[#595959] max-w-[180px] truncate">
-                  <span className="text-[#000000] font-bold">$ </span>
+              {/* Bottom Dateline Terminal Snippet */}
+              <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-center justify-between">
+                <div className="border border-white/20 bg-black/60 backdrop-blur-xs px-2.5 py-1 font-mono text-[10px] text-white/90 max-w-full truncate rounded-xs">
+                  <span className="text-[#fa9000] font-bold">$ </span>
                   {member.terminalCommand}
                 </div>
               </div>
             </div>
 
-            {/* Card Body: Name, Bio, and Technical Focus */}
+            {/* Card Body: Photo Attached in Front of Name + Bio + Stack */}
             <div className="flex-1 p-6 space-y-4">
-              <div>
-                <h3 className="text-lg font-bold text-[#000000] group-hover:text-[#fa9000] transition-colors">
-                  {member.name}
-                </h3>
-                <p className="mt-0.5 font-mono text-xs font-semibold text-[#595959]">
-                  {member.roleTitle}
-                </p>
-                <p className="mt-3 text-xs leading-relaxed text-[#333333]">
-                  {member.bio}
-                </p>
+              {/* Member Name Header with Photo Attached in Front */}
+              <div className="flex items-center gap-3.5 pb-4 border-b border-[#d8d8d8]">
+                {/* Photo attached in front of name */}
+                <div className="relative h-13 w-13 shrink-0 rounded-full overflow-hidden border-2 border-[#000000] shadow-xs">
+                  <img
+                    src={member.photoUrl}
+                    alt={member.name}
+                    className="h-full w-full object-cover object-top"
+                  />
+                </div>
+                <div className="min-w-0">
+                  <h3 className="text-lg font-bold text-[#000000] group-hover:text-[#fa9000] transition-colors leading-tight truncate">
+                    {member.name}
+                  </h3>
+                  <p className="font-mono text-xs font-semibold text-[#595959] mt-0.5 truncate">
+                    {member.roleTitle}
+                  </p>
+                </div>
               </div>
+
+              {/* Editorial Bio */}
+              <p className="text-xs leading-relaxed text-[#333333]">
+                {member.bio}
+              </p>
 
               {/* Core Stack & Technical Focus Tags */}
               <div className="space-y-2 pt-3 border-t border-[#d8d8d8]">
@@ -159,7 +176,7 @@ export function TeamSection() {
                   className="button-pill-dark flex-1 py-2 text-xs justify-center"
                 >
                   <MessageCircle className="h-3.5 w-3.5" />
-                  <span>Direct Chat</span>
+                  <span>Chat with {member.name.split(" ")[0]}</span>
                 </a>
               </div>
             </div>
@@ -167,8 +184,37 @@ export function TeamSection() {
         ))}
       </div>
 
-      {/* Bottom Trust Banner: Agency Operating Principles (Al Jazeera Soft Panel) */}
-      <div className="mt-12 soft-panel p-6 md:p-8">
+      {/* Cute Little Tagline Written Below the Team Section */}
+      <div className="mt-10 border border-[#d8d8d8] bg-[#f0f0f0] p-6 sm:p-8 text-center rounded-2xl relative overflow-hidden">
+        {/* Subtle decorative background detail */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 h-1 w-24 bg-[#fa9000]" />
+        
+        <div className="inline-flex items-center gap-2 border border-[#d8d8d8] bg-white px-3.5 py-1 text-xs font-mono font-bold text-[#000000] rounded-full shadow-xs mb-3">
+          <Coffee className="h-3.5 w-3.5 text-[#fa9000]" />
+          <span>BEHIND THE CODE</span>
+          <Sparkles className="h-3.5 w-3.5 text-[#fa9000]" />
+        </div>
+
+        <p className="text-base sm:text-lg md:text-xl font-bold text-[#000000] max-w-3xl mx-auto leading-relaxed italic">
+          “Crafted with obsessive care, fueled by late-night chai & code, and shipped with genuine love by three friends who refuse to build anything mediocre for you.”
+        </p>
+
+        <div className="mt-4 flex flex-wrap items-center justify-center gap-2 text-xs font-mono text-[#595959]">
+          <span className="font-bold text-[#000000]">Saksham</span>
+          <span className="text-[#fa9000]">•</span>
+          <span className="font-bold text-[#000000]">Ayaan</span>
+          <span className="text-[#fa9000]">•</span>
+          <span className="font-bold text-[#000000]">Palakshi</span>
+          <span className="hidden sm:inline text-[#d8d8d8]">|</span>
+          <span className="inline-flex items-center gap-1 text-[#333333]">
+            <Heart className="h-3 w-3 text-[#c31833] fill-[#c31833]" />
+            We build websites that make your business proud.
+          </span>
+        </div>
+      </div>
+
+      {/* Agency Operating Principles (Al Jazeera Soft Panel) */}
+      <div className="mt-8 soft-panel p-6 md:p-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 divide-y md:divide-y-0 md:divide-x divide-[#d8d8d8]">
           {AGENCY_PRINCIPLES.map((princource, pIdx) => {
             const Icon = PRINCIPLE_ICONS[princource.iconName] || ShieldCheck;
