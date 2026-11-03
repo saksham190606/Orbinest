@@ -15,6 +15,7 @@ import {
   ShieldCheck,
   Clock,
   Layers,
+  Calculator,
 } from "lucide-react";
 import {
   SERVICES_DATA,
@@ -60,9 +61,9 @@ export function PricingMatrix({
 
   return (
     <div className={cn("w-full space-y-10", className)}>
-      {/* 1. Category Tab Switcher Bar - Al Jazeera Capsule Selector */}
+      {/* 1. Category Tab Switcher Bar */}
       <div className="flex flex-col items-center">
-        <div className="flex flex-wrap items-center justify-center gap-2 border border-[#d8d8d8] bg-white p-1.5 rounded-full">
+        <div className="inline-flex p-1.5 bg-white border border-[#e5e5e5] rounded-full shadow-xs gap-1.5 max-w-full overflow-x-auto">
           {CATEGORY_IDS.map((catId) => {
             const cat = SERVICES_DATA[catId];
             const Icon = CATEGORY_ICONS[cat.iconName] || Layers;
@@ -74,58 +75,63 @@ export function PricingMatrix({
                 type="button"
                 onClick={() => setActiveCategoryId(catId)}
                 className={cn(
-                  "relative flex items-center gap-2 rounded-full px-4 py-2 text-xs font-medium transition-colors duration-200",
-                  isActive
-                    ? "bg-[#000000] text-white"
-                    : "text-[#595959] hover:text-[#000000] hover:bg-[#f0f0f0]"
+                  "relative flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold transition-colors duration-200 cursor-pointer whitespace-nowrap z-10",
+                  isActive ? "text-white" : "text-[#595959] hover:text-[#000000]"
                 )}
                 aria-selected={isActive}
                 role="tab"
               >
-                <Icon className={cn("h-4 w-4", isActive ? "text-white" : "text-[#595959]")} />
+                {isActive && (
+                  <motion.div
+                    layoutId="activeCategoryTab"
+                    className="absolute inset-0 bg-[#000000] rounded-full -z-10 shadow-xs"
+                    transition={{ type: "spring", stiffness: 450, damping: 35 }}
+                  />
+                )}
+                <Icon className="h-4 w-4 shrink-0" />
                 <span>{cat.title}</span>
               </button>
             );
           })}
         </div>
 
-        {/* Category Description & Sector Wire Badges */}
-        <div className="mt-6 text-center max-w-2xl px-4">
+        {/* Category Description & Sector Highlights */}
+        <div className="mt-5 text-center max-w-2xl px-4">
           <p className="text-sm text-[#595959] leading-relaxed">
             {activeCategory.shortDescription}
           </p>
           <div className="mt-3 flex flex-wrap items-center justify-center gap-2">
-            <span className="inline-flex items-center gap-1 border border-[#d8d8d8] bg-[#f0f0f0] px-3 py-1 text-[11px] font-medium text-[#333333] rounded-full">
+            <span className="inline-flex items-center gap-1 bg-[#fa9000]/10 border border-[#fa9000]/25 px-3 py-0.5 text-[11px] font-semibold text-[#b35900] rounded-full">
               <Sparkles className="h-3 w-3 text-[#fa9000]" />
-              Tailored Sector Architecture
+              Tailored Architecture
             </span>
-            <span className="inline-flex items-center gap-1 border border-[#d8d8d8] bg-[#f0f0f0] px-3 py-1 text-[11px] font-medium text-[#333333] rounded-full">
-              <ShieldCheck className="h-3 w-3 text-[#000000]" />
+            <span className="inline-flex items-center gap-1 bg-white border border-[#e5e5e5] px-3 py-0.5 text-[11px] font-semibold text-[#333333] rounded-full">
+              <ShieldCheck className="h-3 w-3 text-emerald-600" />
               100% Fixed Quote
             </span>
             {activeCategory.id === "personal" ? (
-              <span className="inline-flex items-center gap-1 border border-[#d8d8d8] bg-[#f0f0f0] px-3 py-1 text-[11px] font-medium text-[#333333] rounded-full">
+              <span className="inline-flex items-center gap-1 bg-white border border-[#e5e5e5] px-3 py-0.5 text-[11px] font-semibold text-[#333333] rounded-full">
                 <Gift className="h-3 w-3 text-[#fa9000]" />
                 1-Year Hosting Included
               </span>
             ) : (
-              <span className="inline-flex items-center gap-1 border border-[#d8d8d8] bg-[#f0f0f0] px-3 py-1 text-[11px] font-medium text-[#333333] rounded-full">
+              <span className="inline-flex items-center gap-1 bg-white border border-[#e5e5e5] px-3 py-0.5 text-[11px] font-semibold text-[#333333] rounded-full">
                 <Clock className="h-3 w-3 text-[#595959]" />
-                2 - 4 Weeks Delivery
+                2 - 3 Weeks Delivery
               </span>
             )}
           </div>
         </div>
       </div>
 
-      {/* 2. Tier Cards Grid (Al Jazeera News-Card / Pricing Chrome) */}
+      {/* 2. Tier Cards Grid */}
       <AnimatePresence mode="wait">
         <motion.div
           key={activeCategoryId}
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.2 }}
+          exit={{ opacity: 0, y: -12 }}
+          transition={{ duration: 0.25 }}
           className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:gap-8 items-stretch"
         >
           {activeCategory.tiers.map((tier: ServiceTier) => {
@@ -136,16 +142,16 @@ export function PricingMatrix({
               <div
                 key={tier.id}
                 className={cn(
-                  "relative flex flex-col justify-between p-7 bg-white transition-colors",
+                  "relative flex flex-col justify-between p-7 rounded-2xl bg-white transition-all duration-300",
                   isPopular
-                    ? "border-2 border-[#000000] shadow-sm md:-translate-y-1"
-                    : "border border-[#d8d8d8] hover:border-[#595959]"
+                    ? "border-2 border-[#000000] shadow-xl shadow-black/5 md:-translate-y-2 ring-4 ring-[#000000]/5"
+                    : "border border-[#e5e5e5] hover:border-[#000000] hover:shadow-lg hover:-translate-y-1"
                 )}
               >
                 {/* Popular Pill Badge */}
                 {isPopular && (
-                  <div className="absolute -top-3 left-6 bg-[#000000] text-white px-3 py-0.5 text-[10px] font-black uppercase tracking-wider rounded-full">
-                    {tier.highlights?.[0] || "MOST POPULAR"}
+                  <div className="absolute -top-3.5 left-6 bg-[#000000] text-white px-3.5 py-0.5 text-[10px] font-black uppercase tracking-wider rounded-full shadow-xs">
+                    {tier.highlights?.[0] || "RECOMMENDED"}
                   </div>
                 )}
 
@@ -153,31 +159,31 @@ export function PricingMatrix({
                   {/* Card Header: Tier Name, Scope Pill & Target Audience */}
                   <div className="flex items-start justify-between gap-2">
                     <div>
-                      <h3 className="text-xl font-bold text-[#000000] tracking-tight">{tier.name}</h3>
+                      <h3 className="text-xl font-black text-[#000000] tracking-tight">{tier.name}</h3>
                       <p className="mt-1 text-xs text-[#595959] leading-tight">
                         {tier.targetAudience}
                       </p>
                     </div>
-                    <span className="shrink-0 border border-[#d8d8d8] bg-[#f0f0f0] px-2.5 py-0.5 font-mono text-[11px] font-medium text-[#000000] rounded-full">
+                    <span className="shrink-0 bg-[#f5f5f5] border border-[#e5e5e5] px-2.5 py-0.5 font-mono text-[11px] font-bold text-[#000000] rounded-full">
                       {tier.pageScope}
                     </span>
                   </div>
 
                   {/* Pricing Display */}
-                  <div className="mt-6 border-b border-[#d8d8d8] pb-5">
+                  <div className="mt-6 border-b border-[#f0f0f0] pb-5">
                     <div className="flex items-baseline gap-2">
-                      <span className="text-3xl font-extrabold tracking-tight text-[#000000] sm:text-4xl">
+                      <span className="text-3xl font-black tracking-tight text-[#000000] sm:text-4xl">
                         {tier.priceDisplay}
                       </span>
                       <span className="text-xs text-[#595959] font-mono">
-                        {activeCategory.id === "personal" ? "one-time" : "flat quote"}
+                        {activeCategory.id === "personal" ? "all-inclusive" : "fixed quote"}
                       </span>
                     </div>
-                    <p className="mt-1 text-xs text-[#595959]">One-time transparent investment</p>
+                    <p className="mt-1 text-xs text-[#595959]">Zero hidden fees or surprise costs</p>
                   </div>
 
                   {/* Revision Count Badge */}
-                  <div className="mt-4 inline-flex items-center gap-1.5 border border-[#d8d8d8] bg-white px-2.5 py-1 text-[11px] text-[#595959] font-mono rounded-full">
+                  <div className="mt-4 inline-flex items-center gap-1.5 bg-[#fbfbfb] border border-[#e5e5e5] px-2.5 py-1 text-[11px] text-[#595959] font-mono rounded-full">
                     <RotateCcw className="h-3 w-3 text-[#000000]" />
                     <span>{tier.revisionCount}</span>
                   </div>
@@ -185,13 +191,13 @@ export function PricingMatrix({
                   {/* Included Deliverables Checklist */}
                   <div className="mt-6 space-y-3">
                     <p className="text-[11px] font-mono uppercase tracking-wider text-[#000000] font-bold">
-                      What&apos;s Included:
+                      Included Deliverables:
                     </p>
                     <ul className="space-y-2.5 text-xs text-[#333333]">
                       {tier.features.map((feat, idx) => (
                         <li key={idx} className="flex items-start gap-2.5">
-                          <div className="flex h-4 w-4 shrink-0 items-center justify-center border border-[#d8d8d8] bg-[#f0f0f0] text-[#000000] mt-0.5">
-                            <Check className="h-3 w-3 stroke-[3]" />
+                          <div className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-600 mt-0.5">
+                            <Check className="h-2.5 w-2.5 stroke-[3]" />
                           </div>
                           <span className="leading-relaxed">{feat}</span>
                         </li>
@@ -201,14 +207,14 @@ export function PricingMatrix({
 
                   {/* Optional Notes */}
                   {tier.optionalNotes && (
-                    <div className="mt-5 border border-[#d8d8d8] bg-[#f0f0f0] p-3 text-[11px] text-[#595959] italic">
-                      {tier.optionalNotes}
+                    <div className="mt-5 border border-[#e5e5e5] bg-[#fafafa] rounded-xl p-3 text-[11px] text-[#595959] leading-relaxed">
+                      💡 {tier.optionalNotes}
                     </div>
                   )}
                 </div>
 
-                {/* Call to Action Button - Al Jazeera Button-Pill-Dark */}
-                <div className="mt-8 pt-4 border-t border-[#d8d8d8]">
+                {/* Call to Action Button */}
+                <div className="mt-8 pt-5 border-t border-[#f0f0f0] flex flex-col gap-2">
                   <a
                     href={whatsAppUrl}
                     target="_blank"
@@ -219,6 +225,14 @@ export function PricingMatrix({
                     <span>Select & Inquire</span>
                     <ArrowRight className="h-3.5 w-3.5" />
                   </a>
+
+                  <a
+                    href="#estimator"
+                    className="button-pill-ghost w-full py-2 text-xs justify-center text-[#595959]"
+                  >
+                    <Calculator className="h-3.5 w-3.5 text-[#595959]" />
+                    <span>Customize in Estimator</span>
+                  </a>
                 </div>
               </div>
             );
@@ -228,21 +242,23 @@ export function PricingMatrix({
 
       {/* 3. Care Plans & Maintenance Retainers */}
       {activeCategory.maintenancePlans && activeCategory.maintenancePlans.length > 0 && (
-        <div className="mt-14 border border-[#d8d8d8] bg-[#f0f0f0] p-6 lg:p-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#d8d8d8] pb-5 mb-6">
+        <div className="mt-14 rounded-3xl border border-[#e5e5e5] bg-white p-6 lg:p-10 shadow-sm">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#f0f0f0] pb-6 mb-6">
             <div>
-              <div className="inline-flex items-center gap-1.5 border border-[#d8d8d8] bg-white px-2.5 py-0.5 font-mono text-xs font-semibold text-[#000000] rounded-full">
-                <ShieldCheck className="h-3.5 w-3.5 text-[#000000]" />
-                Optional Peace-of-Mind
+              <div className="inline-flex items-center gap-1.5 bg-[#f5f5f5] border border-[#e5e5e5] px-3 py-1 font-mono text-xs font-semibold text-[#000000] rounded-full">
+                <ShieldCheck className="h-3.5 w-3.5 text-emerald-600" />
+                <span>Optional Peace-of-Mind</span>
               </div>
-              <h3 className="mt-2 text-xl font-bold tracking-tight text-[#000000]">
+              <h3 className="mt-3 text-xl sm:text-2xl font-bold tracking-tight text-[#000000]">
                 Monthly Care & Maintenance Retainers
               </h3>
-              <p className="mt-1 text-xs sm:text-sm text-[#595959] max-w-xl">
-                Keep your website fast, updated, and secure without technical headache. Cancel or modify anytime.
+              <p className="mt-1 text-xs sm:text-sm text-[#595959] max-w-xl leading-relaxed">
+                Keep your website fast, updated, and secure with direct engineer supervision. Cancel or pause anytime.
               </p>
             </div>
-            <span className="font-mono text-xs font-bold text-[#000000]">No Long-Term Lock-in</span>
+            <span className="font-mono text-xs font-bold text-[#fa9000] bg-[#fa9000]/10 px-3 py-1 rounded-full">
+              Zero Long-Term Lock-In
+            </span>
           </div>
 
           <div className="grid gap-6 md:grid-cols-3">
@@ -254,10 +270,10 @@ export function PricingMatrix({
                 <div
                   key={plan.id}
                   className={cn(
-                    "flex flex-col justify-between p-6 bg-white transition-colors",
+                    "flex flex-col justify-between p-6 rounded-2xl bg-white transition-all duration-200",
                     isCarePopular
-                      ? "border-2 border-[#000000]"
-                      : "border border-[#d8d8d8] hover:border-[#595959]"
+                      ? "border-2 border-[#000000] shadow-md"
+                      : "border border-[#e5e5e5] hover:border-[#000000]"
                   )}
                 >
                   <div>
@@ -265,20 +281,20 @@ export function PricingMatrix({
                       <h4 className="text-base font-bold text-[#000000]">{plan.name}</h4>
                       {isCarePopular && (
                         <span className="bg-[#000000] text-white px-2 py-0.5 font-mono text-[10px] font-bold rounded-full">
-                          RECOMMENDED
+                          POPULAR
                         </span>
                       )}
                     </div>
 
                     <div className="mt-3 flex items-baseline gap-1.5">
                       <span className="text-2xl font-extrabold text-[#000000]">{plan.monthlyPriceDisplay}</span>
-                      <span className="text-xs text-[#595959] font-mono">billed monthly</span>
+                      <span className="text-xs text-[#595959] font-mono">/month</span>
                     </div>
 
-                    <ul className="mt-5 space-y-2.5 text-xs text-[#595959] border-t border-[#d8d8d8] pt-4">
+                    <ul className="mt-5 space-y-2.5 text-xs text-[#595959] border-t border-[#f0f0f0] pt-4">
                       {plan.features.map((feat, fIdx) => (
                         <li key={fIdx} className="flex items-start gap-2">
-                          <Check className="h-3.5 w-3.5 text-[#000000] shrink-0 mt-0.5" />
+                          <Check className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />
                           <span className="text-[11px] leading-relaxed text-[#333333]">{feat}</span>
                         </li>
                       ))}
@@ -301,19 +317,18 @@ export function PricingMatrix({
         </div>
       )}
 
-      {/* 4. Transparent Disclaimers & Sector Notices */}
-      <div className="border border-[#d8d8d8] bg-white p-5">
+      {/* 4. Transparent Scope Assurance Notice */}
+      <div className="rounded-2xl border border-[#e5e5e5] bg-white p-5 shadow-2xs">
         <div className="flex flex-col gap-3 text-xs text-[#595959] sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-start gap-2.5">
-            <ShieldCheck className="h-4 w-4 text-[#000000] shrink-0 mt-0.5" />
+            <ShieldCheck className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
             <p className="leading-relaxed">
-              <strong className="text-[#000000]">Scope & Third-Party Notice:</strong> Domain registration,
-              third-party paid API keys, and specialized custom integrations are billed directly or quoted separately
-              in a transparent formal statement of work.
+              <strong className="text-[#000000]">Transparent Quote Guarantee:</strong> All hosting, domain setup,
+              and third-party API configurations are explicitly outlined before coding begins. Zero unexpected invoices.
             </p>
           </div>
           {activeCategory.note && (
-            <div className="shrink-0 border border-[#d8d8d8] bg-[#f0f0f0] px-3 py-1.5 text-[11px] font-semibold text-[#000000]">
+            <div className="shrink-0 bg-[#fafafa] border border-[#e5e5e5] rounded-lg px-3 py-1.5 text-[11px] font-semibold text-[#000000]">
               {activeCategory.note}
             </div>
           )}

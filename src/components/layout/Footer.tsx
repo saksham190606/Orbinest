@@ -56,7 +56,7 @@ export function Footer({ className }: FooterProps) {
   return (
     <footer
       className={cn(
-        "relative border-t border-[#d8d8d8] bg-white text-[#595959]",
+        "relative border-t border-[#e5e5e5] bg-[#fafafa] text-[#595959]",
         className
       )}
     >
@@ -164,10 +164,10 @@ export function Footer({ className }: FooterProps) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Direct WhatsApp channel with Orbinest team"
-              className="flex items-center justify-between border border-[#d8d8d8] bg-white p-3.5 transition-colors hover:border-[#000000]"
+              className="flex items-center justify-between rounded-2xl border border-[#e5e5e5] bg-white p-3.5 transition-all hover:border-[#000000] hover:shadow-xs"
             >
               <div className="flex items-center gap-3">
-                <div className="flex h-8 w-8 items-center justify-center border border-[#d8d8d8] bg-[#f0f0f0] text-[#000000]">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#fafafa] border border-[#e5e5e5] text-[#000000]">
                   <MessageCircle className="h-4 w-4" />
                 </div>
                 <div>
@@ -186,10 +186,10 @@ export function Footer({ className }: FooterProps) {
             <a
               href={`mailto:${INQUIRY_EMAIL}?subject=Hi%20Orbinest%20Team%20-%20Project%20Inquiry`}
               aria-label={`Send project email to ${INQUIRY_EMAIL}`}
-              className="flex items-center justify-between border border-[#d8d8d8] bg-white p-3.5 transition-colors hover:border-[#000000]"
+              className="flex items-center justify-between rounded-2xl border border-[#e5e5e5] bg-white p-3.5 transition-all hover:border-[#000000] hover:shadow-xs"
             >
               <div className="flex items-center gap-3">
-                <div className="flex h-8 w-8 items-center justify-center border border-[#d8d8d8] bg-[#f0f0f0] text-[#000000]">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#fafafa] border border-[#e5e5e5] text-[#000000]">
                   <Mail className="h-4 w-4" />
                 </div>
                 <div>
@@ -205,8 +205,8 @@ export function Footer({ className }: FooterProps) {
             </a>
 
             {/* Response Time Note */}
-            <div className="flex items-center gap-2 border border-[#d8d8d8] bg-[#f0f0f0] px-3 py-2 text-[11px] text-[#595959]">
-              <Clock className="h-3.5 w-3.5 text-[#000000] shrink-0" />
+            <div className="flex items-center gap-2 rounded-xl border border-[#e5e5e5] bg-white px-3 py-2 text-[11px] text-[#595959]">
+              <Clock className="h-3.5 w-3.5 text-[#fa9000] shrink-0" />
               <span>Replies typically within 2-4 hours</span>
             </div>
           </div>

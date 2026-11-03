@@ -203,8 +203,8 @@ export function BudgetEstimator({
         {/* ===================================================================== */}
         <div className="lg:col-span-7 space-y-8">
           {/* STEP 1: Sector Selection */}
-          <div className="border border-[#d8d8d8] bg-white p-6 md:p-8">
-            <div className="flex items-center justify-between mb-4 border-b border-[#d8d8d8] pb-3">
+          <div className="rounded-3xl border border-[#e5e5e5] bg-white p-6 md:p-8 shadow-xs">
+            <div className="flex items-center justify-between mb-4 border-b border-[#f0f0f0] pb-3">
               <span className="font-mono text-xs text-[#000000] uppercase tracking-wider font-bold">
                 Step 1 of 3
               </span>
@@ -224,18 +224,18 @@ export function BudgetEstimator({
                     type="button"
                     onClick={() => handleCategoryChange(catId)}
                     className={cn(
-                      "flex items-center gap-3.5 p-4 text-left transition-colors border",
+                      "flex items-center gap-3.5 p-4 text-left transition-all rounded-2xl border cursor-pointer",
                       isSelected
                         ? "border-2 border-[#000000] bg-white shadow-xs"
-                        : "border-[#d8d8d8] bg-white hover:border-[#595959]"
+                        : "border-[#e5e5e5] bg-white hover:border-[#000000] hover:shadow-xs"
                     )}
                   >
                     <div
                       className={cn(
-                        "flex h-11 w-11 shrink-0 items-center justify-center border transition-colors",
+                        "flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border transition-colors",
                         isSelected
                           ? "border-[#000000] bg-[#000000] text-white"
-                          : "border-[#d8d8d8] bg-[#f0f0f0] text-[#000000]"
+                          : "border-[#e5e5e5] bg-[#fafafa] text-[#000000]"
                       )}
                     >
                       <Icon className="h-5 w-5" />
@@ -253,8 +253,8 @@ export function BudgetEstimator({
           </div>
 
           {/* STEP 2: Tier Selection */}
-          <div className="border border-[#d8d8d8] bg-white p-6 md:p-8">
-            <div className="flex items-center justify-between mb-4 border-b border-[#d8d8d8] pb-3">
+          <div className="rounded-3xl border border-[#e5e5e5] bg-white p-6 md:p-8 shadow-xs">
+            <div className="flex items-center justify-between mb-4 border-b border-[#f0f0f0] pb-3">
               <span className="font-mono text-xs text-[#000000] uppercase tracking-wider font-bold">
                 Step 2 of 3
               </span>
@@ -275,10 +275,10 @@ export function BudgetEstimator({
                     type="button"
                     onClick={() => setSelectedTierId(t.id)}
                     className={cn(
-                      "relative flex flex-col justify-between p-5 text-left transition-colors border",
+                      "relative flex flex-col justify-between p-5 text-left transition-all rounded-2xl border cursor-pointer",
                       isSelected
                         ? "border-2 border-[#000000] bg-white shadow-xs"
-                        : "border-[#d8d8d8] bg-white hover:border-[#595959]"
+                        : "border-[#e5e5e5] bg-white hover:border-[#000000] hover:shadow-xs"
                     )}
                   >
                     {t.popular && (
@@ -317,8 +317,8 @@ export function BudgetEstimator({
           </div>
 
           {/* STEP 3: Add-Ons & Maintenance Configurator */}
-          <div className="border border-[#d8d8d8] bg-white p-6 md:p-8">
-            <div className="flex items-center justify-between mb-4 border-b border-[#d8d8d8] pb-3">
+          <div className="rounded-3xl border border-[#e5e5e5] bg-white p-6 md:p-8 shadow-xs">
+            <div className="flex items-center justify-between mb-4 border-b border-[#f0f0f0] pb-3">
               <span className="font-mono text-xs text-[#000000] uppercase tracking-wider font-bold">
                 Step 3 of 3
               </span>
@@ -331,9 +331,9 @@ export function BudgetEstimator({
 
             <div className="space-y-3">
               {/* Add-on 1: Extra Pages Counter */}
-              <div className="flex items-center justify-between border border-[#d8d8d8] bg-white p-4">
+              <div className="flex items-center justify-between rounded-2xl border border-[#e5e5e5] bg-white p-4">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center border border-[#d8d8d8] bg-[#f0f0f0] text-[#000000]">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#fafafa] border border-[#e5e5e5] text-[#000000]">
                     <FileText className="h-5 w-5" />
                   </div>
                   <div>
@@ -349,7 +349,7 @@ export function BudgetEstimator({
                     type="button"
                     onClick={() => setExtraPages((prev) => Math.max(0, prev - 1))}
                     disabled={extraPages === 0}
-                    className="flex h-8 w-8 items-center justify-center border border-[#d8d8d8] bg-[#f0f0f0] text-[#000000] transition-colors hover:border-[#000000] disabled:opacity-40"
+                    className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#e5e5e5] bg-[#fafafa] text-[#000000] transition-colors hover:border-[#000000] disabled:opacity-40 cursor-pointer"
                     aria-label="Decrease extra pages"
                   >
                     <Minus className="h-3.5 w-3.5" />
@@ -360,7 +360,7 @@ export function BudgetEstimator({
                   <button
                     type="button"
                     onClick={() => setExtraPages((prev) => prev + 1)}
-                    className="flex h-8 w-8 items-center justify-center border border-[#d8d8d8] bg-[#f0f0f0] text-[#000000] transition-colors hover:border-[#000000]"
+                    className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#e5e5e5] bg-[#fafafa] text-[#000000] transition-colors hover:border-[#000000] cursor-pointer"
                     aria-label="Increase extra pages"
                   >
                     <Plus className="h-3.5 w-3.5" />
@@ -369,9 +369,9 @@ export function BudgetEstimator({
               </div>
 
               {/* Add-on 2: Domain Setup */}
-              <label className="flex items-center justify-between border border-[#d8d8d8] bg-white p-4 cursor-pointer hover:border-[#595959] transition-colors">
+              <label className="flex items-center justify-between rounded-2xl border border-[#e5e5e5] bg-white p-4 cursor-pointer hover:border-[#000000] hover:shadow-2xs transition-all">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center border border-[#d8d8d8] bg-[#f0f0f0] text-[#000000]">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#fafafa] border border-[#e5e5e5] text-[#000000]">
                     <Globe className="h-5 w-5" />
                   </div>
                   <div>
@@ -386,15 +386,15 @@ export function BudgetEstimator({
                   type="checkbox"
                   checked={domainSetup}
                   onChange={(e) => setDomainSetup(e.target.checked)}
-                  className="h-5 w-5 accent-[#000000] border-[#d8d8d8]"
+                  className="h-5 w-5 accent-[#000000] border-[#e5e5e5] rounded-md cursor-pointer"
                 />
               </label>
 
               {/* Add-on 3: Fast-Track Express */}
-              <label className="flex items-center justify-between border border-[#d8d8d8] bg-white p-4 cursor-pointer hover:border-[#595959] transition-colors">
+              <label className="flex items-center justify-between rounded-2xl border border-[#e5e5e5] bg-white p-4 cursor-pointer hover:border-[#000000] hover:shadow-2xs transition-all">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center border border-[#d8d8d8] bg-[#f0f0f0] text-[#000000]">
-                    <Zap className="h-5 w-5" />
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#fafafa] border border-[#e5e5e5] text-[#000000]">
+                    <Zap className="h-5 w-5 text-[#fa9000]" />
                   </div>
                   <div>
                     <p className="text-xs font-semibold text-[#000000]">Fast-Track Express Rush</p>
@@ -408,21 +408,21 @@ export function BudgetEstimator({
                   type="checkbox"
                   checked={fastTrack}
                   onChange={(e) => setFastTrack(e.target.checked)}
-                  className="h-5 w-5 accent-[#000000] border-[#d8d8d8]"
+                  className="h-5 w-5 accent-[#000000] border-[#e5e5e5] rounded-md cursor-pointer"
                 />
               </label>
 
               {/* Add-on 4: Payment Gateway Integration */}
               <label
                 className={cn(
-                  "flex items-center justify-between border border-[#d8d8d8] p-4 transition-colors",
+                  "flex items-center justify-between rounded-2xl border p-4 transition-all",
                   isPaymentIncludedInTier
-                    ? "bg-[#f0f0f0] cursor-not-allowed opacity-80"
-                    : "bg-white cursor-pointer hover:border-[#595959]"
+                    ? "bg-[#fafafa] border-[#e5e5e5] cursor-not-allowed opacity-80"
+                    : "bg-white border-[#e5e5e5] cursor-pointer hover:border-[#000000] hover:shadow-2xs"
                 )}
               >
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center border border-[#d8d8d8] bg-[#f0f0f0] text-[#000000]">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#fafafa] border border-[#e5e5e5] text-[#000000]">
                     <CreditCard className="h-5 w-5" />
                   </div>
                   <div>
@@ -445,14 +445,14 @@ export function BudgetEstimator({
                   checked={paymentGateway || isPaymentIncludedInTier}
                   disabled={isPaymentIncludedInTier}
                   onChange={(e) => setPaymentGateway(e.target.checked)}
-                  className="h-5 w-5 accent-[#000000] border-[#d8d8d8]"
+                  className="h-5 w-5 accent-[#000000] border-[#e5e5e5] rounded-md cursor-pointer"
                 />
               </label>
 
               {/* Add-on 5: Professional Copywriting */}
-              <label className="flex items-center justify-between border border-[#d8d8d8] bg-white p-4 cursor-pointer hover:border-[#595959] transition-colors">
+              <label className="flex items-center justify-between rounded-2xl border border-[#e5e5e5] bg-white p-4 cursor-pointer hover:border-[#000000] hover:shadow-2xs transition-all">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center border border-[#d8d8d8] bg-[#f0f0f0] text-[#000000]">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#fafafa] border border-[#e5e5e5] text-[#000000]">
                     <Sparkles className="h-5 w-5 text-[#fa9000]" />
                   </div>
                   <div>
@@ -467,16 +467,16 @@ export function BudgetEstimator({
                   type="checkbox"
                   checked={copywriting}
                   onChange={(e) => setCopywriting(e.target.checked)}
-                  className="h-5 w-5 accent-[#000000] border-[#d8d8d8]"
+                  className="h-5 w-5 accent-[#000000] border-[#e5e5e5] rounded-md cursor-pointer"
                 />
               </label>
 
               {/* Add-on 6: Monthly Maintenance Care Selector */}
               {category.maintenancePlans && category.maintenancePlans.length > 0 && (
-                <div className="border border-[#d8d8d8] bg-[#f0f0f0] p-4 mt-6">
+                <div className="rounded-2xl border border-[#e5e5e5] bg-[#fafafa] p-4 mt-6">
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">
-                      <ShieldCheck className="h-4 w-4 text-[#000000]" />
+                      <ShieldCheck className="h-4 w-4 text-emerald-600" />
                       <p className="text-xs font-semibold text-[#000000]">Ongoing Monthly Care Retainer</p>
                     </div>
                     <span className="font-mono text-[10px] text-[#595959]">Optional</span>
@@ -487,10 +487,10 @@ export function BudgetEstimator({
                       type="button"
                       onClick={() => setSelectedCarePlanId(null)}
                       className={cn(
-                        "p-2.5 text-center text-xs transition-colors border",
+                        "p-2.5 text-center text-xs transition-all rounded-xl border cursor-pointer",
                         selectedCarePlanId === null
-                          ? "border-2 border-[#000000] bg-white text-[#000000] font-bold"
-                          : "border-[#d8d8d8] bg-white text-[#595959] hover:border-[#000000]"
+                          ? "border-2 border-[#000000] bg-white text-[#000000] font-bold shadow-xs"
+                          : "border-[#e5e5e5] bg-white text-[#595959] hover:border-[#000000]"
                       )}
                     >
                       <span>No Retainer</span>
@@ -505,10 +505,10 @@ export function BudgetEstimator({
                           type="button"
                           onClick={() => setSelectedCarePlanId(plan.id)}
                           className={cn(
-                            "p-2.5 text-center text-xs transition-colors border",
+                            "p-2.5 text-center text-xs transition-all rounded-xl border cursor-pointer",
                             isCareSelected
                               ? "border-2 border-[#000000] bg-white text-[#000000] font-bold shadow-xs"
-                              : "border-[#d8d8d8] bg-white text-[#595959] hover:border-[#000000]"
+                              : "border-[#e5e5e5] bg-white text-[#595959] hover:border-[#000000]"
                           )}
                         >
                           <span className="truncate block">{plan.name}</span>
@@ -524,12 +524,12 @@ export function BudgetEstimator({
         </div>
 
         {/* ===================================================================== */}
-        {/* RIGHT COLUMN: Sticky Real-Time Price Receipt & CTAs (Al Jazeera Soft Panel) */}
+        {/* RIGHT COLUMN: Sticky Real-Time Price Receipt & CTAs */}
         {/* ===================================================================== */}
         <div className="lg:col-span-5 sticky top-28">
-          <div className="soft-panel p-6 md:p-8">
+          <div className="rounded-3xl border border-[#e5e5e5] bg-white shadow-xl shadow-black/5 p-6 md:p-8">
             {/* Receipt Header */}
-            <div className="flex items-center justify-between border-b border-[#d8d8d8] pb-4">
+            <div className="flex items-center justify-between border-b border-[#f0f0f0] pb-4">
               <div className="flex items-center gap-2">
                 <Calculator className="h-4 w-4 text-[#000000]" />
                 <span className="font-mono text-xs font-bold text-[#000000] uppercase tracking-wider">
@@ -540,13 +540,13 @@ export function BudgetEstimator({
                 <button
                   type="button"
                   onClick={handleReset}
-                  className="flex items-center gap-1 rounded-full border border-[#d8d8d8] bg-white px-2 py-0.5 text-[10px] font-mono text-[#595959] transition-colors hover:text-[#000000] hover:border-[#000000]"
+                  className="flex items-center gap-1 rounded-full border border-[#e5e5e5] bg-[#fafafa] px-2.5 py-0.5 text-[10px] font-mono text-[#595959] transition-all hover:text-[#000000] hover:border-[#000000] cursor-pointer"
                   title="Reset optional add-ons to clean baseline"
                 >
                   <RotateCcw className="h-3 w-3" />
                   <span>Reset</span>
                 </button>
-                <span className="border border-[#d8d8d8] bg-white px-2 py-0.5 font-mono text-[10px] text-[#000000] rounded-full">
+                <span className="bg-[#fa9000]/10 border border-[#fa9000]/30 text-[#b35900] px-2.5 py-0.5 font-mono text-[10px] font-bold rounded-full">
                   Live Pricing
                 </span>
               </div>
@@ -692,12 +692,12 @@ export function BudgetEstimator({
                 </div>
               )}
 
-              <div className="flex items-center justify-between bg-white border border-[#d8d8d8] p-3 text-xs">
+              <div className="flex items-center justify-between bg-[#fafafa] rounded-xl border border-[#e5e5e5] p-3 text-xs">
                 <div className="flex items-center gap-2 text-[#595959]">
-                  <Clock className="h-3.5 w-3.5 text-[#000000]" />
+                  <Clock className="h-3.5 w-3.5 text-[#fa9000]" />
                   <span>Target Turnaround:</span>
                 </div>
-                <span className="font-mono font-semibold text-[#000000]">{turnaround}</span>
+                <span className="font-mono font-bold text-[#000000]">{turnaround}</span>
               </div>
             </div>
 

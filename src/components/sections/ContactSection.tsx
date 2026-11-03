@@ -133,10 +133,10 @@ export function ContactSection() {
               href={WHATSAPP_CTA_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center justify-between border border-[#d8d8d8] bg-white p-5 transition-colors hover:border-[#000000]"
+              className="group flex items-center justify-between rounded-2xl border border-[#e5e5e5] bg-white p-5 transition-all hover:border-[#000000] hover:shadow-md hover:-translate-y-0.5"
             >
               <div className="flex items-center gap-4">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center border border-[#d8d8d8] bg-[#f0f0f0] text-[#000000]">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[#e5e5e5] bg-[#fafafa] text-[#000000] group-hover:bg-[#25D366] group-hover:text-white group-hover:border-[#25D366] transition-colors">
                   <MessageCircle className="h-5 w-5" />
                 </div>
                 <div>
@@ -144,7 +144,7 @@ export function ContactSection() {
                     <h4 className="text-sm font-bold text-[#000000] group-hover:text-[#fa9000] transition-colors">
                       Chat on WhatsApp
                     </h4>
-                    <span className="flex items-center gap-1 border border-[#c31833]/30 bg-red-50/50 px-2 py-0.5 font-mono text-[9px] font-bold text-[#c31833] rounded-[2px]">
+                    <span className="flex items-center gap-1 border border-[#c31833]/30 bg-red-50/50 px-2 py-0.5 font-mono text-[9px] font-bold text-[#c31833] rounded-full">
                       <span className="live-dot !h-1.5 !w-1.5" />
                       ENGINEERS ONLINE
                     </span>
@@ -160,10 +160,10 @@ export function ContactSection() {
             {/* Formal RFP Email Card */}
             <a
               href="mailto:hello@orbinest.com?subject=Hi%20Orbinest%20Team%20-%20Project%20Inquiry"
-              className="group flex items-center justify-between border border-[#d8d8d8] bg-white p-5 transition-colors hover:border-[#000000]"
+              className="group flex items-center justify-between rounded-2xl border border-[#e5e5e5] bg-white p-5 transition-all hover:border-[#000000] hover:shadow-md hover:-translate-y-0.5"
             >
               <div className="flex items-center gap-4">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center border border-[#d8d8d8] bg-[#f0f0f0] text-[#000000]">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[#e5e5e5] bg-[#fafafa] text-[#000000] group-hover:bg-[#000000] group-hover:text-white group-hover:border-[#000000] transition-colors">
                   <Mail className="h-5 w-5" />
                 </div>
                 <div>
@@ -179,23 +179,23 @@ export function ContactSection() {
             </a>
           </div>
 
-          {/* "What Happens Next?" 3-Step Timeline (Al Jazeera Ranked Numeral Pattern) */}
-          <div className="border border-[#d8d8d8] bg-white p-6">
-            <div className="flex items-center justify-between mb-5 pb-3 border-b border-[#d8d8d8]">
+          {/* "What Happens Next?" 3-Step Timeline */}
+          <div className="rounded-3xl border border-[#e5e5e5] bg-white p-6 md:p-8 shadow-xs">
+            <div className="flex items-center justify-between mb-5 pb-3 border-b border-[#f0f0f0]">
               <h4 className="text-sm font-bold text-[#000000] flex items-center gap-2">
-                <Clock className="h-4 w-4 text-[#000000]" />
+                <Clock className="h-4 w-4 text-[#fa9000]" />
                 <span>What Happens Next?</span>
               </h4>
-              <span className="font-mono text-[10px] text-[#595959]">
+              <span className="font-mono text-[10px] text-[#595959] bg-[#fafafa] border border-[#e5e5e5] px-2.5 py-0.5 rounded-full">
                 Zero Sales Pressure
               </span>
             </div>
 
-            <div className="divide-y divide-[#d8d8d8]">
+            <div className="divide-y divide-[#f0f0f0]">
               {PROCESS_STEPS.map((step, idx) => (
                 <div key={idx} className="py-4 first:pt-0 last:pb-0 flex items-start gap-4">
                   {/* Oversized Slate Numeral */}
-                  <span className="font-sans text-2xl font-bold text-[#595959] shrink-0 leading-none">
+                  <span className="font-sans text-2xl font-black text-[#bebebe] shrink-0 leading-none">
                     {step.step}
                   </span>
                   <div className="space-y-1">
@@ -214,18 +214,18 @@ export function ContactSection() {
             </div>
 
             {/* SLA Trust Footnote */}
-            <div className="mt-5 pt-4 border-t border-[#d8d8d8] flex items-center gap-2 text-[11px] text-[#595959] font-mono">
-              <ShieldCheck className="h-3.5 w-3.5 text-[#000000] shrink-0" />
+            <div className="mt-5 pt-4 border-t border-[#f0f0f0] flex items-center gap-2 text-[11px] text-[#595959] font-mono">
+              <ShieldCheck className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
               <span>Direct engineer response SLA guaranteed within 2-4 hours</span>
             </div>
           </div>
         </div>
 
         {/* ===================================================================== */}
-        {/* RIGHT COLUMN: Comprehensive Lead Intake Form (Al Jazeera Soft Panel) */}
+        {/* RIGHT COLUMN: Comprehensive Lead Intake Form */}
         {/* ===================================================================== */}
         <div className="lg:col-span-7">
-          <div className="soft-panel p-6 md:p-8">
+          <div className="rounded-3xl border border-[#e5e5e5] bg-white p-6 sm:p-10 shadow-xl shadow-black/5">
             <AnimatePresence mode="wait">
               {state.success ? (
                 /* Success Confirmation View */
@@ -321,10 +321,10 @@ export function ContactSection() {
                           onChange={(e) => setFullName(e.target.value)}
                           placeholder="Dr. Rajesh Varma"
                           className={cn(
-                            "w-full rounded-full border bg-white py-2.5 pl-10 pr-4 text-xs text-[#000000] placeholder:text-[#bebebe] transition-colors focus:outline-none",
+                            "w-full rounded-xl border bg-white py-2.5 pl-10 pr-4 text-xs text-[#000000] placeholder:text-[#bebebe] transition-all focus:outline-none",
                             state.errors?.fullName
-                              ? "border-[#c31833]"
-                              : "border-[#d8d8d8] focus:border-[#000000]"
+                              ? "border-[#c31833] focus:ring-2 focus:ring-red-100"
+                              : "border-[#e5e5e5] focus:border-[#000000] focus:ring-2 focus:ring-black/5"
                           )}
                         />
                       </div>
@@ -349,10 +349,10 @@ export function ContactSection() {
                           onChange={(e) => setPhone(e.target.value)}
                           placeholder="+91 98765 43210"
                           className={cn(
-                            "w-full rounded-full border bg-white py-2.5 pl-10 pr-4 text-xs text-[#000000] placeholder:text-[#bebebe] transition-colors focus:outline-none",
+                            "w-full rounded-xl border bg-white py-2.5 pl-10 pr-4 text-xs text-[#000000] placeholder:text-[#bebebe] transition-all focus:outline-none",
                             state.errors?.phone
-                              ? "border-[#c31833]"
-                              : "border-[#d8d8d8] focus:border-[#000000]"
+                              ? "border-[#c31833] focus:ring-2 focus:ring-red-100"
+                              : "border-[#e5e5e5] focus:border-[#000000] focus:ring-2 focus:ring-black/5"
                           )}
                         />
                       </div>
@@ -378,10 +378,10 @@ export function ContactSection() {
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="rajesh@clinic.com"
                         className={cn(
-                          "w-full rounded-full border bg-white py-2.5 pl-10 pr-4 text-xs text-[#000000] placeholder:text-[#bebebe] transition-colors focus:outline-none",
+                          "w-full rounded-xl border bg-white py-2.5 pl-10 pr-4 text-xs text-[#000000] placeholder:text-[#bebebe] transition-all focus:outline-none",
                           state.errors?.email
-                            ? "border-[#c31833]"
-                            : "border-[#d8d8d8] focus:border-[#000000]"
+                            ? "border-[#c31833] focus:ring-2 focus:ring-red-100"
+                            : "border-[#e5e5e5] focus:border-[#000000] focus:ring-2 focus:ring-black/5"
                         )}
                       />
                     </div>
@@ -404,10 +404,10 @@ export function ContactSection() {
                             type="button"
                             onClick={() => setSector(s.id)}
                             className={cn(
-                              "rounded-full border p-2 text-center text-xs transition-all",
+                              "rounded-xl border p-2.5 text-center text-xs transition-all cursor-pointer",
                               isSelected
-                                ? "border-[#000000] bg-[#000000] text-white font-bold"
-                                : "border-[#d8d8d8] bg-white text-[#595959] hover:border-[#000000] hover:text-[#000000]"
+                                ? "border-[#000000] bg-[#000000] text-white font-bold shadow-xs"
+                                : "border-[#e5e5e5] bg-white text-[#595959] hover:border-[#000000] hover:text-[#000000]"
                             )}
                           >
                             <span className="truncate block">{s.label}</span>
@@ -435,10 +435,10 @@ export function ContactSection() {
                             type="button"
                             onClick={() => setBudget(b)}
                             className={cn(
-                              "rounded-full border p-2 text-center text-xs font-mono transition-all",
+                              "rounded-xl border p-2.5 text-center text-xs font-mono transition-all cursor-pointer",
                               isSelected
-                                ? "border-[#000000] bg-[#000000] text-white font-bold"
-                                : "border-[#d8d8d8] bg-white text-[#595959] hover:border-[#000000] hover:text-[#000000]"
+                                ? "border-[#000000] bg-[#000000] text-white font-bold shadow-xs"
+                                : "border-[#e5e5e5] bg-white text-[#595959] hover:border-[#000000] hover:text-[#000000]"
                             )}
                           >
                             <span className="truncate block">{b}</span>
@@ -466,10 +466,10 @@ export function ContactSection() {
                       onChange={(e) => setScope(e.target.value)}
                       placeholder="e.g., We need a clinic website with doctor qualifications, appointment booking via WhatsApp, and patient treatment guides before next month..."
                       className={cn(
-                        "w-full rounded-2xl border bg-white p-3 text-xs text-[#000000] placeholder:text-[#bebebe] transition-colors focus:outline-none",
+                        "w-full rounded-2xl border bg-white p-3 text-xs text-[#000000] placeholder:text-[#bebebe] transition-all focus:outline-none",
                         state.errors?.scope
-                          ? "border-[#c31833]"
-                          : "border-[#d8d8d8] focus:border-[#000000]"
+                          ? "border-[#c31833] focus:ring-2 focus:ring-red-100"
+                          : "border-[#e5e5e5] focus:border-[#000000] focus:ring-2 focus:ring-black/5"
                       )}
                     />
                     {state.errors?.scope && (

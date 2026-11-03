@@ -68,7 +68,7 @@ export function Navbar({ className }: NavbarProps) {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-200 border-b border-[#d8d8d8]",
+        "fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md transition-all duration-200 border-b border-[#e5e5e5]",
         isScrolled ? "py-2 shadow-xs" : "py-3",
         className
       )}
@@ -172,8 +172,8 @@ export function Navbar({ className }: NavbarProps) {
           </div>
         </div>
 
-        {/* Al Jazeera Signature Trending Strip (Desktop) */}
-        <div className="hidden lg:flex items-center gap-3 pt-2 pb-0.5 border-t border-[#d8d8d8] text-xs">
+        {/* Topics Strip (Desktop) */}
+        <div className="hidden lg:flex items-center gap-3 pt-2 pb-0.5 border-t border-[#f0f0f0] text-xs">
           <div className="flex items-center gap-1.5 font-black text-[#000000] tracking-wider uppercase shrink-0 text-[11px]">
             <span className="w-1.5 h-3 bg-[#fa9000]" />
             <span>TOPICS:</span>
