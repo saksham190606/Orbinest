@@ -68,7 +68,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
       "Database Scaling",
     ],
     githubUrl: "https://github.com",
-    linkedinUrl: "https://linkedin.com",
+    linkedinUrl: "https://www.linkedin.com/in/ayaan-siddiqui-2029ayaan/",
     directWhatsApp: getWhatsAppUrl(
       "Hi Ayaan, I'd like to discuss cloud infrastructure and deployment for my project"
     ),
@@ -93,7 +93,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
       "Conversion UX",
     ],
     githubUrl: "https://github.com",
-    linkedinUrl: "https://linkedin.com",
+    linkedinUrl: "https://www.linkedin.com/in/palakshi-sharma-6472a3426?utm_source=share_via&utm_content=profile&utm_medium=member_android",
     directWhatsApp: getWhatsAppUrl(
       "Hi Palakshi, I'd like to discuss UI/UX design and aesthetics for my website"
     ),

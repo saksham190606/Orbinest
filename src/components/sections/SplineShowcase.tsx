@@ -3,7 +3,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import {
-  Sparkles,
   Layers,
   Zap,
   ArrowRight,
