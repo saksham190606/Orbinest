@@ -34,7 +34,7 @@ const SOLUTIONS_LINKS: FooterLinkItem[] = [
 
 const TOOLS_LINKS: FooterLinkItem[] = [
   { label: "Interactive Budget Estimator", href: "#estimator", badge: "LIVE" },
-  { label: "Featured Projects", href: "#portfolio" },
+  { label: "End-to-End Services", href: "#services" },
   { label: "Transparent Pricing", href: "#packages" },
   { label: "Engineering Team", href: "#team" },
 ];
@@ -86,7 +86,7 @@ export function Footer({ className }: FooterProps) {
 
             {/* Mission Tagline */}
             <p className="text-xs sm:text-sm leading-relaxed text-[#595959] max-w-sm">
-              High-performance web architecture & tailored 3D digital experiences engineered directly by full-stack developers.
+              High-performance web architecture & bespoke digital solutions engineered directly by full-stack developers.
             </p>
 
             {/* Live Status Indicator Badge */}

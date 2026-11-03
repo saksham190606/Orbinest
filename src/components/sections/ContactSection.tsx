@@ -10,7 +10,6 @@ import {
   CheckCircle2,
   Send,
   Loader2,
-  Sparkles,
   ShieldCheck,
   Calendar,
   Layers,

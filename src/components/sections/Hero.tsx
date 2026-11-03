@@ -14,10 +14,10 @@ import {
   Smartphone,
   Users,
   Coins,
-  MousePointerClick,
+  CheckCircle2,
+  Zap,
   Sparkles,
 } from "lucide-react";
-import { SplineScene } from "@/components/ui/splite";
 import { cn, getWhatsAppUrl } from "@/lib/utils";
 
 const WHATSAPP_CTA_URL = getWhatsAppUrl(
@@ -89,7 +89,7 @@ export function Hero({ className }: HeroProps) {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* ========================================================================= */}
-        {/* MAIN 3D INTERACTIVE HERO CARD (AL JAZEERA FLAT EDITORIAL CHROME) */}
+        {/* MAIN EDITORIAL HERO CARD (AL JAZEERA FLAT EDITORIAL CHROME) */}
         {/* ========================================================================= */}
         <motion.div
           initial={{ opacity: 0, y: 14 }}
@@ -105,7 +105,7 @@ export function Hero({ className }: HeroProps) {
                   {/* Al Jazeera Section Eyebrow Lockup */}
                   <div className="section-eyebrow-lockup mb-4">
                     <span className="section-eyebrow-bar" />
-                    <span className="section-eyebrow-text">WEB ENGINEERING & 3D STUDIO</span>
+                    <span className="section-eyebrow-text">WEB ARCHITECTURE & ENGINEERING STUDIO</span>
                   </div>
 
                   {/* Live Updates Status Band */}
@@ -115,22 +115,22 @@ export function Hero({ className }: HeroProps) {
                     </span>
                     <span className="text-[#bebebe]">|</span>
                     <span className="text-xs text-[#333333] font-normal">
-                      Pan-India Delivery • 3 Core Engineers Active
+                      Pan-India Delivery • Direct Engineer Collaboration
                     </span>
                   </div>
 
                   {/* Main Headline - Bold Black Editorial Type */}
                   <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[44px] font-bold tracking-tight text-[#000000] leading-[1.15]">
                     Engineering Modern, <br />
-                    Interactive 3D Web <br />
+                    High-Performance Web <br />
                     That Converts.
                   </h1>
 
                   {/* Subtitle Value Proposition */}
                   <p className="mt-4 text-sm sm:text-base text-[#595959] max-w-lg leading-relaxed">
-                    Bring your digital presence to life with beautiful 3D scenes. We design, code,
-                    and deploy high-performance web experiences tailored for education institutes,
-                    local businesses, medical clinics, and personal milestones.
+                    We design, build, and deploy sub-second web platforms tailored for education
+                    institutes, local businesses, medical clinics, and personal milestones.
+                    Zero bloat, pure speed, and direct engineering collaboration.
                   </p>
 
                   {/* Al Jazeera Action Pill Cluster */}
@@ -182,21 +182,113 @@ export function Hero({ className }: HeroProps) {
                 </div>
               </div>
 
-              {/* Right Content Column: Interactive Spline 3D Scene */}
-              <div className="flex-1 relative min-h-[360px] sm:min-h-[420px] lg:min-h-full flex items-center justify-center bg-[#f8f8f8] border-t lg:border-t-0 lg:border-l border-[#d8d8d8]">
-                {/* Visual hint pill */}
-                <div className="absolute top-4 right-4 z-20 pointer-events-none">
-                  <div className="inline-flex items-center gap-2 border border-[#d8d8d8] bg-white px-3 py-1 text-[11px] font-medium text-[#000000] shadow-xs">
-                    <MousePointerClick className="h-3.5 w-3.5 text-[#000000] animate-bounce" />
-                    <span>Click & Drag 3D Model</span>
+              {/* Right Content Column: Sub-Second Performance & Founding Client Benchmark Card */}
+              <div className="flex-1 relative min-h-[400px] sm:min-h-[460px] lg:min-h-full flex flex-col justify-between bg-[#fbfbfb] border-t lg:border-t-0 lg:border-l border-[#d8d8d8] p-6 sm:p-8 lg:p-10">
+                <div>
+                  {/* Top Bar: Terminal Dateline */}
+                  <div className="flex items-center justify-between pb-4 border-b border-[#d8d8d8]">
+                    <div className="flex items-center gap-2">
+                      <div className="flex gap-1.5">
+                        <span className="w-2.5 h-2.5 rounded-full bg-[#fa9000]" />
+                        <span className="w-2.5 h-2.5 rounded-full bg-[#d8d8d8]" />
+                        <span className="w-2.5 h-2.5 rounded-full bg-[#d8d8d8]" />
+                      </div>
+                      <span className="font-mono text-xs font-bold text-[#000000] tracking-wider ml-1">
+                        ENGINEERING BENCHMARK // SUB-SECOND
+                      </span>
+                    </div>
+
+                    <div className="inline-flex items-center gap-1.5 border border-[#d8d8d8] bg-white px-2.5 py-1 text-[11px] font-mono text-[#000000]">
+                      <Zap className="h-3 w-3 text-[#fa9000]" />
+                      <span className="font-bold">100 / 100</span>
+                      <span className="text-[#595959]">LIGHTHOUSE</span>
+                    </div>
+                  </div>
+
+                  {/* Metric Grid: 4 Core Performance Indicators */}
+                  <div className="grid grid-cols-2 gap-3 mt-5">
+                    <div className="border border-[#d8d8d8] bg-white p-3.5">
+                      <div className="flex items-center justify-between">
+                        <span className="font-mono text-[11px] text-[#595959] uppercase">First Paint</span>
+                        <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                      </div>
+                      <p className="mt-1 text-2xl font-bold font-mono tracking-tight text-[#000000]">
+                        &lt; 0.4s
+                      </p>
+                      <p className="mt-0.5 text-[11px] text-[#595959]">Sub-second edge LCP</p>
+                    </div>
+
+                    <div className="border border-[#d8d8d8] bg-white p-3.5">
+                      <div className="flex items-center justify-between">
+                        <span className="font-mono text-[11px] text-[#595959] uppercase">Blocking Time</span>
+                        <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                      </div>
+                      <p className="mt-1 text-2xl font-bold font-mono tracking-tight text-[#000000]">
+                        0 ms
+                      </p>
+                      <p className="mt-0.5 text-[11px] text-[#595959]">Zero main-thread lag</p>
+                    </div>
+
+                    <div className="border border-[#d8d8d8] bg-white p-3.5">
+                      <div className="flex items-center justify-between">
+                        <span className="font-mono text-[11px] text-[#595959] uppercase">Tech Stack</span>
+                        <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#fa9000]" />
+                      </div>
+                      <p className="mt-1 text-base sm:text-lg font-bold tracking-tight text-[#000000]">
+                        Next 16 + React 19
+                      </p>
+                      <p className="mt-0.5 text-[11px] text-[#595959]">Server components</p>
+                    </div>
+
+                    <div className="border border-[#d8d8d8] bg-white p-3.5">
+                      <div className="flex items-center justify-between">
+                        <span className="font-mono text-[11px] text-[#595959] uppercase">Architecture</span>
+                        <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                      </div>
+                      <p className="mt-1 text-base sm:text-lg font-bold tracking-tight text-[#000000]">
+                        Zero Bloat
+                      </p>
+                      <p className="mt-0.5 text-[11px] text-[#595959]">Pure speed & SEO</p>
+                    </div>
+                  </div>
+
+                  {/* Founding Client Banner */}
+                  <div className="mt-5 border border-[#d8d8d8] bg-white p-4">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="live-dot !h-2 !w-2" />
+                      <span className="font-mono text-xs font-bold text-[#000000] uppercase tracking-wider">
+                        Founding Client Commitment
+                      </span>
+                    </div>
+                    <p className="text-xs text-[#595959] leading-relaxed">
+                      We are currently taking on our inaugural client cohort with 100% direct founder attention: zero account managers, zero markup, and complete source code ownership.
+                    </p>
+                    <div className="mt-3 pt-3 border-t border-[#d8d8d8] grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-[#000000]">
+                      <div className="flex items-center gap-1.5">
+                        <CheckCircle2 className="h-3.5 w-3.5 text-[#fa9000] shrink-0" />
+                        <span>Full Git Repo Handover</span>
+                      </div>
+                      <div className="flex items-center gap-1.5">
+                        <CheckCircle2 className="h-3.5 w-3.5 text-[#fa9000] shrink-0" />
+                        <span>Direct Founder WhatsApp</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-                {/* Spline 3D Scene */}
-                <SplineScene
-                  scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-                  className="w-full h-full min-h-[360px] sm:min-h-[420px] lg:min-h-[580px]"
-                />
+                {/* Card Bottom Strip */}
+                <div className="mt-6 pt-4 border-t border-[#d8d8d8] flex items-center justify-between text-xs">
+                  <span className="font-mono text-[11px] text-[#595959]">
+                    STATUS: ACCEPTING CLIENT #1
+                  </span>
+                  <a
+                    href="#contact"
+                    className="inline-flex items-center gap-1 font-bold text-[#000000] hover:text-[#fa9000] transition-colors"
+                  >
+                    <span>Claim Founding Spot</span>
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </a>
+                </div>
               </div>
             </div>
           </div>

@@ -12,17 +12,16 @@ export interface NavLinkItem {
 }
 
 export const NAV_LINKS: NavLinkItem[] = [
-  { label: "3D Studio", href: "#hero" },
   { label: "Services", href: "#services" },
   { label: "Pricing & Packages", href: "#packages" },
-  { label: "Work", href: "#portfolio" },
   { label: "Cost Estimator", href: "#estimator" },
   { label: "Team", href: "#team" },
+  { label: "Contact", href: "#contact" },
 ];
 
 const TRENDING_TOPICS = [
   { label: "Next.js 16 Full-Stack", href: "#services" },
-  { label: "React 19 3D Mesh", href: "#hero" },
+  { label: "Sub-Second Performance", href: "#services" },
   { label: "Tiered Pricing", href: "#packages" },
   { label: "Instant Calculator", href: "#estimator" },
   { label: "Engineering Team", href: "#team" },

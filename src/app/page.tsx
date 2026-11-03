@@ -8,7 +8,6 @@ import {
 import { PricingMatrix } from "@/components/sections/PricingMatrix";
 import { Hero } from "@/components/sections/Hero";
 import { BudgetEstimator } from "@/components/sections/BudgetEstimator";
-import { PortfolioShowcase } from "@/components/sections/PortfolioShowcase";
 import { TeamSection } from "@/components/sections/TeamSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 
@@ -47,7 +46,7 @@ export default function Home() {
   return (
     <div className="relative text-[#000000] bg-white overflow-x-clip">
       {/* ========================================================================= */}
-      {/* 1. HERO SECTION WITH 3D INTERACTIVE CANVAS (#hero) */}
+      {/* 1. HERO SECTION (#hero) */}
       {/* ========================================================================= */}
       <Hero />
 
@@ -153,33 +152,7 @@ export default function Home() {
       </section>
 
       {/* ========================================================================= */}
-      {/* 5. PORTFOLIO SECTION (#portfolio) */}
-      {/* ========================================================================= */}
-      <section
-        id="portfolio"
-        className="scroll-mt-24 py-16 md:py-24 border-b border-[#d8d8d8] bg-white"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12">
-            <div className="section-eyebrow-lockup">
-              <span className="section-eyebrow-bar" />
-              <span className="section-eyebrow-text">FEATURED WORK</span>
-            </div>
-            <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[#000000]">
-              Engineering Projects & Case Studies
-            </h2>
-            <p className="mt-2 max-w-2xl text-sm sm:text-base text-[#595959] leading-relaxed">
-              Real-world client web applications and high-impact digital portals engineered with speed, security,
-              and conversion in mind.
-            </p>
-          </div>
-
-          <PortfolioShowcase />
-        </div>
-      </section>
-
-      {/* ========================================================================= */}
-      {/* 6. TEAM SECTION (#team) */}
+      {/* 5. TEAM SECTION (#team) */}
       {/* ========================================================================= */}
       <section id="team" className="scroll-mt-24 py-16 md:py-24 border-b border-[#d8d8d8] bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -188,7 +161,7 @@ export default function Home() {
       </section>
 
       {/* ========================================================================= */}
-      {/* 7. CONTACT SECTION (#contact) */}
+      {/* 6. CONTACT SECTION (#contact) */}
       {/* ========================================================================= */}
       <section id="contact" className="scroll-mt-24 py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
